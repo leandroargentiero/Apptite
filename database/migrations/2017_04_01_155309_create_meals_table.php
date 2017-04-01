@@ -21,7 +21,6 @@ class CreateMealsTable extends Migration
             $table->integer('available_places');
             $table->string('kitchen');
             $table->integer('price');
-            $table->timestamps();
             $table->timestamps("published_at");
             $table->foreign('user_id')->references('id')->on('users');
         });

@@ -15,8 +15,8 @@ class CreateMealAllergensTable extends Migration
     {
         Schema::create('meal_allergens', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('meal_id')->unsigned;
-            $table->integer('allergen_id')->unsigned;
+            $table->integer('meal_id')->unsigned();
+            $table->integer('allergen_id')->unsigned();
             $table->timestamps();
             $table->foreign('meal_id')->references('id')->on('meals');
             $table->foreign('allergen_id')->references('id')->on('allergens');
