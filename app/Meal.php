@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Meal extends Model
 {
-    //
+    protected $fillable =
+        [
+            'user_id',
+            'meal_name',
+            'description',
+            'available_places',
+            'kitchen',
+            'price',
+        ];
 }
