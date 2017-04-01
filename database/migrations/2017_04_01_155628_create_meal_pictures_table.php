@@ -15,7 +15,10 @@ class CreateMealPicturesTable extends Migration
     {
         Schema::create('meal_pictures', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('meal_id')->unsigned();
+            $table->string('mealpicture');
             $table->timestamps();
+            $table->foreign('meal_id')->references('id')->on('meals');
         });
     }
 

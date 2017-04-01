@@ -15,6 +15,14 @@ class CreateAllergensTable extends Migration
     {
         Schema::create('allergens', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('gluten')->default(false);
+            $table->boolean('ei')->default(false);
+            $table->boolean('vis')->default(false);
+            $table->boolean('melk')->default(false);
+            $table->boolean('schaaldieren')->default(false);
+            $table->boolean('peulvruchten')->default(false);
+            $table->boolean('tomaat')->default(false);
+            $table->boolean('soja')->default(false);
             $table->timestamps();
         });
     }

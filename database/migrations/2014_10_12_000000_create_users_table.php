@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('profilepic')->default("avatar.jpg");
             $table->string('description');
             $table->string('address');
-            $table->string('housenumber');
+            $table->integer('housenumber');
             $table->string('city');
             $table->integer('postalcode');
             $table->rememberToken();
