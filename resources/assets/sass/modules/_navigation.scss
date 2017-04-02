@@ -1,12 +1,12 @@
 .navbar{
-  background-color: $gray;
+  background-color: $secondaryColor;
   border-radius: 0;
   border: none;
   margin-bottom: 0;
   z-index: 10;
 
   .logo{
-    background: url(../images/logo_revise.svg) no-repeat center;
+    background: url(../images/logo_apptite.svg) no-repeat center;
     background-size: 100px;
     width: 130px;
     text-indent: -9999px;
@@ -18,3 +18,166 @@
     }
   }
 }
+
+.navbar-nav>li>a{
+  color: $lightGray!important;
+}
+
+.navbar-default{
+
+  .navbar-right{
+    li a{
+      background-color: transparent;
+      transition: 0.3s ease all;
+
+      &:hover{
+        background-color: $primaryColor;
+        transition: 0.3s ease background-color;
+      }
+    }
+
+    .open > a, .open > a:focus, .open > a:hover, .open > a:active{
+      border: 2px solid $primaryColor;
+    }
+  }
+
+  .navbar-collapse{
+    border-color: $secondaryColor;
+  }
+
+  .navbar-toggle{
+    border: none;
+
+    &:hover, &:focus, &:active{
+      background-color: $primaryColor;
+    }
+
+    .icon-bar{
+      background-color: $lightGray;
+    }
+  }
+}
+
+.navbar-right li a.nav-login{
+  background-color: $primaryColor;
+  color: white!important;
+
+  &:hover{
+    background-color: $primaryColorDarker;
+  }
+}
+
+
+
+// MEDIA QUERIES
+//===============================================
+
+@media (min-width: 768px) {
+
+  .navbar-right li a.nav-login{
+    display: inline;
+    border-radius: 4px;
+    padding: 10px 15px;
+  }
+
+  .navbar-right li a.nav-register{
+    display: inline;
+    padding: 8px 13px;
+    border-radius: 4px;
+    margin-right: 10px;
+    border: 2px solid $primaryColor;
+    box-sizing: border-box;
+
+  }
+
+  // hoogte van de navigatie veranderen
+  .navbar-brand,
+  .navbar-nav > li > a{
+    line-height: 66px;
+    height: 66px;
+    padding-top: 0;
+  }
+
+  // upload, notificatons & account buttons
+  .nav-btn{
+    width: 40px;
+    height: 40px!important;
+    border-radius: 50%;
+    border: 2px solid $primaryColor;
+    text-indent: -9999px;
+    margin: 13px 0 0 20px;
+  }
+
+  .upload{
+    background: url(../images/icon_upload.svg) no-repeat center;
+    background-size: 40%;
+  }
+
+
+  .nav-btn-account{
+    @extend .nav-btn;
+    text-indent: 0;
+    border: none;
+    overflow: hidden;
+    img{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      margin-top: -20px; /* Half the height */
+      margin-left: -20px; /* Half the width */
+    }
+  }
+
+
+
+
+  .dropdown-menu{
+    border-radius: 6px!important;
+    border: none;
+    margin-top: 15px!important;
+    background-color: $secondaryColor;
+    padding: 0 0;
+    overflow: hidden;
+
+    li{
+      border-top: 1px solid #223652;
+
+      a{
+        color: $lightGray;
+        padding-top: 8px;
+        padding-bottom: 8px;
+
+
+        &:hover{
+          background: transparent!important;
+          color: $primaryColor;
+        }
+      }
+    }
+
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .navbar{
+    .logo{
+      left: 50%;
+      right: 50%;
+      text-align: center;
+      position: absolute;
+      margin-left: -65px;
+
+    }
+  }
+
+  .profile_pic{
+    display: none;
+  }
+
+}
+

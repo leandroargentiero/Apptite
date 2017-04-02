@@ -1,0 +1,158 @@
+$primaryColor: #2f9fda;
+$primaryColorLighter: #3cafeb;
+$primaryColorDarker: #014D6F;
+$secondaryColor: #263240;
+$accentColor: #E2C029;
+$text: #333;
+$lightGray: #f5f9fb;
+
+
+
+/* BASE STYLE */
+
+* {
+  outline: none;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  color: $text;
+}
+
+body {
+  font-family: Roboto;
+  background-color: $lightGray;
+  color: $secondaryColor;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.navbar {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.secondary_nav {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  color: $secondaryColor !important;
+  font-family: "Quicksand", Helvetica Neue, Arial, sans-serif;
+}
+
+h1 {
+  font-family: Quicksand;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 30px 0px 30px 0px;
+
+  .bold {
+    font-weight: 700;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 150px;
+    background-color: $primaryColor;
+    height: 3px;
+    margin-top: 10px;
+  }
+
+
+
+}
+
+
+a {
+  color: $primaryColor;
+
+  &:hover {
+    color: $primaryColorLighter;
+  }
+}
+
+li {
+  list-style-type: square;
+}
+
+input[type="text"], input[type="email"], input[type="password"], .textarea, textarea[type="text"] {
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #000000;
+  color: $text;
+  box-shadow: none;
+  outline: none;
+
+  &:focus {
+    border: 1px solid $primaryColor;
+    box-shadow: none;
+  }
+}
+
+.textarea, textarea {
+  resize: vertical;
+}
+
+.btn {
+  background-color: $accentColor;
+  color: white;
+  box-shadow: none;
+  transition: ease 0.3s background-color;;
+
+  &:hover, &:active, &:focus {
+    background-color: $accentColor;
+    color: white;
+    transition: ease 0.3s background-color;
+  }
+}
+
+.container {
+  margin: 30px auto;
+}
+
+
+//---------------------------------------
+
+
+
+/* Custom, iPhone Retina */
+@media screen and (min-width: 320px) {
+
+}
+
+// /* Extra Small Devices, Phones */
+@media screen and (min-width: 480px) {
+
+}
+
+@media only screen and (min-width: 625px) {
+
+
+}
+
+// /* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+
+}
+
+// Medium Devices, Desktops
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+
+}

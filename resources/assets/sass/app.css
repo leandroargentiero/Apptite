@@ -1,0 +1,203 @@
+/* BASE STYLE */
+* {
+  outline: none;
+  box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  color: #333; }
+
+body {
+  font-family: Roboto;
+  background-color: #f5f9fb;
+  color: #263240;
+  display: flex;
+  flex-direction: column; }
+
+.content {
+  flex-grow: 1;
+  flex-shrink: 1; }
+
+.navbar {
+  flex-grow: 0;
+  flex-shrink: 0; }
+
+.secondary_nav {
+  flex-grow: 0;
+  flex-shrink: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  color: #263240 !important;
+  font-family: "Quicksand", Helvetica Neue, Arial, sans-serif; }
+
+h1 {
+  font-family: Quicksand;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 30px 0px 30px 0px; }
+  h1 .bold {
+    font-weight: 700; }
+  h1::after {
+    content: '';
+    display: block;
+    width: 150px;
+    background-color: #2f9fda;
+    height: 3px;
+    margin-top: 10px; }
+
+a {
+  color: #2f9fda; }
+  a:hover {
+    color: #3cafeb; }
+
+li {
+  list-style-type: square; }
+
+input[type="text"], input[type="email"], input[type="password"], .textarea, textarea[type="text"] {
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #000000;
+  color: #333;
+  box-shadow: none;
+  outline: none; }
+  input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, .textarea:focus, textarea[type="text"]:focus {
+    border: 1px solid #2f9fda;
+    box-shadow: none; }
+
+.textarea, textarea {
+  resize: vertical; }
+
+.btn {
+  background-color: #E2C029;
+  color: white;
+  box-shadow: none;
+  transition: ease 0.3s background-color; }
+  .btn:hover, .btn:active, .btn:focus {
+    background-color: #E2C029;
+    color: white;
+    transition: ease 0.3s background-color; }
+
+.container {
+  margin: 30px auto; }
+
+/* Custom, iPhone Retina */
+/* Large Devices, Wide Screens */
+.navbar {
+  background-color: #263240;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 0;
+  z-index: 10; }
+  .navbar .logo {
+    background: url(../images/logo_apptite.svg) no-repeat center;
+    background-size: 100px;
+    width: 130px;
+    text-indent: -9999px;
+    transition: ease 0.3s opacity; }
+    .navbar .logo:hover {
+      opacity: 0.7;
+      transition: ease 0.3s opacity; }
+
+.navbar-nav > li > a {
+  color: #f5f9fb !important; }
+
+.navbar-default .navbar-right li a {
+  background-color: transparent;
+  transition: 0.3s ease all; }
+  .navbar-default .navbar-right li a:hover {
+    background-color: #2f9fda;
+    transition: 0.3s ease background-color; }
+.navbar-default .navbar-right .open > a, .navbar-default .navbar-right .open > a:focus, .navbar-default .navbar-right .open > a:hover, .navbar-default .navbar-right .open > a:active {
+  border: 2px solid #2f9fda; }
+.navbar-default .navbar-collapse {
+  border-color: #263240; }
+.navbar-default .navbar-toggle {
+  border: none; }
+  .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:active {
+    background-color: #2f9fda; }
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #f5f9fb; }
+
+.navbar-right li a.nav-login {
+  background-color: #2f9fda;
+  color: white !important; }
+  .navbar-right li a.nav-login:hover {
+    background-color: #014D6F; }
+
+@media (min-width: 768px) {
+  .navbar-right li a.nav-login {
+    display: inline;
+    border-radius: 4px;
+    padding: 10px 15px; }
+
+  .navbar-right li a.nav-register {
+    display: inline;
+    padding: 8px 13px;
+    border-radius: 4px;
+    margin-right: 10px;
+    border: 2px solid #2f9fda;
+    box-sizing: border-box; }
+
+  .navbar-brand,
+  .navbar-nav > li > a {
+    line-height: 66px;
+    height: 66px;
+    padding-top: 0; }
+
+  .nav-btn, .nav-btn-account {
+    width: 40px;
+    height: 40px !important;
+    border-radius: 50%;
+    border: 2px solid #2f9fda;
+    text-indent: -9999px;
+    margin: 13px 0 0 20px; }
+
+  .upload {
+    background: url(../images/icon_upload.svg) no-repeat center;
+    background-size: 40%; }
+
+  .nav-btn-account {
+    text-indent: 0;
+    border: none;
+    overflow: hidden; }
+    .nav-btn-account img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      margin-top: -20px;
+      /* Half the height */
+      margin-left: -20px;
+      /* Half the width */ }
+
+  .dropdown-menu {
+    border-radius: 6px !important;
+    border: none;
+    margin-top: 15px !important;
+    background-color: #263240;
+    padding: 0 0;
+    overflow: hidden; }
+    .dropdown-menu li {
+      border-top: 1px solid #223652; }
+      .dropdown-menu li a {
+        color: #f5f9fb;
+        padding-top: 8px;
+        padding-bottom: 8px; }
+        .dropdown-menu li a:hover {
+          background: transparent !important;
+          color: #2f9fda; } }
+@media (max-width: 768px) {
+  .navbar .logo {
+    left: 50%;
+    right: 50%;
+    text-align: center;
+    position: absolute;
+    margin-left: -65px; }
+
+  .profile_pic {
+    display: none; } }
+
+/*# sourceMappingURL=app.css.map */
