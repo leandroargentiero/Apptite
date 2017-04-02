@@ -1,0 +1,38 @@
+.hero{
+  background-image:url(../images/hero_banner.jpg);
+  background-size:cover;
+  position:relative;
+  height:100vh;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .5);
+
+
+}
+
+.header{
+  position:absolute;
+  top:40%;
+  color: $lightGray;
+  text-align:center;
+  width:100%;
+  color:#fff;
+  font-size:100px;
+  -ms-transform: translate(0,-50%); /* IE 9 */
+  -webkit-transform: translate(0,-50%); /* Safari */
+  transform: translate(0,-50%);
+
+  .header-logo{
+    display: block;
+    width: 400px;
+    margin: 0 auto 15px auto;
+  }
+
+  h2{
+    color: $lightGray!important;
+    font-weight: 200;
+    font-size: 20px;
+  }
+}
+
+
+
+

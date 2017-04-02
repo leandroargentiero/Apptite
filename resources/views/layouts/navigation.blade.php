@@ -14,17 +14,21 @@
         <!-- Collect all content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                @if(Auth::check())
                 <li ><a href="" class="nav-btn upload">Maaltijd toevoegen</a></li>
+                <li>Hallo, {{ Auth::user()->name }}</li>
                 <li class="dropdown">
-                    <a href="#" class="nav-btn-account dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="">Mijn account<span class="caret"></span></a>
+                    <a href="#" class="nav-btn-account dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/avatars/default.jpg">Mijn account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="">Mijn profiel</a></li>
                         <li><a href="">Mijn boekingen</a></li>
-                        <li><a href="">Uitloggen</a></li>
+                        <li><a href="{{ url('/logout') }}">Uitloggen</a></li>
                     </ul>
                 </li>
-                <li><a href="/auth/register" class="nav-register">Registreer</a></li>
-                <li><a href="/auth/login" class="nav-login">Login</a></li>
+                @else
+                <li><a href="{{ url('/register') }}" class="nav-register">Registreer</a></li>
+                <li><a href="{{ url('/login') }}" class="nav-login">Login</a></li>
+                @endif
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
