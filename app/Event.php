@@ -11,4 +11,14 @@ class Event extends Model
             'date',
             'meal_id',
         ];
+
+    public function reservation()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    public function meal()
+    {
+        return $this->belongsTo(Meal::class);
+    }
 }

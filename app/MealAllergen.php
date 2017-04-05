@@ -11,4 +11,14 @@ class MealAllergen extends Model
             'meal_id',
             'allergen_id',
         ];
+
+    public function meal()
+    {
+        return $this->belongsTo(Meal::class);
+    }
+
+    public  function allergen()
+    {
+        return $this->belongsTo(Allergen::class);
+    }
 }

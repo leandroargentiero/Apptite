@@ -15,4 +15,23 @@ class Meal extends Model
             'kitchen',
             'price',
         ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function mealpicture()
+    {
+        return $this->hasMany(MealPicture::class);
+    }
+
+    public function event(){
+        return $this->hasMany(Event::class);
+    }
+
+    public function mealAllergen()
+    {
+        return $this->belongsTo(MealAllergen::class);
+    }
 }

@@ -8,9 +8,14 @@ class Review extends Model
 {
     protected $fillable =
         [
-            'meal_id',
             'user_id',
+            'reviewer_id',
             'review_rating',
             'review_description',
         ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -17,4 +17,9 @@ class Allergen extends Model
             'tomaat',
             'soja',
         ];
+
+    public function mealAllergen()
+    {
+        return $this->hasMany(MealAllergen::class);
+    }
 }

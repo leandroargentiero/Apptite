@@ -11,4 +11,9 @@ class MealPicture extends Model
             'meal_id',
             'mealpicture',
         ];
+
+    public function meal()
+    {
+        return $this->belongsTo(Meal::class);
+    }
 }
