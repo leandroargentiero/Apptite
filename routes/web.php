@@ -24,4 +24,7 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::post('/meals', 'MealController@store');
     Route::delete('/meals/{meal}', 'MealController@destroy');
 
+
+    Route::get('/users', 'UserController@index');
+
 });

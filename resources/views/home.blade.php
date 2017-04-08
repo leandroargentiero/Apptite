@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
-@section('content')
+@section('hero')
     @include('partials.hero')
 @stop

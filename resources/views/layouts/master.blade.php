@@ -15,7 +15,7 @@
     <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="assets/css/app.css">
     <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-datetimepicker.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <!-- Ajax -->
@@ -27,12 +27,15 @@
 </head>
 <body>
 
-    @include('layouts.navigation')
+@include('layouts.navigation')
+<section>
+    @yield('hero')
+</section>
 
-    <!-- content -->
-    <section class="content">
+
+<div class="container">
         @yield('content')
-    </section>
+</div>
 
 
 @include('layouts.footer')
@@ -47,7 +50,7 @@
 </script>
 
 
-<script src="/assets/js/scripts.js"></script>
+<script src="/js/all.js"></script>
 
 </body>
 </html>

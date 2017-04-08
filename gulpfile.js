@@ -15,4 +15,9 @@ elixir(function(mix) {
     mix.sass([
         "app.scss"
     ], "public/assets/css/app.css");
+
+    mix.scripts([
+        "scripts.js",
+        "public/assets/js/main.js"
+    ]);
 });
