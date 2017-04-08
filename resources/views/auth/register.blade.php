@@ -115,6 +115,7 @@
                             </div>
                         </div>
 
+                        <!-- ======================== AVATAR UPLOAD =======================
                         <div class="form-group">
                             <label for="avatar" class="col-md-4 control-label">Kies een profielfoto</label>
 
@@ -131,6 +132,7 @@
 
 
                         </div>
+                        -->
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Wachtwoord*</label>
