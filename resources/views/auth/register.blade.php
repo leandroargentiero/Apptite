@@ -62,24 +62,6 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="housenumber" class="col-md-4 control-label">Huisnummer*</label>
-
-                            <div class="col-md-6">
-
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></span>
-                                    <input id="housenumber" type="text" class="form-control" name="housenumber" value="{{ old('housenumber') }}" required>
-                                </div>
-
-                                @if ($errors->has('housenumber'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('housenumber') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
                             <label for="city" class="col-md-4 control-label">Stad*</label>
 
                             <div class="col-md-6">
@@ -115,7 +97,6 @@
                             </div>
                         </div>
 
-                        <!-- ======================== AVATAR UPLOAD =======================
                         <div class="form-group">
                             <label for="avatar" class="col-md-4 control-label">Kies een profielfoto</label>
 
@@ -127,12 +108,9 @@
                             </div>
 
                             <div class="col-md-3">
-                                <img class="avatar-preview img-rounded"  width="70" height="70" src="avatars/default.jpg" alt="avatar">
+                                <img class="upload-preview img-rounded"  width="70" height="70" src="avatars/default.jpg" alt="avatar">
                             </div>
-
-
                         </div>
-                        -->
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Wachtwoord*</label>
@@ -172,12 +150,19 @@
                             </div>
                         </div>
 
-
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Registreer
                                 </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div>
+                                    <a href="{{ url('/login') }}">Al een account? Login tot het Apptite platform.</a>
+                                </div>
                             </div>
                         </div>
                     </form>

@@ -77,7 +77,7 @@ li {
 input[type="text"], input[type="email"], input[type="password"], .textarea, textarea[type="text"] {
   border-radius: 5px;
   background-color: white;
-  border: 1px solid #000000;
+  border: 1px solid #CCCCCC;
   color: $text;
   box-shadow: none;
   outline: none;
@@ -94,12 +94,13 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 
 .btn {
   background-color: $accentColor;
+  border: none;
   color: white;
   box-shadow: none;
   transition: ease 0.3s background-color;;
 
   &:hover, &:active, &:focus {
-    background-color: $accentColor;
+    background-color: #cdad1c;
     color: white;
     transition: ease 0.3s background-color;
   }

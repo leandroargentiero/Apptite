@@ -70,7 +70,7 @@ li {
 input[type="text"], input[type="email"], input[type="password"], .textarea, textarea[type="text"] {
   border-radius: 5px;
   background-color: white;
-  border: 1px solid #000000;
+  border: 1px solid #CCCCCC;
   color: #333;
   box-shadow: none;
   outline: none;
@@ -87,6 +87,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .btn {
   background-color: #E2C029;
+  border: none;
   color: white;
   box-shadow: none;
   -webkit-transition: ease 0.3s background-color;
@@ -94,7 +95,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .btn:hover, .btn:active, .btn:focus {
-  background-color: #E2C029;
+  background-color: #cdad1c;
   color: white;
   -webkit-transition: ease 0.3s background-color;
   transition: ease 0.3s background-color;
@@ -203,7 +204,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     margin: 13px 0 0 20px;
   }
   .upload {
-    background: url(../images/icon_upload.svg) no-repeat center;
+    background: url(/assets/images/icon_upload.svg) no-repeat center;
     background-size: 40%;
   }
   .nav-btn-account {

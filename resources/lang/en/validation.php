@@ -98,8 +98,11 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'unique' => 'Sorry, maar er bestaat al een Apptiter met dit e-mail adres',
+        ],
+        'password' => [
+            'confirmed' => 'Wachtwoorden komen niet overeen. Probeer nog eens!',
         ],
     ],
 
