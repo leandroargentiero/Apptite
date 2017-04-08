@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Faker\Provider\Image;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class MealController extends Controller
 {
@@ -35,7 +35,6 @@ class MealController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->price);
         $this->validate($request, [
             //naam van het model/fieldname
             'meal_name' => 'required|max:255',
@@ -46,11 +45,12 @@ class MealController extends Controller
             'mealpicture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
 
+        if($request->hasFile('mealpicture')){
+            $mealpicture = $request->file('mealpicture');
+            $filename = time() . '.' . $mealpicture->getClientOriginalExtension();
+            Image::make($mealpicture)->fit(500, 500)->save( public_path('/mealpictures/' . $filename ) );
+        }
 
-        $imageName = time() . '.' .
-            $request->file('mealpicture')->getClientOriginalExtension();
-
-        $request->file('mealpicture')->store('mealpictures');
 
         //  $request->task is de string vanuit het inputveld
         $request->user()->meals()->create([
@@ -59,11 +59,12 @@ class MealController extends Controller
             'available_places' => $request->available_places,
             'kitchen' => $request->kitchen,
             'price' => $request->price,
-            'meal_picture' => $imageName,
+            'meal_picture' => $filename,
         ]);
 
-
-        return redirect('/home');
+        return back()
+            ->with('feedback','Gefeliciteerd! De maaltijd werd succesvol upgeload.')
+            ->with('mealinfo', $request);
     }
 
     /**
