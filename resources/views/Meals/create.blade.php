@@ -70,6 +70,9 @@
                                         Foto uploaden...
                                         <input type="hidden" value="{{csrf_token()}}" name="_token">
                                     </label>
+                                </div>
+                                <div class="col-md-5"></div>
+                                <div class="col-sm-6" style="margin-top: 30px;">
                                     <img class="upload-preview img-rounded"  width="200" height="200" src="" alt="Meal preview" style="display: none;">
                                 </div>
                             </div>
