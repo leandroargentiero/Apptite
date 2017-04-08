@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Registreer voor het Apptite platform</div>
+                <div class="panel-heading panel-heading-custom">Registreer voor het Apptite platform</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -118,12 +118,18 @@
                         <div class="form-group">
                             <label for="avatar" class="col-md-4 control-label">Kies een profielfoto</label>
 
-                            <div class="col-md-6">
-                                <label class="" for="avatar-upload">
+                            <div class="col-md-4">
+                                <label class="btn btn-primary" for="avatar-upload">
                                     <input name="avatar-upload" id="avatar-upload" class="avatar-upload" type="file" class="file" style="display: none;">
-                                    <img class="avatar-preview" class="img-rounded" width="70" height="70" src="avatars/default.jpg" alt="avatar">
+                                    Uploaden...
                                 </label>
                             </div>
+
+                            <div class="col-md-3">
+                                <img class="avatar-preview img-rounded"  width="70" height="70" src="avatars/default.jpg" alt="avatar">
+                            </div>
+
+
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
