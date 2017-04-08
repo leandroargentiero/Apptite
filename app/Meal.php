@@ -14,6 +14,7 @@ class Meal extends Model
             'available_places',
             'kitchen',
             'meal_picture',
+            'price',
         ];
 
     public function user()

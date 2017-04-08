@@ -35,6 +35,7 @@ class MealController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->price);
         $this->validate($request, [
             //naam van het model/fieldname
             'meal_name' => 'required|max:255',
