@@ -25,7 +25,10 @@ class EventController extends Controller
             ->orderBy('events.event_date', 'desc')
             ->get();
 
-        return view('events.index')->with('meals', $meals);
+
+        return view('events.index')
+            ->with('meals', $meals)
+            ->with('pagetitle', 'Apptite momenten');
     }
 
     /**
