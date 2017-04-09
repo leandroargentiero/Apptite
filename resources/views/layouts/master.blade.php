@@ -31,6 +31,9 @@
     @yield('hero')
 </section>
 
+<section>
+    @yield('banner')
+</section>
 
 <div class="container">
         @yield('content')

@@ -22,7 +22,7 @@ class EventController extends Controller
         $meals = DB::table('meals')
             ->join('events', 'events.meal_id', '=', 'meals.id')
             ->select('*')
-            ->orderBy('events.event_date', 'asc')
+            ->orderBy('events.event_date', 'desc')
             ->get();
 
         return view('events.index')->with('meals', $meals);
