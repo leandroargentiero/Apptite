@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand logo" href="">Apptite</a>
+            <a class="navbar-brand logo" href="/home">Apptite</a>
         </div>
 
         <!-- Collect all content for toggling -->

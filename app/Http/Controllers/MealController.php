@@ -48,11 +48,11 @@ class MealController extends Controller
         if($request->hasFile('mealpicture')){
             $mealpicture = $request->file('mealpicture');
             $filename = time() . '.' . $mealpicture->getClientOriginalExtension();
-            Image::make($mealpicture)->fit(500, 500)->save( public_path('/mealpictures/' . $filename ) );
+            Image::make($mealpicture)->fit(500, 500)->save( public_path('mealpictures/' . $filename ) );
         }
 
 
-        //  $request->task is de string vanuit het inputveld
+        //  $request->name is de string vanuit het inputveld
         $request->user()->meals()->create([
             'meal_name' => $request->meal_name,
             'description' => $request->description,

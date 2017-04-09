@@ -8,7 +8,17 @@
                     <div class="panel-heading panel-heading-custom">Maak een nieuwe maaltijd aan</div>
                     <div class="panel-body">
                         <!-- Display Validation Errors -->
-                        @include('common.errors')
+                        @if (!empty($feedback))
+                            <div class="alert alert-success">
+                                <strong>{{ $feedback }}</strong>
+
+                                <br><br>
+
+                                <ul>
+                                    <li>{{ $mealinfo->meal_name }}</li>
+                                </ul>
+                            </div>
+                        @endif
 
                         <!-- New Meal Form -->
                         <form action="/meals" method="POST" class="form-horizontal" enctype="multipart/form-data">
@@ -82,7 +92,7 @@
                             <div class="form-group" style="margin-top: 50px;">
                                 <div class="col-sm-offset-5 col-sm-6">
                                     <button type="submit" class="btn btn-default pull-right">
-                                        <i class="fa fa-plus"></i> Maaltijd aanbieden
+                                        <i class="fa fa-plus"></i> Maaltijd toevoegen
                                     </button>
                                 </div>
                             </div>
