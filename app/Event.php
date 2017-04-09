@@ -8,7 +8,7 @@ class Event extends Model
 {
     protected $fillable =
         [
-            'date',
+            'event_date',
             'meal_id',
         ];
 

@@ -25,6 +25,11 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::delete('/meals/{meal}', 'MealController@destroy');
 
 
+    // EVENT ROUTES
+    Route::get('/events', 'EventController@index');
+    Route::post('events/create', 'EventController@store');
+    Route::delete('/events/{event}', 'MealController@destroy');
+
     Route::get('/users', 'UserController@index');
 
 });

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class EventController extends Controller
 {
@@ -13,7 +17,15 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::all();
+
+        $meals = DB::table('meals')
+            ->join('events', 'events.meal_id', '=', 'meals.id')
+            ->select('*')
+            ->orderBy('events.event_date', 'asc')
+            ->get();
+
+        return view('events.index')->with('meals', $meals);
     }
 
     /**
@@ -34,7 +46,18 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $mealid = $request->meal_id;
+        $eventdate = $request->event_date;
+
+            $event = new Event();
+            $event->event_date = $eventdate;
+            $event->meal_id = $mealid;
+            $event->save();
+
+        return Redirect::to('events');
+
+
     }
 
     /**

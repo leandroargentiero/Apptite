@@ -21,7 +21,7 @@
                     <a href="#" class="nav-btn-account dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/avatars/default.jpg">Mijn account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="">Mijn profiel</a></li>
-                        <li><a href="">Mijn gerechten</a></li>
+                        <li><a href="{{ url('/mymeals') }}">Mijn gerechten</a></li>
                         <li><a href="">Mijn boekingen</a></li>
                         <li><a href="{{ url('/logout') }}">Uitloggen</a></li>
                     </ul>

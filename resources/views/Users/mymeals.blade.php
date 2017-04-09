@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <h5 class="modal-header-title">Kies een dag waarop het Apptite moment zal doorgaan</h5>
-                                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                                    <form class="form-horizontal" role="form" method="POST" action="events/create">
                                         {{ csrf_field() }}
 
                                         <div class="form-group">
@@ -40,17 +40,20 @@
 
                                             <div class="col-md-6">
                                                 <div class="input-group date" id="datetimepicker">
-                                                        <input type='text' class="form-control" />
+                                                        <input type='text' name="event_date" class="form-control" />
                                                             <span class="input-group-addon">
                                                                 <span class="glyphicon glyphicon-calendar"></span>
                                                             </span>
                                                 </div>
+                                                <input type="hidden" name="meal_id" value="{{ $meal->id }}" >
                                             </div>
+                                        </div>
+                                        <div class="col-med-6">
+                                            <button type="submit" class="btn btn-default">Publiceren</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-default">Publiceren</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
                                 </div>
                             </div>

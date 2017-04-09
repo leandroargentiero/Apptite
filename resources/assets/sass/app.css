@@ -390,4 +390,44 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     background-color: #fff;
     color: #333; }
 
+.event-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  .event-container .event-item {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin: 10px; }
+    .event-container .event-item img {
+      height: 100%;
+      width: 100%; }
+    .event-container .event-item .event-description {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: red;
+      display: none; }
+    .event-container .event-item .event-description-content {
+      margin-top: 30%; }
+      .event-container .event-item .event-description-content .event-name {
+        color: white !important;
+        margin: 0 0 10px 0; }
+      .event-container .event-item .event-description-content .event-price {
+        color: white !important;
+        margin: 0 0 20px 0;
+        font-size: 1em;
+        font-weight: 100; }
+      .event-container .event-item .event-description-content button {
+        color: white !important;
+        text-transform: uppercase !important;
+        font-weight: 500 !important;
+        font-size: .9em; }
+    .event-container .event-item:hover .event-description {
+      display: block; }
+
 /*# sourceMappingURL=app.css.map */
