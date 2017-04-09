@@ -18,7 +18,6 @@ class UserController extends Controller
 
         return view('users.index')->with('users', $users);
 
-
     }
 
     /**

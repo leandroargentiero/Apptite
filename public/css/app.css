@@ -466,4 +466,74 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   color: #fff;
 }
 
+.meal-container {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.meal-container .meal-item {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+}
+
+.meal-container .meal-item img {
+  height: 100%;
+  width: 100%;
+}
+
+.meal-container .meal-item .meal-description {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: red;
+  display: none;
+}
+
+.meal-container .meal-item .meal-description-content {
+  margin-top: 30%;
+}
+
+.meal-container .meal-item .meal-description-content .meal-name {
+  color: white !important;
+  margin: 0 0 10px 0;
+}
+
+.meal-container .meal-item .meal-description-content .meal-price {
+  color: white !important;
+  margin: 0 0 20px 0;
+  font-size: 1em;
+  font-weight: 100;
+}
+
+.meal-container .meal-item .meal-description-content button {
+  color: white !important;
+  text-transform: uppercase !important;
+  font-weight: 500 !important;
+  font-size: .9em;
+}
+
+.meal-container .meal-item:hover .meal-description {
+  display: block;
+}
+
+.meal-container .modal-header-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.meal-container .datepicker {
+  background-color: #fff;
+  color: #333;
+}
+
 /*# sourceMappingURL=app.css.map */

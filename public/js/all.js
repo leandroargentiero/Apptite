@@ -33,6 +33,13 @@ $( document ).ready(function() {
         }
     });
 
+    // OPEN DATETIMEPICKER
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'DD/MM/YYYY'
+        });
+    });
+
 
 });
 //# sourceMappingURL=all.js.map

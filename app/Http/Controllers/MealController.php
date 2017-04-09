@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
 class MealController extends Controller
@@ -14,7 +16,10 @@ class MealController extends Controller
      */
     public function index()
     {
-
+        $user_id = Auth::id();
+        $meals = DB::table('meals')->where('user_id', '=', $user_id)->orderBy('id', 'desc')->get();
+        return view('users.mymeals')
+            ->with(compact("meals"));
     }
 
     /**
@@ -49,6 +54,8 @@ class MealController extends Controller
             $mealpicture = $request->file('mealpicture');
             $filename = time() . '.' . $mealpicture->getClientOriginalExtension();
             Image::make($mealpicture)->fit(500, 500)->save( public_path('mealpictures/' . $filename ) );
+
+            $data['successMessage'] = "Volgend gerecht werd aan uw menu toegevoegd:";
         }
 
 
@@ -62,9 +69,14 @@ class MealController extends Controller
             'meal_picture' => $filename,
         ]);
 
-        return back()
-            ->with('feedback','Gefeliciteerd! De maaltijd werd succesvol upgeload.')
-            ->with('mealinfo', $request);
+        $data['mealname'] = $request->meal_name;
+        $data['mealdescription'] = $request->description;
+        $data['mealplaces'] = $request->available_places;
+        $data['mealprice'] = $request->price;
+
+        return view('meals/create')->with($data);
+
+
     }
 
     /**

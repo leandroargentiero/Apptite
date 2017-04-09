@@ -16,11 +16,12 @@
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
                 <li ><a href="{{ url('/meals/create') }}" class="nav-btn upload">Maaltijd toevoegen</a></li>
-                <li>Hallo, {{ Auth::user()->name }}</li>
+                <li>{{ Auth::user()->name }}</li>
                 <li class="dropdown">
                     <a href="#" class="nav-btn-account dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/avatars/default.jpg">Mijn account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="">Mijn profiel</a></li>
+                        <li><a href="">Mijn gerechten</a></li>
                         <li><a href="">Mijn boekingen</a></li>
                         <li><a href="{{ url('/logout') }}">Uitloggen</a></li>
                     </ul>

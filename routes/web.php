@@ -19,7 +19,7 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(array('middleware' => 'auth'), function () {
 
     // MEALS ROUTES
-    Route::get('/meals', 'MealController@index');
+    Route::get('/mymeals', 'MealController@index');
     Route::get('meals/create', 'MealController@create');
     Route::post('/meals', 'MealController@store');
     Route::delete('/meals/{meal}', 'MealController@destroy');
