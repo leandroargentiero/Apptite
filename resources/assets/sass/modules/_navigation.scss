@@ -26,6 +26,11 @@
 .navbar-default{
 
   .navbar-right{
+    #username{
+      color: white;
+      font-weight: 500;
+      margin: 25px 0 0 30px;
+    }
     li a{
       background-color: transparent;
       transition: 0.3s ease all;
@@ -39,8 +44,8 @@
     .open > a, .open > a:focus, .open > a:hover, .open > a:active{
       border: 2px solid $primaryColor;
     }
-  }
 
+  }
   .navbar-collapse{
     border-color: $secondaryColor;
   }
@@ -175,6 +180,9 @@
     }
   }
 
+  #username{
+    display: none;
+  }
   .profile_pic{
     display: none;
   }

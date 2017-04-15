@@ -96,6 +96,10 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 .navbar-nav > li > a {
   color: #f5f9fb !important; }
 
+.navbar-default .navbar-right #username {
+  color: white;
+  font-weight: 500;
+  margin: 25px 0 0 30px; }
 .navbar-default .navbar-right li a {
   background-color: transparent;
   transition: 0.3s ease all; }
@@ -189,6 +193,9 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     text-align: center;
     position: absolute;
     margin-left: -65px; }
+
+  #username {
+    display: none; }
 
   .profile_pic {
     display: none; } }
