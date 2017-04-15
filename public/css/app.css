@@ -664,4 +664,24 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   margin-bottom: 30px;
 }
 
+.profile-container .cta-toevoegen {
+  color: white;
+  display: block;
+  background-color: #2f9fda;
+  padding: 15px;
+  border-radius: 2%;
+  width: 90%;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.profile-container .cta-toevoegen:hover {
+  background-color: #238dc4;
+  -webkit-transition: ease 0.3s background-color;
+  transition: ease 0.3s background-color;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=app.css.map */

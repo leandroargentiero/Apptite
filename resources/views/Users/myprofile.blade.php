@@ -21,6 +21,9 @@
                     </ul>
                 </div>
             </div>
+
+            <a class="cta-toevoegen" href="{{ url('/maaltijden/aanmaken') }}">Een nieuw gerecht toevoegen</a>
+
         </div>
 
         <div class="col-md-8">
