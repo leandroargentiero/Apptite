@@ -463,4 +463,19 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     .event-container .event-item:hover .event-description {
       display: block; }
 
+.profile-container .profile-header ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0; }
+  .profile-container .profile-header ul .user-avatar {
+    width: 200px;
+    height: 200px; }
+  .profile-container .profile-header ul li {
+    list-style-type: none; }
+  .profile-container .profile-header ul .username {
+    margin: 15px 0 5px 0; }
+.profile-container .form-group {
+  margin-bottom: 30px; }
+
 /*# sourceMappingURL=app.css.map */

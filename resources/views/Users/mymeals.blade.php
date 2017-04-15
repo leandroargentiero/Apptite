@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('banner')
+    @include('partials.banner')
+@stop
+
 @section('content')
 
         <div class="meal-container">

@@ -19,7 +19,8 @@ class MealController extends Controller
         $user_id = Auth::id();
         $meals = DB::table('meals')->where('user_id', '=', $user_id)->orderBy('id', 'desc')->get();
         return view('users.mymeals')
-            ->with(compact("meals"));
+            ->with(compact("meals"))
+            ->with('pagetitle', 'Mijn maaltijden');
     }
 
     /**
@@ -29,7 +30,8 @@ class MealController extends Controller
      */
     public function create()
     {
-        return view('meals.create');
+        return view('meals.create')
+            ->with('pagetitle', 'Een nieuwe maaltijd aanmaken');
     }
 
     /**

@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('banner')
+    @include('partials.banner')
+@stop
+
 @section('content')
     <div class="container">
         <div class="row">
@@ -36,7 +40,7 @@
 
                         @else
                                 <!-- New Meal Form -->
-                            <form action="/meals" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                            <form action="/maaltijden" method="POST" class="form-horizontal" enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
                                         <!-- Meal Name -->

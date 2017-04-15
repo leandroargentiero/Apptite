@@ -1,0 +1,30 @@
+.profile-container{
+
+  .profile-header{
+
+    ul{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+
+      .user-avatar{
+        width: 200px;
+        height: 200px;
+      }
+
+      li{
+        list-style-type: none;
+      }
+
+      .username{
+        margin: 15px 0 5px 0;
+      }
+
+    }
+  }
+
+  .form-group{
+    margin-bottom: 30px;
+  }
+}

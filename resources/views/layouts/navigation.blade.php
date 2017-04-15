@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 @if(Auth::check())
-                <li ><a href="{{ url('/meals/create') }}" class="nav-btn upload">Maaltijd toevoegen</a></li>
+                <li ><a href="{{ url('/maaltijden/aanmaken') }}" class="nav-btn upload">Maaltijd toevoegen</a></li>
                 <li id="username">{{ Auth::user()->name }}</li>
                 <li class="dropdown">
                     <a href="#" class="nav-btn-account dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/avatars/default.jpg" class="profile_pic">Mijn account<span class="caret"></span></a>
