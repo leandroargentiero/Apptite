@@ -12,7 +12,7 @@
                 <div class="profile-header">
                     <ul>
                         <li class="user-image">
-                            <img class="user-avatar img-circle" src="avatars/default.jpg" alt="user avatar">
+                            <img class="user-avatar" src="avatars/{{ $user->profilepic }}" alt="user avatar">
                         </li>
                         <li class="username"><h3>{{ $user->name }}</h3></li>
                         <li class="city"><h4><i class="fa fa-map-marker" aria-hidden="true"></i>{{ $user->city }}</h4>
@@ -31,16 +31,16 @@
                     <table class="table">
 
 
-                        <form class="form-horizontal profile-information" role="form" method="POST" action="/mijnprofiel/update" enctype="multipart/form-data">
+                        <form class="form-horizontal profile-information" role="form" method="POST"
+                              action="/mijnprofiel/update" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                            <!-- CHANGE AVATAR -->
+                                    <!-- CHANGE AVATAR -->
                             <tr>
                                 <div class="form-group col-md-12">
-
-                                    <label for="upload-avatar" class="control-label">Voeg een profielfoto toe</label>
-                                    <input name="mealpicture" id="meal-upload" class="meal-upload" type="file"
-                                           value="{{old('mealpicture')}}">
+                                    <label for="useravatar" class="control-label">Voeg een profielfoto toe</label>
+                                    <input name="useravatar" id="useravatar" type="file"
+                                           value="{{old('useravatar')}}">
                                     <input type="hidden" value="{{csrf_token()}}" name="_token">
                                 </div>
                             </tr>
@@ -48,13 +48,13 @@
                             <!-- CHANGE BIO -->
                             <tr>
                                 <div class="form-group col-md-12">
-                                    <label for="email" class="control-label">Vertel iets over jezelf</label>
+                                    <label for="userbio" class="control-label">Vertel iets over jezelf</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-user"
                                                                            aria-hidden="true"></i></span>
-                                        <textarea name="description" id="meal-description" cols="40" rows="5"
+                                        <textarea name="userbio" id="userbio" cols="40" rows="5"
                                                   class="form-control"
-                                                  value="{{old('description')}}"
+                                                  value="{{old('userbio')}}"
                                                   placeholder="Wie ben je, interesses, hobby's, ..."></textarea>
                                     </div>
                                 </div>
@@ -63,12 +63,12 @@
                             <!-- CHANGE EMAIL -->
                             <tr>
                                 <div class="form-group col-md-12">
-                                    <label for="email" class="control-label">Wijzig e-mail adres</label>
+                                    <label for="useremail" class="control-label">Wijzig e-mail adres</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-envelope-o"
                                                                            aria-hidden="true"></i></span>
-                                        <input id="email" type="email" class="form-control" name="email"
-                                               value="{{ old('email') }}">
+                                        <input id="useremail" type="email" class="form-control" name="useremail"
+                                               value="{{ old('useremail') }}" placeholder="Huidig: {{ $user->email }}">
                                     </div>
                                 </div>
                             </tr>
@@ -76,18 +76,18 @@
                             <!-- CHANGE PASSWORD -->
                             <tr>
                                 <div class="form-group col-md-12">
-                                    <label for="email" class="control-label">Nieuw wachtwoord</label>
+                                    <label for="password1" class="control-label">Nieuw wachtwoord</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-key"
                                                                            aria-hidden="true"></i></span>
-                                        <input id="email" type="email" class="form-control" name="email"
+                                        <input id="password1" type="password" class="form-control" name="password1"
                                                value="{{ old('email') }}">
                                     </div>
-                                    <label for="email" class="control-label">Herhaal nieuw wachtwoord</label>
+                                    <label for="password2" class="control-label">Herhaal nieuw wachtwoord</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-key"
                                                                            aria-hidden="true"></i></span>
-                                        <input id="email" type="email" class="form-control" name="email"
+                                        <input id="password2" type="password" class="form-control" name="password2"
                                                value="{{ old('email') }}">
                                     </div>
                                 </div>
