@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Carbon\Carbon;
+use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -25,10 +26,13 @@ class EventController extends Controller
             ->orderBy('events.event_date', 'desc')
             ->get();
 
+        $map = Mapper::map(51.0259, 4.4775);
+
 
         return view('events.index')
             ->with('meals', $meals)
-            ->with('pagetitle', 'Apptite momenten');
+            ->with('pagetitle', 'Apptite momenten')
+            ->with('map', $map);
     }
 
     /**

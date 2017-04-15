@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 return array(
 
@@ -20,7 +20,7 @@ return array(
     | A Google API key to link Googlmapper to Google's API.
     |
     */
-    'key' => env('GOOGLE_API_KEY', 'AIzaSyAtqWsq5Ai3GYv6dSa6311tZiYKlbYT4mw'),
+    'key' => env('GOOGLE_API_KEY', 'AIzaSyAmYV-p7oYTnC1TonGfwqMQlIbeAr0ZCus'),
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return array(
     | The region Google API should use required in ISO 3166-1 code format.
     |
     */
-    'region' => 'GB',
+    'region' => 'BE',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
     | location.
     |
     */
-    'locate' => false,
+    'locate' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -173,7 +173,7 @@ return array(
         | Display an animation effect for markers. (NONE|DROP|BOUNCE)
         |
         */
-        'animation' => 'NONE',
+        'animation' => 'DROP',
 
     ),
 
