@@ -18,15 +18,23 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-
+        // GET ALL MEAL INFO FOREACH EVENT
         $meals = DB::table('meals')
             ->join('events', 'events.meal_id', '=', 'meals.id')
             ->select('*')
             ->orderBy('events.event_date', 'desc')
             ->get();
 
-        $map = Mapper::map(51.0259, 4.4775);
+        // GET ALL USERS INFO FOREACH EVENT
+        $users = DB::table('users')
+            ->join('meals', 'user_id', '=','users.id')
+            ->join('events', 'meal_id', '=', 'meals.id')
+            ->select('*')
+            ->get();
+
+
+        $map = Mapper::location('Mechelen')->map(['zoom' => 16]);
+
 
 
         return view('events.index')
