@@ -7,6 +7,19 @@
 @section('content')
     <div class="profile-container">
 
+        <!-- FEEDBACK MESSAGES -->
+        <div class="col-md-12">
+            @if(Session::has('successmessage'))
+                <div class="alert alert-success">
+                    <strong>{{ Session::get('successmessage') }}</strong>
+                </div>
+            @elseif(Session::has('errormessage'))
+                <div class="alert alert-danger">
+                    <strong>{{ Session::get('errormessage') }}</strong>
+                </div>
+            @endif
+        </div>
+
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="profile-header">
@@ -41,7 +54,7 @@
                                     <!-- CHANGE AVATAR -->
                             <tr>
                                 <div class="form-group col-md-12">
-                                    <label for="useravatar" class="control-label">Voeg een profielfoto toe</label>
+                                    <label for="useravatar" class="control-label">Wijzig profielfoto</label>
                                     <input name="useravatar" id="useravatar" type="file"
                                            value="{{old('useravatar')}}">
                                     <input type="hidden" value="{{csrf_token()}}" name="_token">
@@ -57,8 +70,7 @@
                                                                            aria-hidden="true"></i></span>
                                         <textarea name="userbio" id="userbio" cols="40" rows="5"
                                                   class="form-control"
-                                                  value="{{old('userbio')}}"
-                                                  placeholder="Wie ben je, interesses, hobby's, ..."></textarea>
+                                                  placeholder="Wie ben je, interesses, hobby's, ...">{{ $user->description }}</textarea>
                                     </div>
                                 </div>
                             </tr>

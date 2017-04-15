@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('password');
-            $table->string('profilepic')->default("avatar.jpg");
+            $table->string('profilepic')->default("default.jpg");
             $table->string('description')->default("Deze Apptiter heeft nog geen beschrijving gegeven.");
             $table->string('address');
             $table->integer('housenumber');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
@@ -37,7 +38,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -48,7 +49,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -59,7 +60,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -70,54 +71,74 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
         $user = Auth::user();
 
+        $this->validate($request, [
+            //naam van het model/fieldname
+            'useravatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+        ]);
+
         $bio = $request->userbio;
         $newPassword1 = $request->password1;
         $newPassword2 = $request->password2;
         $newEmail = $request->useremail;
 
-        try{
+        try {
             // UPDATE PROFILE PICTURE
-            if($request->hasFile('useravatar')){
+            if ($request->hasFile('useravatar')) {
                 $useravatar = $request->file('useravatar');
                 $filename = time() . '.' . $useravatar->getClientOriginalExtension();
-                Image::make($useravatar)->fit(300, 300)->save( public_path('avatars/' . $filename ) );
+                Image::make($useravatar)->fit(300, 300)->save(public_path('avatars/' . $filename));
 
                 $user->profilepic = $filename;
-
-                //$data['successMessage'] = "Volgend gerecht werd aan uw menu toegevoegd:";
             }
 
             // UPDATE BIO DESCRIPTION
-            if($bio != null){
+            if ($bio != null) {
                 $user->description = $bio;
+
             }
 
+            if (!empty($newPassword1) && !empty($newPassword2)) {
+                if ($newPassword1 == $newPassword2) {
+                    $request->user()->fill([
+                        'password' => Hash::make($request->input("password"))
+                    ])->save();
 
+                    $newPassword = Hash::make($newPassword1);
 
+                    $user->password = $newPassword;
+                } else {
+                    return redirect('/mijnprofiel')->with('errormessage', 'Opgepast! Wachtwoorden komen niet overeen. Gelieve nog eens te proberen');
+                }
+            }
+
+            if ($newEmail != null) {
+                $user->email = $newEmail;
+            }
 
             $user->save();
 
-        }catch (\Exception $e) {
+        } catch (\Exception $e) {
 
+            return redirect('/mijnprofiel')->with('errormessage', 'Woops! Er ging iets mis bij het wijzigen. Gelieve nog eens te proberen');
         }
 
 
-
-        return redirect('/mijnprofiel');
+        return redirect('/mijnprofiel')
+            ->with('successmessage', 'Gefeliciteerd Apptiter! Je profiel werd succesvol gewijzigd.');
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
