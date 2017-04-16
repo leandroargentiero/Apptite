@@ -28,6 +28,7 @@ Route::group(array('middleware' => 'auth'), function () {
     // EVENT ROUTES
     Route::get('/events', 'EventController@index');
     Route::post('events/aanmaken', 'EventController@store');
+    Route::get('/events/{id}', 'EventController@show');
     Route::delete('/events/{event}', 'MealController@destroy');
 
     // Profile ROUTES
@@ -38,7 +39,7 @@ Route::group(array('middleware' => 'auth'), function () {
 
     // EVENT ROUTES
 
-    // RESERVATION ROUTS
+    // RESERVATION ROUTES
 
 
     Route::get('/users', 'UserController@index');

@@ -330,6 +330,23 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   text-transform: uppercase;
 }
 
+.eventdetail-wrapper {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  height: 300px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+
+.eventdetail-wrapper .eventdetail-title {
+  text-align: center;
+  color: white !important;
+  line-height: 300px;
+  text-transform: uppercase;
+  font-size: 3em;
+}
+
 .footer-distributed {
   background-color: #263240;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
@@ -574,6 +591,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   color: #333;
 }
 
+.header-title {
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
 .event-container {
   display: -webkit-box;
   display: flex;
@@ -670,11 +692,12 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   left: 0;
   background-color: rgba(0, 0, 0, 0.3);
   display: none;
+  text-align: center;
 }
 
 .event-container .event-item .event-title h3 {
-  text-align: center;
-  line-height: 200px;
+  line-height: 230px;
+  font-size: 1.2em;
 }
 
 .event-container .event-item .event-title h3 a {
