@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="col-md-3">
-                                <img class="upload-preview img-rounded"  width="70" height="70" src="avatars/default.jpg" alt="avatar">
+                                <img class="upload-preview img-rounded"  width="70" height="70" src="avatars/avatar.jpg" alt="avatar">
                             </div>
                         </div>
                         -->

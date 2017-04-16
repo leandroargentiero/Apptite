@@ -1,3 +1,6 @@
+.event-title{
+
+}
 .event-container{
   display: flex;
   flex-direction: row;
@@ -8,46 +11,104 @@
     width: 250px;
     height: 250px;
     margin: 10px;
+    border: 1px solid grey;
 
     img{
       height: 100%;
       width: 100%;
     }
 
-    .event-description{
+    .event-price{
       position: absolute;
-      height: 100%;
-      width: 100%;
       top: 0;
       left: 0;
-      text-align: center;
+      padding: 10px;
+      font-weight: 300;
+      font-size: .9em;
       background-color: rgba(0, 0, 0, 0.5);
+      color: white !important;
+
+      span{
+        font-size: 1.5em;
+        font-weight: 400;
+      }
+    }
+    .event-places{
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px 5px 10px 5px;
+      margin: 5px;
+      border-radius: 10%;
+      font-weight: 300;
+      font-size: .8em;
+      background-color: green;
+      color: white !important;
+    }
+    .event-description{
+      position: absolute;
+      height: 50px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(38,50,64, 0.9);
       color: red;
-      display: none;
+      display: block;
     }
-
     .event-description-content {
-      margin-top: 30%;
-      .event-name{
-        color: white !important;
-        margin: 0 0 10px 0;
+      .user-avatar{
+        position: relative;
+        top: 5px;
+        left: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
       }
-      .event-price{
-        color: white !important;
-        margin: 0 0 20px 0;
-        font-size: 1em;
-        font-weight: 100;
-      }
-      button{
-        color: white !important;
-        text-transform: uppercase !important;
-        font-weight: 500 !important;
-        font-size: .9em;
 
+      .user-name{
+        position: absolute;
+        bottom: 17px;
+        left: 55px;
+        font-size: .8em;
+        color: white !important;
       }
+
+      .user-location{
+        position: absolute;
+        bottom: 35px;
+        right: 5px;
+        color: white !important;
+        font-size: .7em;
+        font-weight: 200;
+      }
+
     }
 
-    &:hover .event-description{
+    .event-title{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      display: none;
+
+      h3 {
+        text-align: center;
+        line-height: 200px;
+        a {
+          color: white !important;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+
+
+    }
+
+    &:hover .event-title{
       display: block;
     }
 
