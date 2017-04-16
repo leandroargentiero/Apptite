@@ -93,7 +93,7 @@ return array(
     | location.
     |
     */
-    'locate' => true,
+    'locate' => false,
 
     /*
     |--------------------------------------------------------------------------
@@ -163,7 +163,7 @@ return array(
         | Display a custom icon for markers. (Link to an image)
         |
         */
-        'icon' => '',
+        'icon' => 'assets/images/icon_apptite.png',
 
         /*
         |--------------------------------------------------------------------------

@@ -29,17 +29,16 @@ class EventController extends Controller
             ->orderBy('events.event_date', 'desc')
             ->get();
 
-        Mapper::location('Mechelen')->map(['zoom' => 16]);
+        // SETUP GOOGLE MAP ON MECHELEN CENTRE
+        Mapper::map(51.0282, 4.4804, ['zoom' => 15, 'marker' => false]);
 
+        // ITEREATE ALL EVENTS
         foreach($eventMeals as $eventMeal){
             $coordinates = $geocoder->geocode($eventMeal->address);
             $long = $coordinates->get(0)->getLongitude();
             $lat = $coordinates->get(0)->getLatitude();
             Mapper::marker($lat, $long);
         }
-
-
-        //$results = app('geocoder')->geocode($eventMeals->address)->all();
 
         return view('events.index')
             ->with('eventMeals', $eventMeals)
