@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <h5 class="modal-header-title">Kies een dag waarop het Apptite moment zal doorgaan</h5>
-                                    <form class="form-horizontal" role="form" method="POST" action="events/create">
+                                    <form class="form-horizontal" role="form" method="POST" action="events/aanmaken">
                                         {{ csrf_field() }}
 
                                         <div class="form-group">

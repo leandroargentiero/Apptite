@@ -18,29 +18,33 @@ class EventController extends Controller
      */
     public function index()
     {
-        // GET ALL MEAL INFO FOREACH EVENT
-        $meals = DB::table('meals')
-            ->join('events', 'events.meal_id', '=', 'meals.id')
+        $curl     = new \Ivory\HttpAdapter\CurlHttpAdapter();
+        $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
+
+        // GET ALL USERS INFO FOREACH EVENT
+        $eventMeals = DB::table('users')
+            ->join('meals', 'user_id', '=','users.id')
+            ->join('events', 'meal_id', '=', 'meals.id')
             ->select('*')
             ->orderBy('events.event_date', 'desc')
             ->get();
 
-        // GET ALL USERS INFO FOREACH EVENT
-        $users = DB::table('users')
-            ->join('meals', 'user_id', '=','users.id')
-            ->join('events', 'meal_id', '=', 'meals.id')
-            ->select('*')
-            ->get();
+        Mapper::location('Mechelen')->map(['zoom' => 16]);
+
+        foreach($eventMeals as $eventMeal){
+            $coordinates = $geocoder->geocode($eventMeal->address);
+            $long = $coordinates->get(0)->getLongitude();
+            $lat = $coordinates->get(0)->getLatitude();
+            Mapper::marker($lat, $long);
+        }
 
 
-        $map = Mapper::location('Mechelen')->map(['zoom' => 16]);
-
-
+        //$results = app('geocoder')->geocode($eventMeals->address)->all();
 
         return view('events.index')
-            ->with('meals', $meals)
+            ->with('eventMeals', $eventMeals)
             ->with('pagetitle', 'Apptite momenten')
-            ->with('map', $map);
+            ->with('map');
     }
 
     /**
