@@ -97,13 +97,15 @@ class EventController extends Controller
             ->select('*')
             ->first();
 
+        // SETUP GOOGLE MAPS ON USER LOCATION
         $coordinates = $geocoder->geocode($event->address);
         $long = $coordinates->get(0)->getLongitude();
         $lat = $coordinates->get(0)->getLatitude();
+        //Mapper::map($lat, $long)->informationWindow($lat, $long, 'Content', ['markers' => ['animation' => 'DROP']]);;
 
-        // SETUP GOOGLE MAPS ON USER LOCATION
-        //Mapper::map($lat, $long, ['zoom' => 17, 'marker' => true]);
-        Mapper::map($lat, $long, ['zoom' => 15, 'marker' => true ]);
+        Mapper::map($lat, $long, ['zoom' => 17, 'fullscreenControl' => false, 'center' => true, 'marker' => true, 'cluster' => false]);
+        Mapper::informationWindow($lat, $long, $event->address. ',  ' . $event->postalcode . ' ' . $event->city);
+
 
 
         return view('events.eventdetail')
