@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-    <h3 class="header-title">{{count($eventMeals)}} momenten</h3>
+    <h3 class="header-title">Er zijn {{count($eventMeals)}} aankomende momenten in </br> Mechelen</h3>
 
     <div class="event-container">
         @foreach($eventMeals as $eventMeal)
@@ -31,11 +31,6 @@
                     <!-- DEFAULT ITEM FOR ADDING EVENT -->
             <div class="event-item">
                 <img src="/assets/images/thumbnail-neighbour.jpg" alt="Add meal">
-
-            </div>
-
-            <div id="map" style="width: 100%; height: 500px;">
-                {!! Mapper::render() !!}
             </div>
     </div>
 @endsection

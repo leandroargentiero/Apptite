@@ -18,9 +18,6 @@ class EventController extends Controller
      */
     public function index()
     {
-        $curl     = new \Ivory\HttpAdapter\CurlHttpAdapter();
-        $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
-
         // GET ALL USERS INFO FOREACH EVENT
         $eventMeals = DB::table('users')
             ->join('meals', 'user_id', '=','users.id')
@@ -29,21 +26,9 @@ class EventController extends Controller
             ->orderBy('events.event_date', 'desc')
             ->get();
 
-        // SETUP GOOGLE MAP ON MECHELEN CENTRE
-        Mapper::map(51.0282, 4.4804, ['zoom' => 15, 'marker' => false]);
-
-        // ITEREATE ALL EVENTS
-        foreach($eventMeals as $eventMeal){
-            $coordinates = $geocoder->geocode($eventMeal->address);
-            $long = $coordinates->get(0)->getLongitude();
-            $lat = $coordinates->get(0)->getLatitude();
-            Mapper::marker($lat, $long);
-        }
-
         return view('events.index')
             ->with('eventMeals', $eventMeals)
-            ->with('pagetitle', 'Apptite momenten')
-            ->with('map');
+            ->with('pagetitle', 'Apptite momenten');
     }
 
     /**
@@ -97,7 +82,7 @@ class EventController extends Controller
             ->select('*')
             ->first();
 
-        // SETUP GOOGLE MAPS ON USER LOCATION
+        // SETUP GOOGLE MAPS FOR USER/EVENT LOCATION
         $coordinates = $geocoder->geocode($event->address);
         $long = $coordinates->get(0)->getLongitude();
         $lat = $coordinates->get(0)->getLatitude();
@@ -105,7 +90,6 @@ class EventController extends Controller
 
         Mapper::map($lat, $long, ['zoom' => 17, 'fullscreenControl' => false, 'center' => true, 'marker' => true, 'cluster' => false]);
         Mapper::informationWindow($lat, $long, $event->address. ',  ' . $event->postalcode . ' ' . $event->city);
-
 
 
         return view('events.eventdetail')
