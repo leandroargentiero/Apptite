@@ -73,6 +73,7 @@ class EventController extends Controller
             $event->meal_id = $mealid;
             $event->save();
 
+
         return Redirect::to('events');
 
 
@@ -86,8 +87,28 @@ class EventController extends Controller
      */
     public function show($id)
     {
+        $curl     = new \Ivory\HttpAdapter\CurlHttpAdapter();
+        $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
 
-        return view('events.eventdetail');
+        $event = DB::table('events')
+            ->join('meals', 'meals.id', '=','events.meal_id')
+            ->join('users', 'users.id', '=', 'meals.user_id')
+            ->where('events.id', '=', $id)
+            ->select('*')
+            ->first();
+
+        $coordinates = $geocoder->geocode($event->address);
+        $long = $coordinates->get(0)->getLongitude();
+        $lat = $coordinates->get(0)->getLatitude();
+
+        // SETUP GOOGLE MAPS ON USER LOCATION
+        //Mapper::map($lat, $long, ['zoom' => 17, 'marker' => true]);
+        Mapper::map($lat, $long, ['zoom' => 15, 'marker' => true ]);
+
+
+        return view('events.eventdetail')
+            ->with('event', $event)
+            ->with('map');
     }
 
     /**

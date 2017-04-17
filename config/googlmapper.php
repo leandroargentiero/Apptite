@@ -163,7 +163,7 @@ return array(
         | Display a custom icon for markers. (Link to an image)
         |
         */
-        'icon' => 'assets/images/icon_apptite.png',
+        'icon' => '/assets/images/icon_apptite.png',
 
         /*
         |--------------------------------------------------------------------------
