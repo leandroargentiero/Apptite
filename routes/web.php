@@ -38,7 +38,7 @@ Route::group(array('middleware' => 'auth'), function () {
 
 
     // RESERVATION ROUTES
-    Route::post('/mijnreservaties', 'ReservationController@index');
+    Route::get('/mijnreservaties', 'ReservationController@index');
     Route::post('/reservaties/reserveren', 'ReservationController@store');
 
 

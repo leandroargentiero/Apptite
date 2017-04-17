@@ -18,6 +18,7 @@
                                 <option value="{{ $i }}">{{ $i }}</option>
                             @endfor
                         </select>
+                        <input name="available_places" type="hidden" value="{{ $event->event_places }}">
                         <input name="event_id" type="hidden" value="{{ $eventID }}">
                         <button type="submit" class="btn btn-default">Reserveer</button>
                     </div>

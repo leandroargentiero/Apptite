@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class ReservationController extends Controller
@@ -16,7 +17,14 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        $userID = Auth::user()->id;
+        $reservations = DB::table('reservations')
+            ->where('user_id', '=', $userID )
+            ->get();
+
+        return view ('reservations.index')
+            ->with('pagetitle', 'Mijn reservaties')
+            ->with('reservations', $reservations);
     }
 
     /**
@@ -40,16 +48,27 @@ class ReservationController extends Controller
         $reservationAmount = $request->get('selReservation');
         $userID = Auth::user()->id;
         $eventID = $request->event_id;
+        $availableplaces = $request->available_places;
 
-
+        // STORE NEW RESERVATION
         $reservation = new Reservation();
         $reservation->user_id = $userID;
         $reservation->event_id = $eventID;
         $reservation->reservation_places = $reservationAmount;
         $reservation->save();
 
+        // UPDATE EVENT AVAILABLE PLACES
+        if($availableplaces >= 1){
+            $newAvailableplaces = $availableplaces - $reservationAmount;
 
-        return Redirect::to('home');
+            DB::table('events')
+                ->where('id', $eventID)
+                ->update(['event_places' => $newAvailableplaces]);
+        }
+
+
+
+        return Redirect::to('/mijnreservaties');
 
     }
 
