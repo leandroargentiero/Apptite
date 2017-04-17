@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ReservationController extends Controller
 {
@@ -35,6 +38,18 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         $reservationAmount = $request->get('selReservation');
+        $userID = Auth::user()->id;
+        $eventID = $request->event_id;
+
+
+        $reservation = new Reservation();
+        $reservation->user_id = $userID;
+        $reservation->event_id = $eventID;
+        $reservation->reservation_places = $reservationAmount;
+        $reservation->save();
+
+
+        return Redirect::to('home');
 
     }
 

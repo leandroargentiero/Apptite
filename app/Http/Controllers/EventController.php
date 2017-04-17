@@ -85,6 +85,8 @@ class EventController extends Controller
             ->select('*')
             ->first();
 
+        $eventID = $id;
+
         // SETUP GOOGLE MAPS FOR USER/EVENT LOCATION
         $coordinates = $geocoder->geocode($event->address);
         $long = $coordinates->get(0)->getLongitude();
@@ -97,6 +99,7 @@ class EventController extends Controller
 
         return view('events.eventdetail')
             ->with('event', $event)
+            ->with('eventID', $eventID)
             ->with('map');
     }
 
