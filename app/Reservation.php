@@ -10,6 +10,7 @@ class Reservation extends Model
         [
             'user_id',
             'event_id',
+            'reservation_places',
         ];
 
     public function user()

@@ -10,6 +10,7 @@ class Event extends Model
         [
             'event_date',
             'meal_id',
+            'event_places',
         ];
 
     public function reservation()

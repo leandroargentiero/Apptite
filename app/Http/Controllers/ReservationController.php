@@ -34,7 +34,8 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $reservationAmount = $request->get('selReservation');
+
     }
 
     /**

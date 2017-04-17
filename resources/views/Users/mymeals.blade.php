@@ -49,6 +49,7 @@
                                                                 <span class="glyphicon glyphicon-calendar"></span>
                                                             </span>
                                                 </div>
+                                                <input type="hidden" name="available_places" value="{{ $meal->available_places }}" >
                                                 <input type="hidden" name="meal_id" value="{{ $meal->id }}" >
                                             </div>
                                         </div>

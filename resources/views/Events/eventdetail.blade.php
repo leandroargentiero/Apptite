@@ -32,7 +32,7 @@
                             <p>€ {{ $event->price }} p.p.</p>
 
                             <h4><i class="fa fa-wheelchair" aria-hidden="true"></i> Aantal vrije plaatsen:</h4>
-                            <p>{{ $event->available_places }}</p>
+                            <p>{{ $event->event_places }}</p>
 
                             <h4><i class="fa fa-globe" aria-hidden="true"></i> Keuken:</h4>
                             <p>{{ $event->kitchen }}</p>
@@ -70,14 +70,18 @@
                 </div>
 
                 <!-- CALL TO ACTION BOOK - CHANGE - FULL -->
+
                 <div>
                     @if($event->id == Auth::user()->id)
                         <a class="cta-toevoegen" href="">Moment wijzigen</a>
                     @elseif($event->available_places == 0)
                         <a class="cta-toevoegen" href="">VOLZET</a>
                     @else
-                        <a class="cta-toevoegen" href="">Een plaats reserveren</a>
+                        <a class="cta-toevoegen" href="#" data-toggle="modal" data-target="#modalReservation">Een plaats
+                            reserveren</a>
                     @endif
+
+                    @include('Modals.modalReservation')
                 </div>
 
                 <!-- GOOGLE MAPS WITH USER'S LOCATION -->

@@ -37,9 +37,9 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::post('/mijnprofiel/update', 'UserController@update');
 
 
-    // EVENT ROUTES
-
     // RESERVATION ROUTES
+    Route::post('/mijnreservaties', 'ReservationController@index');
+    Route::post('/reservaties/reserveren', 'ReservationController@store');
 
 
     Route::get('/users', 'UserController@index');
