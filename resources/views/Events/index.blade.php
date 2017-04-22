@@ -12,7 +12,14 @@
             <div class="event-item">
                 <img src="mealpictures/{{ $eventMeal->meal_picture }}" alt="meal picture">
                 <h4 class="event-price"><span>€ {{$eventMeal->price}}</span> p.p.</h4>
-                <h4 class="event-places">Nog {{$eventMeal->available_places}} plaatsen vrij</h4>
+
+                @if($eventMeal->event_places == 0)
+                    <h4 class="event-places" style="background-color: red;">VOLZET</h4>
+                @else
+                    <h4 class="event-places">Nog {{$eventMeal->event_places}} plaatsen vrij</h4>
+                @endif
+
+
                 <div class="event-title">
                     <h3><a href="/events/{{ $eventMeal->id }}">{{ $eventMeal->meal_name }}</a></h3>
                 </div>

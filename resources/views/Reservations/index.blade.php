@@ -5,10 +5,10 @@
 @stop
 
 @section('content')
-    @if (count($reservations) > 0)
+    @isset($reservations)
         <div class="panel panel-default">
             <div class="panel-heading">
-                Current Tasks
+                Mijn geboekte reservaties
             </div>
 
             <div class="panel-body">
@@ -22,27 +22,26 @@
 
                     <!-- Table Body -->
                     <tbody>
-                    @foreach ($reservations as $reservation)
-                        <tr>
-                            <!-- Task Name -->
-                            <td class="table-text">
-                                <div>{{ $reservation->event_id }}</div>
-                            </td>
+                        @foreach ($reservations as $reservation)
+                            <tr>
+                                <!-- Task Name -->
+                                <td class="table-text">
+                                    <div>{{ $reservation->event_id }}</div>
+                                </td>
 
-                            <td>
-                                <form action="" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-
-                                    <button>Delete Task</button>
-                                </form>
-                                <!-- TODO: Delete Button -->
-                            </td>
-                        </tr>
-                    @endforeach
+                                <td>
+                                    <form action="/reservaties/{{ $reservation->id }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-default"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-    @endif
+    @endisset
 @endsection

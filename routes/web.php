@@ -40,8 +40,8 @@ Route::group(array('middleware' => 'auth'), function () {
     // RESERVATION ROUTES
     Route::get('/mijnreservaties', 'ReservationController@index');
     Route::post('/reservaties/reserveren', 'ReservationController@store');
+    Route::delete('/reservaties/{id}', 'ReservationController@destroy');
 
 
-    Route::get('/users', 'UserController@index');
 
 });

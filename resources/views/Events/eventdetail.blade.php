@@ -74,7 +74,7 @@
                 <div>
                     @if($event->id == Auth::user()->id)
                         <a class="cta-toevoegen" href="">Moment wijzigen</a>
-                    @elseif($event->available_places == 0)
+                    @elseif($event->event_places == 0)
                         <a class="cta-toevoegen" href="">VOLZET</a>
                     @else
                         <a class="cta-toevoegen" href="#" data-toggle="modal" data-target="#modalReservation">Een plaats
