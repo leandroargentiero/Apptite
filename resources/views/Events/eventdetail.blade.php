@@ -3,20 +3,29 @@
 @section('banner')
 
     <div class="eventdetail-wrapper" style="background-image:url('/mealpictures/{{ $event->meal_picture }}')">
-        <h3 class="eventdetail-title">{{ $event->meal_name }}</h3>
+        <div class="eventdetail-content">
+            <h3 class="eventdetail-title">{{ $event->meal_name }}</h3>
+        </div>
     </div>
 
 @stop
 
 @section('content')
     <div class="profile-container">
-
         <!-- SECTION MEALINFO -->
         <div class="row">
             <div class="col-md-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4> {{ $event->meal_name }} </h4>
+                        <div class="panel-title">
+                            {{ $event->meal_name }}
+                            @if( $event->id == Auth::user()->id )
+                                <a href="#" data-toggle="modal"
+                                   data-target="#resourceModal">
+                                    <i class="fa fa-cog pull-right" aria-hidden="true"></i>
+                                </a>
+                            @endif
+                        </div>
                     </div>
                     <div class="panel-body">
                         <div class="col-md-6">
@@ -70,12 +79,11 @@
                 </div>
 
                 <!-- CALL TO ACTION BOOK - CHANGE - FULL -->
-
                 <div>
                     @if($event->id == Auth::user()->id)
                         <a class="cta-toevoegen" href="">Moment wijzigen</a>
                     @elseif($event->event_places == 0)
-                        <a class="cta-toevoegen" href="">VOLZET</a>
+
                     @else
                         <a class="cta-toevoegen" href="#" data-toggle="modal" data-target="#modalReservation">Een plaats
                             reserveren</a>

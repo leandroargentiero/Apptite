@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\Reservation;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,8 +20,14 @@ class ReservationController extends Controller
     public function index()
     {
         $userID = Auth::user()->id;
-        $reservations = DB::table('reservations')
-            ->where('user_id', '=', $userID )
+
+        // GET EVENT + MEAL + USER INFO FROM EACH RESERVATION
+        $reservations = DB::table('users')
+            ->join('meals', 'user_id', '=', 'users.id')
+            ->join('events', 'meal_id', '=', 'meals.id')
+            ->join('reservations', 'reservations.event_id', '=', 'events.id')
+            ->where('reservations.user_id', '=', $userID)
+            ->select('*')
             ->get();
 
         return view ('reservations.index')
@@ -68,7 +76,8 @@ class ReservationController extends Controller
 
 
 
-        return Redirect::to('/mijnreservaties');
+        return Redirect::to('/mijnreservaties')
+            ->with('successmessage', 'Hoera! Je heb een nieuwe reservatie geplaatst.');;;
 
     }
 
@@ -127,6 +136,10 @@ class ReservationController extends Controller
         DB::table('reservations')->where('id', '=', $id)->delete();
 
 
-        return Redirect::to('/mijnreservaties');
+
+
+        return Redirect::to('/mijnreservaties')
+            ->with('successmessage', 'Het moment werd succesvol geannuleerd.');;
+
     }
 }

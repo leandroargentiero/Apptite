@@ -20,9 +20,10 @@
                 <li class="dropdown">
                     <a href="#" class="nav-btn-account dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="/avatars/{{ Auth::user()->profilepic }}" class="profile_pic">Mijn account<span class="caret"></span></a>
                     <ul class="dropdown-menu">
+                        <li><a href="{{ url('/mijnmaaltijden') }}">Mijn maaltijden</a></li>
+                        <li><a href="{{ url('') }}">Mijn momenten</a></li>
+                        <li><a href="{{ url('/mijnreservaties') }}">Mijn reservaties</a></li>
                         <li><a href="{{ url('/mijnprofiel') }}">Mijn profiel</a></li>
-                        <li><a href="{{ url('/mijnmaaltijden') }}">Mijn gerechten</a></li>
-                        <li><a href="">Mijn boekingen</a></li>
                         <li><a href="{{ url('/logout') }}">Uitloggen</a></li>
                     </ul>
                 </li>

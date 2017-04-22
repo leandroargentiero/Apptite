@@ -33,7 +33,7 @@ Route::group(array('middleware' => 'auth'), function () {
 
     // Profile ROUTES
     Route::get('/mijnprofiel', 'UserController@index');
-    Route::get('/profiel/{profiel}', 'UserController@show');
+    Route::get('/profiel/{id}', 'UserController@show');
     Route::post('/mijnprofiel/update', 'UserController@update');
 
 
