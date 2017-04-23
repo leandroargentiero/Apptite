@@ -64,7 +64,7 @@ class MealController extends Controller
         //  $request->name is de string vanuit het inputveld
         $request->user()->meals()->create([
             'meal_name' => $request->meal_name,
-            'description' => $request->description,
+            'description' => $request->meal_description,
             'available_places' => $request->available_places,
             'kitchen' => $request->kitchen,
             'price' => $request->price,

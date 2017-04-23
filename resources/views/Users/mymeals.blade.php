@@ -40,7 +40,7 @@
                                         {{ csrf_field() }}
 
                                         <div class="form-group">
-                                            <label for="email" class="col-md-4 control-label">Kies een datum</label>
+                                            <label for="event_date" class="col-md-4 control-label">Kies een datum</label>
 
                                             <div class="col-md-6">
                                                 <div class="input-group date" id="datetimepicker">

@@ -17,7 +17,7 @@ class CreateMealsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('meal_name');
-            $table->string('description');
+            $table->string('meal_description');
             $table->integer('available_places');
             $table->string('kitchen');
             $table->integer('price');

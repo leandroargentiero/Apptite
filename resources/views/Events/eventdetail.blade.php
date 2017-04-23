@@ -11,6 +11,10 @@
 @stop
 
 @section('content')
+
+    <!-- EDIT EVENT MODAL -->
+    @include('Modals.modalEditEvent')
+
     <div class="profile-container">
         <!-- SECTION MEALINFO -->
         <div class="row">
@@ -21,7 +25,7 @@
                             {{ $event->meal_name }}
                             @if( $event->id == Auth::user()->id )
                                 <a href="#" data-toggle="modal"
-                                   data-target="#resourceModal">
+                                   data-target="#modalEditEvent">
                                     <i class="fa fa-cog pull-right" aria-hidden="true"></i>
                                 </a>
                             @endif
@@ -35,7 +39,7 @@
 
                         <div class="col-md-6">
                             <h4><i class="fa fa-info" aria-hidden="true"></i> Over gerecht:</h4>
-                            <p>{{ $event->description }}</p>
+                            <p>{{ $event->meal_description }}</p>
 
                             <h4><i class="fa fa-money" aria-hidden="true"></i> Prijs:</h4>
                             <p>€ {{ $event->price }} p.p.</p>
@@ -81,7 +85,8 @@
                 <!-- CALL TO ACTION BOOK - CHANGE - FULL -->
                 <div>
                     @if($event->id == Auth::user()->id)
-                        <a class="cta-toevoegen" href="">Moment wijzigen</a>
+                        <a class="cta-toevoegen" href="#" data-toggle="modal"
+                           data-target="#modalEditEvent">Moment wijzigen</a>
                     @elseif($event->event_places == 0)
 
                     @else
