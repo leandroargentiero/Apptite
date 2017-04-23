@@ -16,9 +16,14 @@
         <div class="alert alert-success">
             <strong>{{ Session::get('successmessage') }}</strong>
         </div>
-    @elseif(Session::has('errormessage'))
+    @elseif (count($errors) > 0)
         <div class="alert alert-danger">
-            <strong>{{ Session::get('errormessage') }}</strong>
+            <p>Woops! Er ging iets mis bij het wijzigen:</p>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
         </div>
     @endif
 

@@ -39,7 +39,7 @@
 
                         <div class="col-sm-6">
                             <input type="text" name="available_places" id="meal-places" class="form-control"
-                                   value="{{ $event->available_places }}">
+                                   value="{{ $event->event_places }}">
                         </div>
                     </div>
 

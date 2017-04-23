@@ -104,6 +104,25 @@ return [
         'password' => [
             'confirmed' => 'Wachtwoorden komen niet overeen. Probeer nog eens!',
         ],
+        'meal_name' => [
+            'required' => 'Er werd geen naam van het gerecht ingevuld',
+            'string' => 'Er werd geen geldige naam ingevuld',
+        ],
+        'meal_description' => [
+            'required' => 'Er werd geen beschrijving ingevuld',
+            'string' => 'Er werd geen geldige beschrijving ingevuld',
+        ],
+        'available_places' => [
+            'required' => 'Het aantal beschikbare plaatsen werd niet ingevuld',
+            'integer' => 'Er werd geen geldig aantal plaatsen ingevuld',
+        ],
+        'event_price' => [
+            'required' => 'Er werd geen prijs ingevuld',
+        ],
+        'event_date' => [
+            'required' => 'Er werd geen datum ingevuld',
+            'date' => 'Er werd geen geldige datum ingevuld',
+        ],
     ],
 
     /*

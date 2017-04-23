@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use Carbon\Carbon;
 use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
@@ -20,7 +21,7 @@ class EventController extends Controller
     {
         // GET ALL USERS INFO FOREACH EVENT
         $eventMeals = DB::table('users')
-            ->join('meals', 'user_id', '=','users.id')
+            ->join('meals', 'user_id', '=', 'users.id')
             ->join('events', 'meal_id', '=', 'meals.id')
             ->select('*')
             ->orderBy('events.event_date', 'desc')
@@ -44,7 +45,7 @@ class EventController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -55,11 +56,11 @@ class EventController extends Controller
         $eventplaces = $request->available_places;
 
 
-            $event = new Event();
-            $event->event_date = $eventdate;
-            $event->meal_id = $mealid;
-            $event->event_places = $eventplaces;
-            $event->save();
+        $event = new Event();
+        $event->event_date = $eventdate;
+        $event->meal_id = $mealid;
+        $event->event_places = $eventplaces;
+        $event->save();
 
 
         return Redirect::to('events');
@@ -70,16 +71,16 @@ class EventController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $curl     = new \Ivory\HttpAdapter\CurlHttpAdapter();
+        $curl = new \Ivory\HttpAdapter\CurlHttpAdapter();
         $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
 
         $event = DB::table('events')
-            ->join('meals', 'meals.id', '=','events.meal_id')
+            ->join('meals', 'meals.id', '=', 'events.meal_id')
             ->join('users', 'users.id', '=', 'meals.user_id')
             ->where('events.id', '=', $id)
             ->select('*')
@@ -94,7 +95,7 @@ class EventController extends Controller
         //Mapper::map($lat, $long)->informationWindow($lat, $long, 'Content', ['markers' => ['animation' => 'DROP']]);;
 
         Mapper::map($lat, $long, ['zoom' => 17, 'fullscreenControl' => false, 'center' => true, 'marker' => true, 'cluster' => false]);
-        Mapper::informationWindow($lat, $long, $event->address. ',  ' . $event->postalcode . ' ' . $event->city);
+        Mapper::informationWindow($lat, $long, $event->address . ',  ' . $event->postalcode . ' ' . $event->city);
 
 
         return view('events.eventdetail')
@@ -106,7 +107,7 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -117,13 +118,24 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $eventID = $id;
+
+        $this->validate($request, [
+            'meal_name' => 'required|string|max:255',
+            'meal_description' => 'required|string',
+            'available_places' => 'required|integer',
+            'event_price' => 'required|integer',
+            'event_date' => 'required|date',
+        ]);
+        // CUSTOM MESSAGES => VALIDATION.PHP
+
+
         $mealname = $request->meal_name;
         $mealdescription = $request->meal_description;
         $eventplaces = $request->available_places;
@@ -135,28 +147,49 @@ class EventController extends Controller
             ->value('meal_id');
 
 
-        try {
-            // UPDATE MEAL NAME
-            if ($mealname != null && !empty($mealname)) {
-                DB::table('meals')
-                    ->where('id', '=', $eventmealID)
-                    ->update(['meal_name' => $mealname]);
-            }
-
-
-        } catch (\Exception $e) {
-
-            return redirect('/events/'.$eventID)->with('errormessage', 'Woops! Er ging iets mis bij het wijzigen. Gelieve nog eens te proberen');
+        // UPDATE MEAL NAME
+        if ($mealname != null && !empty($mealname)) {
+            DB::table('meals')
+                ->where('id', '=', $eventmealID)
+                ->update(['meal_name' => $mealname]);
         }
 
-        return Redirect::to('/events/'.$eventID)
-            ->with('successmessage', 'Het moment werd succesvol gewijzigd.');;
+        // UPDATE MEAL DESCRIPTION
+        if ($mealdescription != null && !empty($mealdescription)) {
+            DB::table('meals')
+                ->where('id', '=', $eventmealID)
+                ->update(['meal_description' => $mealdescription]);
+        }
+
+        // UPDATE EVENT PLACES
+        if ($eventplaces != null && !empty($eventplaces)) {
+            DB::table('events')
+                ->where('id', '=', $eventID)
+                ->update(['event_places' => $eventplaces]);
+        }
+
+        // UPDATE MEAL PRICE
+        if ($eventplaces != null && !empty($eventplaces)) {
+            DB::table('meals')
+                ->where('id', '=', $eventmealID)
+                ->update(['price' => $eventprice]);
+        }
+
+        // UPDATE EVENT DATE
+        if ($eventdate != null && !empty($eventdate)) {
+            DB::table('events')
+                ->where('id', '=', $eventID)
+                ->update(['event_date' => $eventdate]);
+        }
+
+        return Redirect::to('/events/' . $eventID)
+            ->with('successmessage', 'Jouw event werd succesvol gewijzigd.');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
