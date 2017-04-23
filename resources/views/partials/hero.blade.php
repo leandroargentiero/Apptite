@@ -3,18 +3,17 @@
         <div class="header">
             <img class="header-logo" src="/assets/images/logo_apptite.svg" alt="logo apptite">
             <div class="row">
-                <h2>Het geheime ingrediënt voor een gloednieuwe eetervaring</h2>
+                <h2>Het geheime ingrediënt voor een unieke eetervaring</h2>
             </div>
             <form action="/events/zoeken" method="POST" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="row searchbox">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="input-group col-md-12">
-                            <span class="input-group-btn">
-                            <i class="glyphicon glyphicon-map-marker"></i>
-                        </span>
+                           <span class="input-group-addon"><i class="fa fa-map-marker"
+                                                              aria-hidden="true"></i></span>
                             <input type="text" name="txtPlace" id="txtPlace" class="form-control input-lg"
-                                   placeholder="Zoek naar een Apptite event in jouw stad..."/>
+                                   placeholder="Zoek naar een Apptite event in jouw stad..." required/>
                         <span class="input-group-btn">
                             <button class="btn btn-default input-lg" type="submit">
                                 <h4>Toon events</h4>
