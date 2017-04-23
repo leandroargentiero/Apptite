@@ -110,6 +110,10 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   margin: 30px auto;
 }
 
+.pac-container:after{
+  content:none !important;
+}
+
 
 
 //---------------------------------------

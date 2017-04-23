@@ -32,6 +32,26 @@ class EventController extends Controller
             ->with('pagetitle', 'Apptite momenten');
     }
 
+    public function search(Request $request)
+    {
+        $searchCity = $request->txtPlace;
+
+        // GET ALL EVENTS FOR KEYWORD = CITY
+        $eventMeals = DB::table('users')
+            ->join('meals', 'user_id', '=', 'users.id')
+            ->join('events', 'meal_id', '=', 'meals.id')
+            ->where('users.city', 'like', '%'.$searchCity.'%' )
+            ->select('*')
+            ->orderBy('events.event_date', 'desc')
+            ->get();
+
+        return view('events.index')
+            ->with('eventMeals', $eventMeals)
+            ->with('searchCity', $searchCity)
+            ->with('pagetitle', 'Apptite momenten');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

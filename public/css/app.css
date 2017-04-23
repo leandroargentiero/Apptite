@@ -105,6 +105,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   margin: 30px auto;
 }
 
+.pac-container:after {
+  content: none !important;
+}
+
 /* Custom, iPhone Retina */
 /* Large Devices, Wide Screens */
 .navbar {
@@ -299,6 +303,16 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   color: #f5f9fb !important;
   font-weight: 200;
   font-size: 20px;
+}
+
+.header .searchbox {
+  margin: 50px 0 0 0;
+}
+
+.header .searchbox h4 {
+  padding: 0 15px 0 15px;
+  font-size: 1em;
+  color: white !important;
 }
 
 .banner {
