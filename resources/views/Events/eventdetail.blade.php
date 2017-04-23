@@ -25,7 +25,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+        @endif
 
                 <!-- EDIT EVENT MODAL -->
         @include('Modals.modalEditEvent')
@@ -35,7 +35,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="panel panel-default">
-                        <div class="panel-heading">
+                        <div class="panel-heading panel-heading-custom">
                             <div class="panel-title">
                                 {{ $event->meal_name }}
                                 @if( $event->id == Auth::user()->id )
@@ -93,7 +93,7 @@
                                     </h4>
                                 </li>
                                 <li class="member-since"> Apptiter
-                                    sinds: {{  date(' F d, Y', strtotime($event->created_at)) }}</li>
+                                    sinds: {{  date(' d F, Y', strtotime($event->created_at)) }}</li>
                             </ul>
                         </div>
                     </div>
@@ -126,41 +126,73 @@
 
                 <!-- SECTION REVIEWS -->
                 <div class="col-md-8">
-                    <h2 class="page-header">Reacties van andere Apptiters</h2>
+                    <h2 class="page-header">Reviews van andere Apptiters</h2>
                     <section class="comment-list">
-                        <!-- First Comment -->
+                        @if(count($reviews) >= 1)
+                        @foreach($reviews as $review)
+                                <!-- REVIEW ARTICLE -->
                         <article class="row">
                             <div class="col-md-2 col-sm-2 hidden-xs">
                                 <figure class="thumbnail">
-                                    <img class="img-responsive" src="/avatars/avatar.jpg"/>
-                                    <figcaption class="text-center">username</figcaption>
+                                    <img class="img-responsive" src="/avatars/{{ $review->profilepic }}"/>
                                 </figure>
                             </div>
                             <div class="col-md-10 col-sm-10">
                                 <div class="panel panel-default arrow left">
                                     <div class="panel-body">
                                         <header class="text-left">
-                                            <div class="comment-user"><i class="fa fa-user"></i> Apptiter</div>
+                                            <div class="comment-user"><i class="fa fa-user"></i> {{ $review->name }}</div>
                                             <time class="comment-date" datetime="16-12-2014 01:05"><i
-                                                        class="fa fa-clock-o"></i> 22 mei, 2017
+                                                        class="fa fa-clock-o"></i> {{  date(' d F, Y', strtotime($review->created_at)) }}
                                             </time>
                                         </header>
                                         <div class="comment-post">
                                             <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam,
-                                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                                consequat.
+                                               {{ $review->review_description }}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </article>
+                        @endforeach
+                        @else
+                            No reviews yet
+                        @endif
                     </section>
                 </div>
-
             </div>
+
+            <!-- SECTION ADD REVIEW -->
+            <div class="col-md-8" style="padding: 0;">
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-heading-custom">
+                        <div class="panel-title">
+                            Laat een review achter
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form action="/review/{{ $event->id }}" method="POST" class="form-horizontal"
+                              enctype="multipart/form-data">
+                            {{ csrf_field() }}
+
+                                    <!-- Meal Description -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea name="review" id="review" cols="40" rows="5"
+                                              class="form-control" value="{{old('review')}}" placeholder="Schrijf hier jouw review
+                                        "></textarea>
+                                    <input name="event_id" type="hidden" value="{{ $eventID }}">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-default pull-right">PLAATSEN</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
 @stop

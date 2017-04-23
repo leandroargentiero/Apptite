@@ -79,6 +79,7 @@ class EventController extends Controller
         $curl = new \Ivory\HttpAdapter\CurlHttpAdapter();
         $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
 
+        // GET ALL USER + MEAL INFO FOR THIS EVENT
         $event = DB::table('events')
             ->join('meals', 'meals.id', '=', 'events.meal_id')
             ->join('users', 'users.id', '=', 'meals.user_id')
@@ -86,6 +87,7 @@ class EventController extends Controller
             ->select('*')
             ->first();
 
+        // THE SPECIFIC EVENT ID
         $eventID = $id;
 
         // SETUP GOOGLE MAPS FOR USER/EVENT LOCATION
@@ -98,9 +100,26 @@ class EventController extends Controller
         Mapper::informationWindow($lat, $long, $event->address . ',  ' . $event->postalcode . ' ' . $event->city);
 
 
+        // GET ALL REVIEWS FOR THIS USER
+        // FIRST THE USER ID FROM THIS EVENT
+        $userID = DB::table('meals')
+            ->join('events', 'events.meal_id', '=', 'meals.id')
+            ->select('meals.user_id')
+            ->value('user_id');
+
+        // GET THE REVIEWS
+        $reviews = DB::table('reviews')
+            ->join('users', 'users.id', '=', 'reviews.user_id')
+            ->where('reviews.user_id', '=', $userID)
+            ->select('*')
+            ->get();
+
+
+
         return view('events.eventdetail')
             ->with('event', $event)
             ->with('eventID', $eventID)
+            ->with('reviews', $reviews)
             ->with('map');
     }
 

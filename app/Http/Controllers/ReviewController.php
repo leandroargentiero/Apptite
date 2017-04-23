@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class ReviewController extends Controller
 {
@@ -30,11 +33,28 @@ class ReviewController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'review' => 'required',
+        ]);
+
+        $eventID = $request->event_id;
+        $reviewtext = $request->review;
+        $userID = $id;
+        $reviewerID = Auth::id();
+
+        // STORE NEW REVIEW
+        $review = new Review();
+        $review->user_id = $userID;
+        $review->reviewer_id = $reviewerID;
+        $review->review_description = $reviewtext;
+        $review->save();
+
+        return Redirect::to('/events/' . $eventID);
     }
 
     /**
