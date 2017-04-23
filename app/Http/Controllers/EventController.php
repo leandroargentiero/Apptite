@@ -104,17 +104,18 @@ class EventController extends Controller
         // FIRST THE USER ID FROM THIS EVENT
         $userID = DB::table('meals')
             ->join('events', 'events.meal_id', '=', 'meals.id')
+            ->where('events.id', '=', $id)
             ->select('meals.user_id')
             ->value('user_id');
 
+
         // GET THE REVIEWS
         $reviews = DB::table('reviews')
-            ->join('users', 'users.id', '=', 'reviews.user_id')
+            ->join('users', 'users.id', '=', 'reviews.reviewer_id')
             ->where('reviews.user_id', '=', $userID)
             ->select('*')
             ->get();
-
-
+        
 
         return view('events.eventdetail')
             ->with('event', $event)

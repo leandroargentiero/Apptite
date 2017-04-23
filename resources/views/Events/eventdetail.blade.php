@@ -157,12 +157,13 @@
                         </article>
                         @endforeach
                         @else
-                            No reviews yet
+                            <p>{{ $event->name }} heeft nog geen reviews mogen ontvangen.</p>
                         @endif
                     </section>
                 </div>
             </div>
 
+            @if($event->id != Auth::user()->id)
             <!-- SECTION ADD REVIEW -->
             <div class="col-md-8" style="padding: 0;">
                 <div class="panel panel-default">
@@ -193,6 +194,7 @@
                     </div>
                 </div>
             </div>
+            @endif
 
         </div>
 @stop
