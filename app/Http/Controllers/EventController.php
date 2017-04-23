@@ -123,7 +123,34 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $eventID = $id;
+        $mealname = $request->meal_name;
+        $mealdescription = $request->meal_description;
+        $eventplaces = $request->available_places;
+        $eventprice = $request->event_price;
+        $eventdate = $request->event_date;
+
+        $eventmealID = DB::table('events')
+            ->where('id', '=', $eventID)
+            ->value('meal_id');
+
+
+        try {
+            // UPDATE MEAL NAME
+            if ($mealname != null && !empty($mealname)) {
+                DB::table('meals')
+                    ->where('id', '=', $eventmealID)
+                    ->update(['meal_name' => $mealname]);
+            }
+
+
+        } catch (\Exception $e) {
+
+            return redirect('/events/'.$eventID)->with('errormessage', 'Woops! Er ging iets mis bij het wijzigen. Gelieve nog eens te proberen');
+        }
+
+        return Redirect::to('/events/'.$eventID)
+            ->with('successmessage', 'Het moment werd succesvol gewijzigd.');;
     }
 
     /**
