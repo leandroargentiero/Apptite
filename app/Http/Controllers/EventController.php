@@ -115,7 +115,7 @@ class EventController extends Controller
             ->where('reviews.user_id', '=', $userID)
             ->select('*')
             ->get();
-        
+
 
         return view('events.eventdetail')
             ->with('event', $event)

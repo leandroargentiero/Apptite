@@ -18,7 +18,7 @@
         </div>
     @elseif (count($errors) > 0)
         <div class="alert alert-danger">
-            <p>Woops! Er ging iets mis bij het wijzigen:</p>
+            <p>Woops! Er ging iets mis:</p>
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -181,12 +181,12 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <textarea name="review" id="review" cols="40" rows="5"
-                                              class="form-control" value="{{old('review')}}" placeholder="Schrijf hier jouw review
+                                              class="form-control review-text" value="{{old('review')}}" placeholder="Schrijf hier jouw review
                                         "></textarea>
                                     <input name="event_id" type="hidden" value="{{ $eventID }}">
                                 </div>
                                 <div class="form-group">
-                                    <button class="btn btn-default pull-right">PLAATSEN</button>
+                                    <button type="submit" class="btn btn-default pull-right">PLAATSEN</button>
                                 </div>
                             </div>
 
@@ -195,6 +195,5 @@
                 </div>
             </div>
             @endif
-
         </div>
 @stop
