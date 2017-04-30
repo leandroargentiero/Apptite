@@ -2,7 +2,7 @@
 
 @section('banner')
 
-    <div class="eventdetail-wrapper" style="background-image:url('/mealpictures/{{ $event->meal_picture }}')">
+    <div class="eventdetail-wrapper" style="background-image:url('/kitchenpictures/{{ $event->user_kitchen }}')">
         <div class="eventdetail-content">
             <h3 class="eventdetail-title">{{ $event->meal_name }}</h3>
         </div>

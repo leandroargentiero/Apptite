@@ -50,7 +50,7 @@ class EventController extends Controller
         return view('events.index')
             ->with('eventMeals', $eventMeals)
             ->with('searchCity', $searchCity)
-            ->with('pagetitle', 'Apptite momenten');
+            ->with('pagetitle', 'Apptite events');
 
     }
 

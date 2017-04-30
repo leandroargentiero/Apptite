@@ -28,7 +28,7 @@
                             <img class="user-avatar" src="avatars/{{ $user->profilepic }}" alt="user avatar">
                         </li>
                         <li class="username"><h3>{{ $user->name }}</h3></li>
-                        <li class="city"><h4><i class="fa fa-map-marker" aria-hidden="true"></i>{{ $user->city }}</h4>
+                        <li class="city"><p><i class="fa fa-map-marker" aria-hidden="true"></i>{{ $user->address }}</p>
                         </li>
                         <li class="member-since"> Apptiter sinds:{{ date(' F d, Y', strtotime($user->created_at)) }}</li>
                     </ul>
