@@ -72,11 +72,10 @@
                                 <p>{{ $event->address }} </br>
                                 </p>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
+
 
                 <!-- SECTION USER INFO -->
                 <div class="col-md-4">
