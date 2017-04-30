@@ -17,6 +17,7 @@
       transition: ease 0.3s opacity;
     }
   }
+
 }
 
 .navbar-nav>li>a{
@@ -25,6 +26,22 @@
 
 .navbar-default{
 
+  .navbar-search{
+    font-family: Roboto, FontAwesome;
+    margin: 9px 0 0 0;
+
+    input{
+      background-color: $secondaryColor;
+      border: none;
+      color: #465c75;
+      font-size: 1.3em;
+      font-weight: 100;
+
+    }
+    ::-webkit-input-placeholder{
+      color: #465c75;
+    }
+  }
   .navbar-right{
     #username{
       color: white;

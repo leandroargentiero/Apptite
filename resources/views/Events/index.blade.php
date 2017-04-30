@@ -6,8 +6,10 @@
 
 @section('content')
     <h3 class="header-title">
-        @if(isset($searchCity))
-        {{count($eventMeals)}} aankomende momenten in <br> {{ $searchCity }}
+        @if(isset($searchCity) && count($eventMeals) > 0)
+            {{count($eventMeals)}} aankomende momenten in <br> {{ $searchCity }}
+        @elseif(isset($searchCity))
+            Sorry, maar we vonden nog geen Apptite events in {{ $searchCity }}.
         @endif
     </h3>
 

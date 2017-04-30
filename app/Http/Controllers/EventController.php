@@ -43,6 +43,7 @@ class EventController extends Controller
             ->join('events', 'meal_id', '=', 'meals.id')
             ->where('users.city', 'like', '%'.$searchCity.'%' )
             ->select('*')
+            ->where('events.event_date', '>=', Carbon::today()->toDateString())
             ->orderBy('events.event_date', 'desc')
             ->get();
 
