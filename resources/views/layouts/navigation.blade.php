@@ -9,13 +9,16 @@
             <a class="navbar-brand logo" href="/home">Apptite</a>
         </div>
 
+        @if(Auth::check())
         <div class="navbar-search col-sm-3 col-md-3">
-            <form class="navbar-form" role="search">
+            <form class="navbar-form" action="/events/zoeken" method="POST">
+                {{ csrf_field() }}
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="&#xf041; zoek in jouw stad" name="searchcity">
+                    <input type="text" id="navbar-search" class="form-control" placeholder="&#xf041; zoek in jouw stad" name="txtPlace">
                 </div>
             </form>
         </div>
+        @endif
 
         <!-- Collect all content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -44,3 +47,15 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmYV-p7oYTnC1TonGfwqMQlIbeAr0ZCus&libraries=places"></script>
+<script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', function () {
+        var places = new google.maps.places.Autocomplete(document.getElementById('navbar-search'),{
+            types: ['(cities)'],
+            componentRestrictions : { country: 'be' }
+        });
+        google.maps.event.addListener(places, 'place_changed', function () {
+
+        });
+    });
+</script>
