@@ -10,7 +10,7 @@ class Meal extends Model
         [
             'user_id',
             'meal_name',
-            'description',
+            'meal_description',
             'available_places',
             'kitchen',
             'meal_picture',

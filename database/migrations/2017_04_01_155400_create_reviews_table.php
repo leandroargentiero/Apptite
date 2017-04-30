@@ -18,7 +18,7 @@ class CreateReviewsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('reviewer_id')->unsigned();
             $table->integer('review_rating');
-            $table->string('review_description');
+            $table->string('review_description', 500);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('reviewer_id')->references('id')->on('users');

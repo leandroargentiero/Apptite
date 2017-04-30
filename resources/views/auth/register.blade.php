@@ -50,7 +50,7 @@
 
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                                    <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
+                                    <input id="street" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
                                 </div>
 
                                 @if ($errors->has('address'))
@@ -169,5 +169,6 @@
         google.maps.event.addListener(city, 'place_changed', function () {
 
         });
+
     });
 </script>
