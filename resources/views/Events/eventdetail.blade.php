@@ -70,7 +70,6 @@
 
                                 <h4><i class="fa fa-map-marker" aria-hidden="true"></i> Locatie:</h4>
                                 <p>{{ $event->address }} </br>
-                                    {{ $event->postalcode}} {{  $event->city }}
                                 </p>
                             </div>
 
@@ -88,9 +87,9 @@
                                     <img class="user-avatar" src="/avatars/{{ $event->profilepic }}" alt="user avatar">
                                 </li>
                                 <li class="username"><h3>{{ $event->name }}</h3></li>
-                                <li class="city"><h4><i class="fa fa-map-marker"
-                                                        aria-hidden="true"></i> {{ $event->city }}
-                                    </h4>
+                                <li class="city"><p><i class="fa fa-map-marker"
+                                                        aria-hidden="true"></i> {{ $event->address }}
+                                    </p>
                                 </li>
                                 <li class="member-since"> Apptiter
                                     sinds: {{  date(' d F, Y', strtotime($event->created_at)) }}</li>

@@ -45,7 +45,7 @@ class MealController extends Controller
         $this->validate($request, [
             //naam van het model/fieldname
             'meal_name' => 'required|max:255',
-            'description' => 'required',
+            'meal_description' => 'required',
             'available_places' => 'required',
             'kitchen' => 'required|max:255',
             'price' => 'required',
@@ -72,7 +72,7 @@ class MealController extends Controller
         ]);
 
         $data['mealname'] = $request->meal_name;
-        $data['mealdescription'] = $request->description;
+        $data['mealdescription'] = $request->meal_description;
         $data['mealplaces'] = $request->available_places;
         $data['mealprice'] = $request->price;
 

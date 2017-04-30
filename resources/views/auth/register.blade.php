@@ -50,48 +50,13 @@
 
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-home" aria-hidden="true"></i></span>
-                                    <input id="street" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
+                                    <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}"
+                                           placeholder=" " required>
                                 </div>
 
                                 @if ($errors->has('address'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="city" class="col-md-4 control-label">Stad*</label>
-
-                            <div class="col-md-6">
-
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
-                                    <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required placeholder=" ">
-                                </div>
-
-                                @if ($errors->has('city'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('city') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="postalcode" class="col-md-4 control-label">Postcode*</label>
-
-                            <div class="col-md-6">
-
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-compass" aria-hidden="true"></i></span>
-                                    <input id="postalcode" type="text" class="form-control" name="postalcode" value="{{ old('postalcode') }}" required>
-                                </div>
-
-                                @if ($errors->has('postalcode'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('postalcode') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -162,11 +127,10 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmYV-p7oYTnC1TonGfwqMQlIbeAr0ZCus&libraries=places"></script>
 <script type="text/javascript">
     google.maps.event.addDomListener(window, 'load', function () {
-        var city = new google.maps.places.Autocomplete(document.getElementById('city'),{
-            types: ['(cities)'],
+        var address = new google.maps.places.Autocomplete(document.getElementById('address'),{
             componentRestrictions : { country: 'be' }
         });
-        google.maps.event.addListener(city, 'place_changed', function () {
+        google.maps.event.addListener(address, 'place_changed', function () {
 
         });
 

@@ -41,7 +41,7 @@ class EventController extends Controller
         $eventMeals = DB::table('users')
             ->join('meals', 'user_id', '=', 'users.id')
             ->join('events', 'meal_id', '=', 'meals.id')
-            ->where('users.city', 'like', '%'.$searchCity.'%' )
+            ->where('users.address', 'like', '%'.$searchCity.'%' )
             ->select('*')
             ->where('events.event_date', '>=', Carbon::today()->toDateString())
             ->orderBy('events.event_date', 'desc')
@@ -116,10 +116,9 @@ class EventController extends Controller
         $coordinates = $geocoder->geocode($event->address);
         $long = $coordinates->get(0)->getLongitude();
         $lat = $coordinates->get(0)->getLatitude();
-        //Mapper::map($lat, $long)->informationWindow($lat, $long, 'Content', ['markers' => ['animation' => 'DROP']]);;
 
         Mapper::map($lat, $long, ['zoom' => 17, 'fullscreenControl' => false, 'center' => true, 'marker' => true, 'cluster' => false]);
-        Mapper::informationWindow($lat, $long, $event->address . ',  ' . $event->postalcode . ' ' . $event->city);
+        Mapper::informationWindow($lat, $long, $event->address);
 
 
         // GET ALL REVIEWS FOR THIS USER

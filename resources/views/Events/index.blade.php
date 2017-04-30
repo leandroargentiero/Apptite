@@ -35,7 +35,7 @@
                                          alt="user avatar"></a>
                         <h3 class="user-name"><a href="#">{{ $eventMeal->name }}</a></h3>
                         <h4 class="user-location"><i class="fa fa-map-marker"
-                                                     aria-hidden="true"></i> {{$eventMeal->city}}</h4>
+                                                     aria-hidden="true"></i> {{$eventMeal->address}}</h4>
                     </div>
                 </div>
             </div>

@@ -57,7 +57,7 @@
                                     <label for="meal-description" class="col-sm-5 control-label">Beschrijving van het gerecht</label>
 
                                     <div class="col-sm-6">
-                                        <textarea name="description" id="meal-description" cols="40" rows="5" class="form-control" value="{{old('description')}}"></textarea>
+                                        <textarea name="meal_description" id="meal-description" cols="40" rows="5" class="form-control" value="{{old('description')}}"></textarea>
                                     </div>
                                 </div>
 
