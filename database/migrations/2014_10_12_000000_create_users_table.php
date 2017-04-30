@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('address');
             $table->string('profilepic')->default("avatar.jpg");
-            $table->string('user_kitchen')->default("default_kitchen.jpg");
+            $table->string('homepicture')->default("default_home.jpg");
             $table->string('description')->default("Deze Apptiter heeft nog geen beschrijving gegeven.");
             $table->rememberToken();
             $table->timestamps();

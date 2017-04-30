@@ -98,6 +98,15 @@ class UserController extends Controller
                 $user->profilepic = $filename;
             }
 
+            // UPDATE USER'S KITCHE/DINNER PLACE
+            if ($request->hasFile('homepicture')) {
+                $homepicture = $request->file('homepicture');
+                $filename = time() . '.' . $homepicture->getClientOriginalExtension();
+                Image::make($homepicture)->fit(1000, 300)->save(public_path('homepictures/' . $filename));
+
+                $user->homepicture = $filename;
+            }
+
             // UPDATE BIO DESCRIPTION
             if ($bio != null) {
                 $user->description = $bio;

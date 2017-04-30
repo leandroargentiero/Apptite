@@ -2,7 +2,7 @@
 
 @section('banner')
 
-    <div class="eventdetail-wrapper" style="background-image:url('/kitchenpictures/{{ $event->user_kitchen }}')">
+    <div class="eventdetail-wrapper" style="background-image:url('/homepictures/{{ $event->homepicture }}')">
         <div class="eventdetail-content">
             <h3 class="eventdetail-title">{{ $event->meal_name }}</h3>
         </div>
@@ -59,7 +59,7 @@
                                 <h4><i class="fa fa-money" aria-hidden="true"></i> Prijs:</h4>
                                 <p>€ {{ $event->price }} p.p.</p>
 
-                                <h4><i class="fa fa-wheelchair" aria-hidden="true"></i> Aantal vrije plaatsen:</h4>
+                                <h4><i class="fa fa-user" aria-hidden="true"></i> Aantal vrije plaatsen:</h4>
                                 <p>{{ $event->event_places }}</p>
 
                                 <h4><i class="fa fa-globe" aria-hidden="true"></i> Keuken:</h4>

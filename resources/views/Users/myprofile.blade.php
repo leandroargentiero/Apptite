@@ -51,12 +51,19 @@
                               action="/mijnprofiel/update" enctype="multipart/form-data">
                             {{ csrf_field() }}
 
-                                    <!-- CHANGE AVATAR -->
                             <tr>
-                                <div class="form-group col-md-12">
+                                <!-- CHANGE AVATAR -->
+                                <div class="form-group col-md-6">
                                     <label for="useravatar" class="control-label">Wijzig profielfoto</label>
                                     <input name="useravatar" id="useravatar" type="file"
                                            value="{{old('useravatar')}}">
+                                    <input type="hidden" value="{{csrf_token()}}" name="_token">
+                                </div>
+                                <!-- CHANGE USER'S HOMEPICTURE -->
+                                <div class="form-group col-md-6">
+                                    <label for="homepicure" class="control-label">Wijzig de foto van jouw eetplaats</label>
+                                    <input name="homepicture" id="homepicture" type="file"
+                                           value="{{old('homepicture')}}">
                                     <input type="hidden" value="{{csrf_token()}}" name="_token">
                                 </div>
                             </tr>
