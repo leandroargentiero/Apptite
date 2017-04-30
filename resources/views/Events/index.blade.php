@@ -5,7 +5,11 @@
 @stop
 
 @section('content')
-    <h3 class="header-title">{{count($eventMeals)}} aankomende momenten in <br> {{ $searchCity }}</h3>
+    <h3 class="header-title">
+        @if(isset($searchCity))
+        {{count($eventMeals)}} aankomende momenten in <br> {{ $searchCity }}
+        @endif
+    </h3>
 
     <div class="event-container">
         @foreach($eventMeals as $eventMeal)
