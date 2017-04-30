@@ -68,7 +68,7 @@
 
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-globe" aria-hidden="true"></i></span>
-                                    <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required>
+                                    <input id="city" type="text" class="form-control" name="city" value="{{ old('city') }}" required placeholder=" ">
                                 </div>
 
                                 @if ($errors->has('city'))
@@ -96,23 +96,6 @@
                                 @endif
                             </div>
                         </div>
-
-                        <!-- AVATAR UPLOAD ============
-                        <div class="form-group">
-                            <label for="avatar" class="col-md-4 control-label">Kies een profielfoto</label>
-
-                            <div class="col-md-4">
-                                <label class="btn btn-primary" for="avatar-upload">
-                                    <input name="avatar-upload" id="avatar-upload" class="avatar-upload" type="file" class="file" style="display: none;">
-                                    Uploaden...
-                                </label>
-                            </div>
-
-                            <div class="col-md-3">
-                                <img class="upload-preview img-rounded"  width="70" height="70" src="avatars/avatar.jpg" alt="avatar">
-                            </div>
-                        </div>
-                        -->
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Wachtwoord*</label>
@@ -174,3 +157,17 @@
     </div>
 </div>
 @endsection
+
+        <!-- GOOGLE API PLACES -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmYV-p7oYTnC1TonGfwqMQlIbeAr0ZCus&libraries=places"></script>
+<script type="text/javascript">
+    google.maps.event.addDomListener(window, 'load', function () {
+        var city = new google.maps.places.Autocomplete(document.getElementById('city'),{
+            types: ['(cities)'],
+            componentRestrictions : { country: 'be' }
+        });
+        google.maps.event.addListener(city, 'place_changed', function () {
+
+        });
+    });
+</script>
