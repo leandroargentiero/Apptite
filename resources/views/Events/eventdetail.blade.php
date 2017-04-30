@@ -66,9 +66,9 @@
                                 <p>{{ $event->kitchen }}</p>
 
                                 <h4><i class="fa fa-calendar" aria-hidden="true"></i> Wanneer:</h4>
-                                <p>{{  date(' F d, Y', strtotime($event->event_date)) }}</p>
+                                <p>{{  date(' d F, Y', strtotime($event->event_date)) }}</p>
 
-                                <h4><i class="fa fa-map-marker" aria-hidden="true"></i> Locatie:</h4>
+                                <h4><i class="fa fa-map-marker" aria-hidden="true"></i> Waar:</h4>
                                 <p>{{ $event->address }} </br>
                                 </p>
                             </div>
@@ -86,12 +86,8 @@
                                     <img class="user-avatar" src="/avatars/{{ $event->profilepic }}" alt="user avatar">
                                 </li>
                                 <li class="username"><h3>{{ $event->name }}</h3></li>
-                                <li class="city"><p><i class="fa fa-map-marker"
-                                                        aria-hidden="true"></i> {{ $event->address }}
-                                    </p>
-                                </li>
-                                <li class="member-since"> Apptiter
-                                    sinds: {{  date(' d F, Y', strtotime($event->created_at)) }}</li>
+                                <li class="member-since"> Apptiter sinds:
+                                    {{  date(' d F, Y', strtotime($event->created_at)) }}</li>
                             </ul>
                         </div>
                     </div>

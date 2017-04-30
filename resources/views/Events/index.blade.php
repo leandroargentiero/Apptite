@@ -13,9 +13,9 @@
         @endif
     </h3>
 
-    <div class="event-container">
+    <div class="event-container animated zoomIn">
         @foreach($eventMeals as $eventMeal)
-            <div class="event-item">
+            <div class="event-item hvr-float">
                 <img src="/mealpictures/{{ $eventMeal->meal_picture }}" alt="meal picture">
                 <h4 class="event-price"><span>€ {{$eventMeal->price}}</span> p.p.</h4>
 

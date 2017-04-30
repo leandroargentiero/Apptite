@@ -7,7 +7,7 @@
             </div>
             <form action="/events/zoeken" method="POST" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
-                <div class="row searchbox">
+                <div class="row searchbox animated fadeInUpBig">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="input-group col-md-12">
                            <span class="input-group-addon"><i class="fa fa-map-marker"

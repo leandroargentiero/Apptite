@@ -14,7 +14,7 @@
             <form class="navbar-form" action="/events/zoeken" method="POST">
                 {{ csrf_field() }}
                 <div class="input-group">
-                    <input type="text" id="navbar-search" class="form-control" placeholder="&#xf041; zoek in jouw stad" name="txtPlace">
+                    <input type="text" id="navbar-search" class="form-control" placeholder="&#xf002; zoek in jouw stad" name="txtPlace">
                 </div>
             </form>
         </div>
