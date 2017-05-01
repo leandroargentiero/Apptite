@@ -1,0 +1,20 @@
+.user-detail {
+
+  .user-image {
+    border-radius: 50%;
+    display: block;
+    width: 250px;
+    height: 250px;
+    margin: 0 auto 20px auto;
+  }
+
+  .user-info {
+    text-align: center;
+
+    .user-date{
+      font-weight: 500;
+    }
+  }
+
+
+}

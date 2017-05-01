@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
 
 class UserController extends Controller
 {
@@ -55,15 +57,56 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $curl = new \Ivory\HttpAdapter\CurlHttpAdapter();
+        $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
+
         $userID = $id;
 
+        // GET ALL USER INFO
         $user = DB::table('users')
             ->where('id', '=', $userID)
             ->select('*')
             ->first();
 
+        // GET ALL EVENTS FROM USER
+        $totalEvents = DB::table('users')
+            ->join('meals', 'user_id', '=', 'users.id')
+            ->join('events', 'meal_id', '=', 'meals.id')
+            ->where('users.id', '=', $userID)
+            ->select('*')
+            ->get();
+
+        // GET ALL UPCOMING EVENTS
+        $comingEvents = DB::table('users')
+            ->join('meals', 'user_id', '=', 'users.id')
+            ->join('events', 'meal_id', '=', 'meals.id')
+            ->where('users.id', '=', $userID)
+            ->where('events.event_date', '>=', Carbon::today()->toDateString())
+            ->select('*')
+            ->get();
+
+        // GET ALL REVIEWS FOR THIS USER
+        $reviews = DB::table('reviews')
+            ->join('users', 'users.id', '=', 'reviews.reviewer_id')
+            ->where('reviews.user_id', '=', $userID)
+            ->select('*')
+            ->get();
+
+        // SETUP GOOGLE MAPS FOR USER/EVENT LOCATION
+        $coordinates = $geocoder->geocode($user->address);
+        $long = $coordinates->get(0)->getLongitude();
+        $lat = $coordinates->get(0)->getLatitude();
+
+        Mapper::map($lat, $long, ['zoom' => 17, 'fullscreenControl' => false, 'center' => true, 'marker' => true, 'cluster' => false]);
+        Mapper::informationWindow($lat, $long, $user->address);
+
         return view('users.index')
-            ->with('user', $user);
+            ->with('user', $user)
+            ->with('map')
+            ->with('totalevents', $totalEvents)
+            ->with('comingevents', $comingEvents)
+            ->with('reviews', $reviews);
+
 
     }
 

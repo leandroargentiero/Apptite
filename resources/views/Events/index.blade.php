@@ -33,7 +33,7 @@
                     <div class="event-description-content">
                         <a href="/profiel/ {{ $eventMeal->id }}"><img class="user-avatar" src="/avatars/{{ $eventMeal->profilepic }}"
                                          alt="user avatar"></a>
-                        <h3 class="user-name"><a href="#">{{ $eventMeal->name }}</a></h3>
+                        <h3 class="user-name"><a href="/profiel/ {{ $eventMeal->id }}">{{ $eventMeal->name }}</a></h3>
                         <h4 class="user-location"><i class="fa fa-map-time"
                                                      aria-hidden="true"></i>
                             {{  date(' d F, Y', strtotime($eventMeal->event_date)) }}</h4>

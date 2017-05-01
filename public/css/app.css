@@ -804,6 +804,22 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   text-decoration: none;
 }
 
+.user-detail .user-image {
+  border-radius: 50%;
+  display: block;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 20px auto;
+}
+
+.user-detail .user-info {
+  text-align: center;
+}
+
+.user-detail .user-info .user-date {
+  font-weight: 500;
+}
+
 .reservation-avatar {
   height: 30px;
   width: 30px;
