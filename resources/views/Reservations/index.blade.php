@@ -78,10 +78,6 @@
                     <tr>
                         <h4>Er staan momenteel geen reservaties gepland.</h4>
                     </tr>
-                    <tr>
-                        <button class="btn btn-default btn-zoek"><a href="/events">Zoek naar een Apptite moment</a>
-                        </button>
-                    </tr>
                 @endif
                 </tbody>
             </table>

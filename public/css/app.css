@@ -674,7 +674,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   border-radius: 10%;
   font-weight: 300;
   font-size: .8em;
-  background-color: green;
+  background-color: #688E26;
   color: white !important;
 }
 
@@ -726,6 +726,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   text-align: center;
 }
 
+.event-container .event-item .event-title a:hover {
+  text-decoration: none;
+}
+
 .event-container .event-item .event-title h3 {
   line-height: 230px;
   font-size: 1.2em;
@@ -735,8 +739,15 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   color: white !important;
 }
 
-.event-container .event-item .event-title h3 a:hover {
-  text-decoration: none;
+.event-container .event-item .event-title .icon-add {
+  color: white !important;
+  font-size: 100px;
+  line-height: 0;
+  margin: 50px  0 0 0;
+}
+
+.event-container .event-item .event-title .default-title {
+  color: white !important;
 }
 
 .event-container .event-item:hover .event-title {

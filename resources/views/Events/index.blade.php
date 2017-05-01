@@ -20,7 +20,7 @@
                 <h4 class="event-price"><span>€ {{$eventMeal->price}}</span> p.p.</h4>
 
                 @if($eventMeal->event_places == 0)
-                    <h4 class="event-places" style="background-color: red;">VOLZET</h4>
+                    <h4 class="event-places" style="background-color: #D7263D;">VOLZET</h4>
                 @else
                     <h4 class="event-places">Nog {{$eventMeal->event_places}} plaatsen vrij</h4>
                 @endif
@@ -31,19 +31,26 @@
                 </div>
                 <div class="event-description">
                     <div class="event-description-content">
-                        <a href="#"><img class="user-avatar" src="/avatars/{{ $eventMeal->profilepic }}"
+                        <a href="/profiel/ {{ $eventMeal->id }}"><img class="user-avatar" src="/avatars/{{ $eventMeal->profilepic }}"
                                          alt="user avatar"></a>
                         <h3 class="user-name"><a href="#">{{ $eventMeal->name }}</a></h3>
-                        <h4 class="user-location"><i class="fa fa-map-marker"
-                                                     aria-hidden="true"></i> {{$eventMeal->address}}</h4>
+                        <h4 class="user-location"><i class="fa fa-map-time"
+                                                     aria-hidden="true"></i>
+                            {{  date(' d F, Y', strtotime($eventMeal->event_date)) }}</h4>
                     </div>
                 </div>
             </div>
             @endforeach
 
                     <!-- DEFAULT ITEM FOR ADDING EVENT -->
-            <div class="event-item">
+            <div class="event-item hvr-float">
                 <img src="/assets/images/thumbnail-neighbour.jpg" alt="Add meal">
+                <div class="event-title">
+                    <a href="{{ url('/maaltijden/aanmaken') }}">
+                        <h3 class="icon-add"><i class="fa fa-plus" aria-hidden="true"></i></h3>
+                        <h4 class="default-title">Word Apptite chef</h4>
+                    </a>
+                </div>
             </div>
     </div>
 @endsection

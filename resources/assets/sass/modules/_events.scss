@@ -44,7 +44,7 @@
       border-radius: 10%;
       font-weight: 300;
       font-size: .8em;
-      background-color: green;
+      background-color: #688E26;
       color: white !important;
     }
     .event-description{
@@ -96,18 +96,30 @@
       display: none;
       text-align: center;
 
+      a{
+        &:hover{
+          text-decoration: none;
+        }
+      }
+
       h3 {
         line-height: 230px;
         font-size: 1.2em;
         a {
           color: white !important;
-
-          &:hover {
-            text-decoration: none;
-          }
         }
       }
 
+      .icon-add{
+        color: white !important;
+        font-size: 100px;
+        line-height: 0;
+        margin: 50px  0 0 0;
+      }
+
+      .default-title{
+        color: white !important;
+      }
 
     }
 

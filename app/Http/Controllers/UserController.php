@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
 
@@ -54,7 +55,16 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $userID = $id;
+
+        $user = DB::table('users')
+            ->where('id', '=', $userID)
+            ->select('*')
+            ->first();
+
+        return view('users.index')
+            ->with('user', $user);
+
     }
 
     /**

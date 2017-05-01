@@ -10,10 +10,9 @@
                 <div class="row searchbox animated fadeInUpBig">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="input-group col-md-12">
-                           <span class="input-group-addon"><i class="fa fa-map-marker"
-                                                              aria-hidden="true"></i></span>
                             <input type="text" name="txtPlace" id="txtPlace" class="form-control input-lg"
-                                   placeholder="Zoek naar een Apptite event in jouw stad..." required/>
+                                   placeholder="&#xf002;  Zoek naar een Apptite event in jouw stad..."
+                                   style="font-family: Roboto, FontAwesome;"required/>
                         <span class="input-group-btn">
                             <button class="btn btn-default input-lg" type="submit">
                                 <h4>Toon events</h4>

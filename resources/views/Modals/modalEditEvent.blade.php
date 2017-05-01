@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Jouw moment wijzigen:</h4>
+                <h4 class="modal-title">Jouw event wijzigen:</h4>
             </div>
             <div class="modal-body">
                 <form action="/events/update/{{ $eventID }}" method="POST" class="form-horizontal" enctype="multipart/form-data">

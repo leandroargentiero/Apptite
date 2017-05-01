@@ -96,7 +96,7 @@
                     <div>
                         @if($event->id == Auth::user()->id)
                             <a class="cta-toevoegen" href="#" data-toggle="modal"
-                               data-target="#modalEditEvent">Moment wijzigen</a>
+                               data-target="#modalEditEvent">Event wijzigen</a>
                         @elseif($event->event_places == 0)
 
                         @else
