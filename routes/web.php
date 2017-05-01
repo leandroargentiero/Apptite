@@ -36,7 +36,6 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::post('/events/zoeken', 'EventController@search');
 
 
-
     // Profile ROUTES
     Route::get('/mijnprofiel', 'UserController@index');
     Route::get('/profiel/{id}', 'UserController@show');

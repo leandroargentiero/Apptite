@@ -42,7 +42,6 @@ class ReviewController extends Controller
             'review' => 'required',
         ]);
 
-        $eventID = $request->event_id;
         $reviewtext = $request->review;
         $userID = $id;
         $reviewerID = Auth::id();
@@ -54,7 +53,7 @@ class ReviewController extends Controller
         $review->review_description = $reviewtext;
         $review->save();
 
-        return Redirect::to('/events/' . $eventID);
+        return Redirect::to('/profiel/' . $userID);
     }
 
     /**

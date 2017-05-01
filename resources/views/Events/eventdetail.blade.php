@@ -85,7 +85,7 @@
                                 <li class="user-image">
                                     <img class="user-avatar" src="/avatars/{{ $event->profilepic }}" alt="user avatar">
                                 </li>
-                                <li class="username"><h3>{{ $event->name }}</h3></li>
+                                <li class="username"><h3><a href="/profiel/{{ $event->id }}">{{ $event->name }}</a></h3></li>
                                 <li class="member-since"> Apptiter sinds:
                                     {{  date(' d F, Y', strtotime($event->created_at)) }}</li>
                             </ul>
@@ -156,38 +156,5 @@
                     </section>
                 </div>
             </div>
-
-            @if($event->id != Auth::user()->id)
-            <!-- SECTION ADD REVIEW -->
-            <div class="col-md-8" style="padding: 0;">
-                <div class="panel panel-default">
-                    <div class="panel-heading panel-heading-custom">
-                        <div class="panel-title">
-                            Laat een review achter
-                        </div>
-                    </div>
-                    <div class="panel-body">
-                        <form action="/review/{{ $event->id }}" method="POST" class="form-horizontal"
-                              enctype="multipart/form-data">
-                            {{ csrf_field() }}
-
-                                    <!-- Meal Description -->
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <textarea name="review" id="review" cols="40" rows="5"
-                                              class="form-control review-text" value="{{old('review')}}" placeholder="Schrijf hier jouw review
-                                        "></textarea>
-                                    <input name="event_id" type="hidden" value="{{ $eventID }}">
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-default pull-right">PLAATSEN</button>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-            @endif
         </div>
 @stop
