@@ -6,10 +6,10 @@
 
 @section('content')
     <div class="">
-        <h2 style="text-align: center; margin: 0 0 100px 0;">Hoe werkt het?</h2>
+        <h2 style="text-align: center; margin: 0 0 100px 0;" class="hometitle">Hoe werkt het?</h2>
         <div class="row" style="margin: 0 0 80px 0;">
             <div class="col-md-6">
-                <h2>Zoek naar een Apptite moment</h2>
+                <h2 class="homesubtitle">Zoek naar een Apptite moment</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -21,15 +21,15 @@
                 </button>
             </div>
             <div class="col-md-5 pull-right">
-                <div style="width: 100%; height: 300px; background-color: grey"></div>
+                <img class="img-howitworks" src="/assets/images/zoekevent.png" alt="Zoek naar Apptite event">
             </div>
         </div>
         <div class="row">
             <div class="col-md-5 pull-left">
-                <div style="width: 100%; height: 300px; background-color: grey"></div>
+                <img class="img-howitworks" src="/assets/images/wordchef.png" alt="Word Apptite chef">
             </div>
             <div class="col-md-6">
-                <h2>Word Apptite chef</h2>
+                <h2 class="homesubtitle">Word Apptite chef</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse

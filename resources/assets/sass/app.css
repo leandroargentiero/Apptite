@@ -75,8 +75,23 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 .container {
   margin: 30px auto; }
 
+.pac-container:after {
+  content: none !important; }
+
 /* Custom, iPhone Retina */
 /* Large Devices, Wide Screens */
+.img-howitworks {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto 0 auto; }
+
+.hometitle {
+  font-size: 3em; }
+
+.homesubtitle {
+  margin-bottom: 1em; }
+
 .navbar {
   background-color: #263240;
   border-radius: 0;
@@ -96,6 +111,17 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 .navbar-nav > li > a {
   color: #f5f9fb !important; }
 
+.navbar-default .navbar-search {
+  font-family: Roboto, FontAwesome;
+  margin: 9px 0 0 0; }
+  .navbar-default .navbar-search input {
+    background-color: #263240;
+    border: none;
+    color: #465c75;
+    font-size: 1.3em;
+    font-weight: 100; }
+  .navbar-default .navbar-search ::-webkit-input-placeholder {
+    color: #465c75; }
 .navbar-default .navbar-right #username {
   color: white;
   font-weight: 500;
@@ -227,6 +253,12 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     color: #f5f9fb !important;
     font-weight: 200;
     font-size: 20px; }
+  .header .searchbox {
+    margin: 50px 0 0 0; }
+    .header .searchbox h4 {
+      padding: 0 15px 0 15px;
+      font-size: 1em;
+      color: white !important; }
 
 .banner {
   background-image: url(/assets/images/banner-table.jpg);
@@ -264,9 +296,9 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   .eventdetail-wrapper .eventdetail-title {
     text-align: center;
     color: white !important;
-    line-height: 300px;
     text-transform: uppercase;
-    font-size: 3em; }
+    font-size: 3em;
+    line-height: 300px; }
 
 .footer-distributed {
   background-color: #263240;
@@ -475,7 +507,7 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
       border-radius: 10%;
       font-weight: 300;
       font-size: .8em;
-      background-color: green;
+      background-color: #688E26;
       color: white !important; }
     .event-container .event-item .event-description {
       position: absolute;
@@ -515,13 +547,20 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
       background-color: rgba(0, 0, 0, 0.3);
       display: none;
       text-align: center; }
+      .event-container .event-item .event-title a:hover {
+        text-decoration: none; }
       .event-container .event-item .event-title h3 {
         line-height: 230px;
         font-size: 1.2em; }
         .event-container .event-item .event-title h3 a {
           color: white !important; }
-          .event-container .event-item .event-title h3 a:hover {
-            text-decoration: none; }
+      .event-container .event-item .event-title .icon-add {
+        color: white !important;
+        font-size: 100px;
+        line-height: 0;
+        margin: 50px  0 0 0; }
+      .event-container .event-item .event-title .default-title {
+        color: white !important; }
     .event-container .event-item:hover .event-title {
       display: block; }
 
@@ -555,6 +594,28 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   .profile-container .cta-toevoegen:hover {
     background-color: #238dc4;
     transition: ease 0.3s background-color;
+    text-decoration: none; }
+
+.user-detail .user-image {
+  border-radius: 50%;
+  display: block;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 20px auto; }
+.user-detail .user-info {
+  text-align: center; }
+  .user-detail .user-info .user-date {
+    font-weight: 500; }
+
+.reservation-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%; }
+
+.btn-zoek {
+  margin: 20px 0 0 0; }
+  .btn-zoek a {
+    color: white;
     text-decoration: none; }
 
 /*# sourceMappingURL=app.css.map */

@@ -111,6 +111,21 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 /* Custom, iPhone Retina */
 /* Large Devices, Wide Screens */
+.img-howitworks {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto 0 auto;
+}
+
+.hometitle {
+  font-size: 3em;
+}
+
+.homesubtitle {
+  margin-bottom: 1em;
+}
+
 .navbar {
   background-color: #263240;
   border-radius: 0;
