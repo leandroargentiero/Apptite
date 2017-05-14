@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -10,6 +11,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class NewReservation extends Mailable
 {
     use Queueable, SerializesModels;
+
 
     /**
      * Create a new message instance.
@@ -29,6 +31,7 @@ class NewReservation extends Mailable
     public function build()
     {
         return $this->from('info@apptite.be')
-                    ->view('view.name');
+                    ->subject('Nieuwe reservatie')
+                    ->view('emails.newreservation');
     }
 }

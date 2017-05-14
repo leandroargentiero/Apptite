@@ -113,7 +113,7 @@
                 <tr>
                     <td align="center" class="masthead">
 
-                        <h1>Nieuwe Reservatie...</h1>
+                        <h1>Nieuwe Reservatie</h1>
 
                     </td>
                 </tr>
@@ -122,8 +122,7 @@
 
                         <h2>Hallo Apptiter,</h2>
 
-                        <p>Lorem Ipsum...</p>
-
+                        <p>Je hebt een nieuwe reservatie ontvangen voor jouw Apptite event.</p>
 
                         <table>
                             <tr>
@@ -134,6 +133,8 @@
                                 </td>
                             </tr>
                         </table>
+
+                        <p>Het Apptite team.</p>
 
                     </td>
                 </tr>

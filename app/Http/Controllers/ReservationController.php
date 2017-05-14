@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Mail\NewReservation;
 use App\Reservation;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class ReservationController extends Controller
@@ -74,6 +76,18 @@ class ReservationController extends Controller
                 ->update(['event_places' => $newAvailableplaces]);
         }
 
+
+        // GET RECIPIENT FOR MAIL
+        $recipient = DB::table('users')
+            ->join('meals', 'user_id', '=', 'users.id')
+            ->join('events', 'meal_id', '=', 'meals.id')
+            ->join('reservations', 'reservations.event_id', '=', 'events.id')
+            ->where('reservations.user_id', '=', $userID)
+            ->select('*')
+            ->first();
+
+        // SEND MAIL TO USER
+        Mail::to($recipient)->send(new NewReservation());
 
 
         return Redirect::to('/mijnreservaties')
