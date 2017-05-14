@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Mail\CancelReservation;
 use App\Mail\NewReservation;
 use App\Reservation;
 use Carbon\Carbon;
@@ -32,7 +33,7 @@ class ReservationController extends Controller
             ->where('reservations.user_id', '=', $userID)
             ->select('users.id as user_id','event_id', 'event_date', 'reservation_places', 'name', 'meal_name', 'reservations.id')
             ->get();
-        
+
         $currentDate = Carbon::now()->format('d-m-Y');
 
         return view ('reservations.index')
@@ -90,7 +91,7 @@ class ReservationController extends Controller
             ->select('*')
             ->first();
 
-        // SEND MAIL TO USER
+        // SEND CONFIRMATION MAIL TO ORGANIZER
         Mail::to($recipient)->send(new NewReservation());
 
 
@@ -141,6 +142,20 @@ class ReservationController extends Controller
      */
     public function destroy($id)
     {
+        $eventID = DB::table('reservations')->where('id', '=', $id)->value('event_id');
+        // GET RECIPIENT FOR MAIL
+        $recipient = DB::table('users')
+            ->join('meals', 'user_id', '=', 'users.id')
+            ->join('events', 'meal_id', '=', 'meals.id')
+            ->join('reservations', 'reservations.event_id', '=', 'events.id')
+            ->where('reservations.event_id', '=', $eventID)
+            ->select('*')
+            ->first();
+
+        // SEND CONFIRMATION MAIL TO ORGANIZER
+        Mail::to($recipient)->send(new CancelReservation());
+
+        dd($recipient);
         // GET RESERVATION PLACES
         $reservationPlaces = DB::table('reservations')->where('id', '=', $id)->value('reservation_places');
 
@@ -152,8 +167,6 @@ class ReservationController extends Controller
 
         // DELETE RESERVATION RECORD
         DB::table('reservations')->where('id', '=', $id)->delete();
-
-
 
 
         return Redirect::to('/mijnreservaties')
