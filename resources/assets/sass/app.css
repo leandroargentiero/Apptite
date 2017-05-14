@@ -5,7 +5,9 @@
 
 html, body {
   height: 100%;
-  color: #333; }
+  color: #333;
+  max-width: 100%;
+  overflow-x: hidden; }
 
 body {
   font-family: Roboto;
@@ -609,7 +611,13 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 .user-detail .user-info {
   text-align: center; }
   .user-detail .user-info .user-date {
-    font-weight: 500; }
+    font-weight: 100; }
+
+.star-rating {
+  line-height: 32px;
+  font-size: 1.25em;
+  cursor: pointer;
+  margin: 0 0 20px 0; }
 
 .reservation-avatar {
   height: 30px;

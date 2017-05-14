@@ -32,7 +32,7 @@
                                                                            class="profile_pic">Mijn account<span
                                     class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ url('/mijnmaaltijden') }}">Mijn kookboek</a></li>
+                            <li><a href="{{ url('/mijnkookboek') }}">Mijn kookboek</a></li>
                             <li><a href="{{ url('') }}">Mijn events</a></li>
                             <li><a href="{{ url('/mijnreservaties') }}">Mijn reservaties</a></li>
                             <li><a href="{{ url('/mijnprofiel') }}">Mijn profiel</a></li>

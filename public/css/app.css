@@ -7,6 +7,8 @@
 html, body {
   height: 100%;
   color: #333;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -836,7 +838,14 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .user-detail .user-info .user-date {
-  font-weight: 500;
+  font-weight: 100;
+}
+
+.star-rating {
+  line-height: 32px;
+  font-size: 1.25em;
+  cursor: pointer;
+  margin: 0 0 20px 0;
 }
 
 .reservation-avatar {

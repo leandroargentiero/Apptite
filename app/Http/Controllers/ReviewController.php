@@ -42,6 +42,7 @@ class ReviewController extends Controller
             'review' => 'required',
         ]);
 
+        $rating = $request->rating;
         $reviewtext = $request->review;
         $userID = $id;
         $reviewerID = Auth::id();
@@ -51,6 +52,7 @@ class ReviewController extends Controller
         $review->user_id = $userID;
         $review->reviewer_id = $reviewerID;
         $review->review_description = $reviewtext;
+        $review->review_rating = $rating;
         $review->save();
 
         return Redirect::to('/profiel/' . $userID);

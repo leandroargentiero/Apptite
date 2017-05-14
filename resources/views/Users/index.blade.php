@@ -78,23 +78,28 @@
             <section class="comment-list">
                 @if(count($reviews) >= 1)
                 @foreach($reviews as $review)
-                <!-- REVIEW ARTICLE -->
+                        <!-- REVIEW ARTICLE -->
                 <article class="row">
                     <div class="col-md-2 col-sm-2 hidden-xs">
                         <figure class="thumbnail">
-                            <img class="img-responsive" src="/avatars/{{ $review->profilepic }}"/>
+                            <a href="/profiel/{{ $review->reviewer_id }}"><img class="img-responsive" src="/avatars/{{ $review->profilepic }}"/></a>
                         </figure>
                     </div>
                     <div class="col-md-10 col-sm-10">
                         <div class="panel panel-default arrow left">
                             <div class="panel-body">
                                 <header class="text-left">
-                                    <div class="comment-user"><i class="fa fa-user"></i> {{ $review->name }}</div>
+                                    <div class="comment-user"><i class="fa fa-user"></i>
+                                        <a href="/profiel/{{ $review->reviewer_id }}">{{ $review->name }}</a>
+                                    </div>
                                     <time class="comment-date" datetime="16-12-2014 01:05"><i
                                                 class="fa fa-clock-o"></i>{{  date(' d F, Y', strtotime($review->created_at)) }}
                                     </time>
                                 </header>
                                 <div class="comment-post">
+                                    @for($i = 0; $i < $review->review_rating; $i++)
+                                        <span class="fa fa-star" data-rating="{{$i}}"></span>
+                                    @endfor
                                     <p>
                                         {{ $review->review_description }}
                                     </p>
@@ -113,7 +118,7 @@
     </div>
 
     @if($user->id != Auth::user()->id)
-    <!-- SECTION ADD REVIEW -->
+            <!-- SECTION ADD REVIEW -->
     <div class="col-md-8" style="padding: 0;">
         <div class="panel panel-default">
             <div class="panel-heading panel-heading-custom">
@@ -126,7 +131,17 @@
                       enctype="multipart/form-data">
                     {{ csrf_field() }}
 
-                            <!-- Meal Description -->
+                            <!-- REVIEW RATING -->
+                    <div class="star-rating col-md-8">
+                        <span class="fa fa-star-o" data-rating="1"></span>
+                        <span class="fa fa-star-o" data-rating="2"></span>
+                        <span class="fa fa-star-o" data-rating="3"></span>
+                        <span class="fa fa-star-o" data-rating="4"></span>
+                        <span class="fa fa-star-o" data-rating="5"></span>
+                        <input type="hidden" name="rating" class="rating-value" value="1">
+                    </div>
+
+                    <!-- REVIEW COMMENT -->
                     <div class="col-md-12">
                         <div class="form-group">
                                     <textarea name="review" id="review" cols="40" rows="5"

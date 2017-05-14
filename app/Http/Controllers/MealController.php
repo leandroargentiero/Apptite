@@ -57,7 +57,7 @@ class MealController extends Controller
             $filename = time() . '.' . $mealpicture->getClientOriginalExtension();
             Image::make($mealpicture)->fit(500, 500)->save( public_path('mealpictures/' . $filename ) );
 
-            $data['successMessage'] = "Volgend gerecht werd aan uw menu toegevoegd:";
+            $data['successMessage'] = "Volgend gerecht werd aan uw kookboek toegevoegd:";
         }
 
 
