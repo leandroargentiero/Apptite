@@ -80,7 +80,9 @@
                         <!-- PLACE RESERVATION -->
                         <td class="table-text">
                             <button class="btn btn-default"><i class="fa fa-star-o" aria-hidden="true"></i>
-                                Geef een review
+                                <a href="/profiel/{{ $reservation->user_id }}" style="color: white; text-decoration: none">
+                                    Geef een review
+                                </a>
                             </button>
                         </td>
                         @endif

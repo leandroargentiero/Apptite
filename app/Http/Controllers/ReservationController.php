@@ -142,7 +142,16 @@ class ReservationController extends Controller
      */
     public function destroy($id)
     {
+        // GET RESERVATION PLACES
+        $reservationPlaces = DB::table('reservations')->where('id', '=', $id)->value('reservation_places');
+
+        // UPDATE EVENT AVAILABLE PLACES
         $eventID = DB::table('reservations')->where('id', '=', $id)->value('event_id');
+        DB::table('events')
+            ->where('id', '=', $eventID)
+            ->increment('event_places', $reservationPlaces);
+
+        // ========== SENDING CONFIRMATION MAIL TO USER ========
         // GET RECIPIENT FOR MAIL
         $recipient = DB::table('users')
             ->join('meals', 'user_id', '=', 'users.id')
@@ -154,20 +163,10 @@ class ReservationController extends Controller
 
         // SEND CONFIRMATION MAIL TO ORGANIZER
         Mail::to($recipient)->send(new CancelReservation());
-
-        dd($recipient);
-        // GET RESERVATION PLACES
-        $reservationPlaces = DB::table('reservations')->where('id', '=', $id)->value('reservation_places');
-
-        // UPDATE EVENT AVAILABLE PLACES
-        $eventID = DB::table('reservations')->where('id', '=', $id)->value('event_id');
-        DB::table('events')
-            ->where('id', '=', $eventID)
-            ->increment('event_places', $reservationPlaces);
+        //=======================================================
 
         // DELETE RESERVATION RECORD
         DB::table('reservations')->where('id', '=', $id)->delete();
-
 
         return Redirect::to('/mijnreservaties')
             ->with('successmessage', 'Het moment werd succesvol geannuleerd.');;

@@ -129,7 +129,7 @@
                             <tr>
                                 <td align="center">
                                     <p>
-                                        <a href="#" class="button">Bekijk alle reservaties</a>
+                                        <a href="#" class="button">Bekijk jouw event</a>
                                     </p>
                                 </td>
                             </tr>
