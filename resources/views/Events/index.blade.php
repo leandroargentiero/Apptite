@@ -42,7 +42,7 @@
             </div>
             @endforeach
 
-                    <!-- DEFAULT ITEM FOR ADDING EVENT -->
+            <!-- DEFAULT ITEM FOR ADDING EVENT -->
             <div class="event-item hvr-float">
                 <img src="/assets/images/thumbnail-neighbour.jpg" alt="Add meal">
                 <div class="event-title">

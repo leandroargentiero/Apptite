@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Mail\NewReservation;
 use App\Reservation;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -29,12 +30,15 @@ class ReservationController extends Controller
             ->join('events', 'meal_id', '=', 'meals.id')
             ->join('reservations', 'reservations.event_id', '=', 'events.id')
             ->where('reservations.user_id', '=', $userID)
-            ->select('*')
+            ->select('users.id as user_id','event_id', 'event_date', 'reservation_places', 'name', 'meal_name', 'reservations.id')
             ->get();
+        
+        $currentDate = Carbon::now()->format('d-m-Y');
 
         return view ('reservations.index')
             ->with('pagetitle', 'Mijn reservaties')
-            ->with('reservations', $reservations);
+            ->with('reservations', $reservations)
+            ->with('currentdate', $currentDate);
     }
 
     /**

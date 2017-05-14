@@ -6,7 +6,7 @@
 
 @section('content')
 
-<!-- FEEDBACK MESSAGES -->
+        <!-- FEEDBACK MESSAGES -->
 <div class="col-md-12">
     @if(Session::has('successmessage'))
         <div class="alert alert-success">
@@ -19,17 +19,17 @@
 <div class="col-md-12">
     <div class="panel panel-default">
         <div class="panel-heading panel-heading-custom">
-            Mijn geboekte reservaties
+            Alle events waarvoor je hebt gereserveerd
         </div>
 
         <div class="panel-body">
-            <table class="table table-striped">
+            <table class="table">
 
                 @if(count($reservations) >= 1)
                         <!-- Table HEADING -->
                 <thead>
-                <th>Apptiter</th>
-                <th>Moment</th>
+                <th>Apptite chef</th>
+                <th>Event</th>
                 <th>Datum</th>
                 <th>Aantal personen</th>
                 <th></th>
@@ -39,29 +39,33 @@
                 <tbody>
                 @foreach ($reservations as $reservation)
                     <tr>
-                        <!-- EVENT NAME -->
+                        <!-- CHEF NAME -->
                         <td class="table-text">
-                            <a href="#">
-                                <img class="reservation-avatar" src="/avatars/{{ $reservation->profilepic }}" alt="">
-                                {{ $reservation->name }}
-                            </a>
+                            <a href="profiel/{{ $reservation->user_id }}">{{ $reservation->name }}</a>
                         </td>
 
-                        <!-- MOMENT NAME -->
+                        <!-- EVENT NAME -->
                         <td class="table-text">
                             <div><a href="events/{{ $reservation->event_id }}">{{ $reservation->meal_name }}</a></div>
                         </td>
 
+                        @if( date(' d F, Y', strtotime($reservation->event_date)) >= date(' d F, Y', strtotime($currentdate)) )
                         <!-- EVENT DATE -->
                         <td class="table-text">
-                            <div>{{ $reservation->event_date}}</div>
+                            <div>{{ date(' d F, Y', strtotime($reservation->event_date)) }}</div>
                         </td>
+                        @else
+                            <td class="table-text">
+                                <p style="color: red; font-weight: 800;">Verlopen</p>
+                            </td>
+                        @endif
 
                         <!-- RESERVATION PLACES -->
                         <td class="table-text">
                             <div>{{ $reservation->reservation_places}}</div>
                         </td>
 
+                        @if( date(' d F, Y', strtotime($reservation->event_date)) >= date(' d F, Y', strtotime($currentdate)) )
                         <!-- DELETE RESERVATION -->
                         <td class="table-text">
                             <form action="/reservaties/{{ $reservation->id }}" method="POST">
@@ -72,6 +76,14 @@
                                 </button>
                             </form>
                         </td>
+                        @else
+                        <!-- PLACE RESERVATION -->
+                        <td class="table-text">
+                            <button class="btn btn-default"><i class="fa fa-star-o" aria-hidden="true"></i>
+                                Geef een review
+                            </button>
+                        </td>
+                        @endif
                     </tr>
                 @endforeach
                 @else
