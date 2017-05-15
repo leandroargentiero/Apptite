@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewReservation;
 use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 
 class ReviewController extends Controller
@@ -54,6 +57,18 @@ class ReviewController extends Controller
         $review->review_description = $reviewtext;
         $review->review_rating = $rating;
         $review->save();
+
+        // ========== SENDING CONFIRMATION MAIL TO USER ========
+        // GET RECIPIENT FOR MAIL
+        $recipient = DB::table('users')
+            ->where('id', '=', $userID)
+            ->select('*')
+            ->first();
+
+        // SEND CONFIRMATION MAIL TO ORGANIZER
+        Mail::to($recipient)->send(new NewReview());
+        //=======================================================
+
 
         return Redirect::to('/profiel/' . $userID);
     }
