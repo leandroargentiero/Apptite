@@ -11,42 +11,9 @@
     @stop
 
     @section('content')
-            <!-- USER INFO & DETAILS -->
+
     <div class="row">
-        <!-- USERS INFORMATION -->
-        <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <h4 class="page-header">Over deze Apptiter</h4>
-                    <p>{{ $user->description }}</p>
-
-                    <h4 class="page-header">Totaal aantal georganiseerde events</h4>
-                    @if(count($totalevents) > 0)
-                        <p>{{ count($totalevents) }}</p>
-                    @else
-                        <p>Deze Apptiter heeft nog geen events georganiseerd.</p>
-                    @endif
-
-                    <h4 class="page-header">Toekomstige events</h4>
-                    @if(count($comingevents) > 0)
-                        @foreach($comingevents as $comingevent)
-                            <div class="list-group">
-                                <a href="/events/{{ $comingevent->id }}"
-                                   class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1">{{ $comingevent->meal_name }}</h5>
-                                        <small class="text-muted">{{ $comingevent->event_date }}</small>
-                                        <p>Vrije plaatsen: {{ $comingevent->event_places }}</p>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    @else
-                        <p>Momenteel heeft deze Apptiter geen events gepland.</p>
-                    @endif
-                </div>
-            </div>
-        </div>
+        <!-- USER INFO & DETAILS -->
         <div class="col-md-4 user-detail">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -58,15 +25,38 @@
                 </div>
             </div>
         </div>
-    </div>
+        <!-- USERS INFORMATION -->
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4 class="page-header" style="margin-top: 0px;">Over deze Apptiter</h4>
+                    <p>{{ $user->description }}</p>
 
-    <div class="row">
-        <!-- GOOGLE MAPS WITH USER'S LOCATION -->
-        <div class="col-md-12">
-            <h2 class="page-header">Locatie</h2>
+                    <h4 class="page-header">Totaal aantal georganiseerde events</h4>
+                    @if(count($totalevents) > 0)
+                        <p>{{ count($totalevents) }}</p>
+                    @else
+                        <p>Deze Apptiter heeft nog geen events georganiseerd.</p>
+                    @endif
 
-            <div id="map" style="width: 100%; height: 300px;">
-                {!! Mapper::render() !!}
+                    <h4 class="page-header">Geplande Apptite events <small>({{ count($comingevents) }}) </small></h4>
+                    @if(count($comingevents) > 0)
+                        @foreach($comingevents as $comingevent)
+                            <div class="list-group">
+                                <a href="/events/{{ $comingevent->id }}"
+                                   class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">{{ $comingevent->meal_name }}</h5>
+                                        <small class="text-muted">{{ date(' d F, Y', strtotime($comingevent->event_date)) }}</small>
+                                        <p>Aantal vrij plaatsen: {{ $comingevent->event_places }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    @else
+                        <p>Momenteel heeft deze Apptiter geen events gepland.</p>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
@@ -74,7 +64,7 @@
     <!-- SECTION REVIEWS -->
     <div class="row">
         <div class="col-md-8">
-            <h2 class="page-header">Reviews van andere Apptiters</h2>
+            <h2 class="page-header">Reviews van andere Apptiters <small>({{ count($reviews) }}) </small></h2>
             <section class="comment-list">
                 @if(count($reviews) >= 1)
                 @foreach($reviews as $review)
@@ -159,4 +149,16 @@
         </div>
     </div>
     @endif
+
+    <div class="row">
+        <!-- GOOGLE MAPS WITH USER'S LOCATION -->
+        <div class="col-md-12">
+            <h2 class="page-header">Locatie</h2>
+
+            <div id="map" style="width: 100%; height: 300px;">
+                {!! Mapper::render() !!}
+            </div>
+        </div>
+    </div>
+
 @stop
