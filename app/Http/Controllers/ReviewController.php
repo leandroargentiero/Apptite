@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NewReservation;
+use App\Mail\NewReview;
 use App\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
