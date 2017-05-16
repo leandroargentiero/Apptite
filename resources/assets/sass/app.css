@@ -502,18 +502,8 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     padding: 1em;
     border: none;
     border-top: 1px solid rgba(34, 36, 38, 0.1);
-    box-shadow: none; }
-    .event-container .event-card .card-block .event-places {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      padding: 10px 5px 10px 5px;
-      margin: 5px;
-      border-radius: 5%;
-      font-weight: 300;
-      font-size: .8em;
-      background-color: #2EBD59;
-      color: white !important; }
+    box-shadow: none;
+    background-color: white; }
   .event-container .event-card .card-img-top {
     display: block;
     width: 100%;
@@ -536,8 +526,17 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     color: rgba(0, 0, 0, 0.4);
     border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
     background: #fff; }
-    .event-container .event-card .card-footer button {
-      margin: 0 0 10px 0; }
+    .event-container .event-card .card-footer .event-places {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 10px 5px 10px 5px;
+      margin: 5px;
+      border-radius: 5%;
+      font-weight: 300;
+      font-size: .8em;
+      background-color: #2EBD59;
+      color: white !important; }
   .event-container .event-card .card-inverse .btn {
     border: 1px solid rgba(0, 0, 0, 0.05); }
   .event-container .event-card .profile {

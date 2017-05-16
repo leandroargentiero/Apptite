@@ -33,19 +33,7 @@
       border: none;
       border-top: 1px solid rgba(34, 36, 38, .1);
       box-shadow: none;
-
-      .event-places{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        padding: 10px 5px 10px 5px;
-        margin: 5px;
-        border-radius: 5%;
-        font-weight: 300;
-        font-size: .8em;
-        background-color: #2EBD59;
-        color: white !important;
-      }
+      background-color: white;
     }
 
     .card-img-top {
@@ -77,8 +65,17 @@
       border-top: 1px solid rgba(0, 0, 0, .05) !important;
       background: #fff;
 
-      button{
-        margin: 0 0 10px 0;
+      .event-places{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 10px 5px 10px 5px;
+        margin: 5px;
+        border-radius: 5%;
+        font-weight: 300;
+        font-size: .8em;
+        background-color: #2EBD59;
+        color: white !important;
       }
     }
 

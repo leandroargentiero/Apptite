@@ -30,8 +30,16 @@ class EventController extends Controller
             ->orderBy('events.event_date', 'desc')
             ->get();
 
-        return view('events.index')
+        // GET ALL RESERVATIONS
+        $reservations = DB::table('reservations')
+            ->join('users', 'users.id', '=', 'reservations.user_id')
+            ->join('events', 'events.id', '=', 'reservations.event_id')
+            ->select('*')
+            ->get();
+
+        return view('events.mijnevents')
             ->with('eventMeals', $eventMeals)
+            ->with('reservations', $reservations)
             ->with('pagetitle', 'Mijn Apptite events');
     }
 
@@ -139,11 +147,19 @@ class EventController extends Controller
             ->select('*')
             ->get();
 
+        // GET AVARAGE RATINGS
+        $avgRating = DB::table('reviews')
+            ->join('users', 'users.id', '=', 'reviews.reviewer_id')
+            ->where('reviews.user_id', '=', $userID)
+            ->avg('review_rating');
+
+        $rating = ROUND($avgRating);
 
         return view('events.eventdetail')
             ->with('event', $event)
             ->with('eventID', $eventID)
             ->with('reviews', $reviews)
+            ->with('avgRating', $avgRating)
             ->with('map');
     }
 
