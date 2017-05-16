@@ -27,6 +27,7 @@ Route::group(array('middleware' => 'auth'), function () {
 
     // EVENT ROUTES
     Route::get('/events', 'EventController@index');
+    Route::get('/mijnevents', 'EventController@index');
     Route::post('events/aanmaken', 'EventController@store');
     Route::post('/events/update/{id}', 'EventController@update');
     Route::get('/events/{id}', 'EventController@show');

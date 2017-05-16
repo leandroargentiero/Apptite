@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Cornford\Googlmapper\Facades\MapperFacade as Mapper;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -25,12 +26,13 @@ class EventController extends Controller
             ->join('events', 'meal_id', '=', 'meals.id')
             ->select('*')
             ->where('events.event_date', '>=', Carbon::today()->toDateString())
+            ->where('users.id', '=', Auth::id())
             ->orderBy('events.event_date', 'desc')
             ->get();
 
         return view('events.index')
             ->with('eventMeals', $eventMeals)
-            ->with('pagetitle', 'Apptite momenten');
+            ->with('pagetitle', 'Mijn Apptite events');
     }
 
     public function search(Request $request)
