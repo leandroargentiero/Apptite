@@ -657,6 +657,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   flex-wrap: wrap;
 }
 
+.event-container .event-card {
+  margin: 0 0 40px 0;
+}
+
 .event-container .event-card h5 {
   font-size: 1.28571429em;
   font-weight: 700;
@@ -737,8 +741,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   display: inline-block;
   overflow: hidden;
   box-sizing: border-box;
-  width: 25px;
-  height: 25px;
+  width: 35px;
+  height: 35px;
   margin: 0;
   border: 1px solid #fff;
   border-radius: 50%;
@@ -770,6 +774,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .event-container .event-card .meta {
   font-size: 1em;
   color: rgba(0, 0, 0, 0.4);
+  margin: 10px 0 0 0;
 }
 
 .event-container .event-card .meta a {

@@ -483,96 +483,99 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
-  .event-container .event-card h5 {
-    font-size: 1.28571429em;
-    font-weight: 700;
-    line-height: 1.2857em;
-    margin: 0; }
-  .event-container .event-card .card {
-    font-size: 1em;
-    overflow: hidden;
-    padding: 0;
-    border: none;
-    border-radius: .28571429rem;
-    box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5; }
-  .event-container .event-card .card-block {
-    font-size: 1em;
-    position: relative;
-    margin: 0;
-    padding: 1em;
-    border: none;
-    border-top: 1px solid rgba(34, 36, 38, 0.1);
-    box-shadow: none;
-    background-color: white; }
-  .event-container .event-card .card-img-top {
-    display: block;
-    width: 100%;
-    height: auto; }
-  .event-container .event-card .card-title {
-    font-size: 1.28571429em;
-    font-weight: 700;
-    line-height: 1.2857em; }
-  .event-container .event-card .card-text {
-    clear: both;
-    margin-top: .5em;
-    color: rgba(0, 0, 0, 0.68); }
-  .event-container .event-card .card-footer {
-    font-size: 1em;
-    position: static;
-    top: 0;
-    left: 0;
-    max-width: 100%;
-    padding: .75em 1em;
-    color: rgba(0, 0, 0, 0.4);
-    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
-    background: #fff; }
-    .event-container .event-card .card-footer .event-places {
+  .event-container .event-card {
+    margin: 0 0 40px 0; }
+    .event-container .event-card h5 {
+      font-size: 1.28571429em;
+      font-weight: 700;
+      line-height: 1.2857em;
+      margin: 0; }
+    .event-container .event-card .card {
+      font-size: 1em;
+      overflow: hidden;
+      padding: 0;
+      border: none;
+      border-radius: .28571429rem;
+      box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5; }
+    .event-container .event-card .card-block {
+      font-size: 1em;
+      position: relative;
+      margin: 0;
+      padding: 1em;
+      border: none;
+      border-top: 1px solid rgba(34, 36, 38, 0.1);
+      box-shadow: none;
+      background-color: white; }
+    .event-container .event-card .card-img-top {
+      display: block;
+      width: 100%;
+      height: auto; }
+    .event-container .event-card .card-title {
+      font-size: 1.28571429em;
+      font-weight: 700;
+      line-height: 1.2857em; }
+    .event-container .event-card .card-text {
+      clear: both;
+      margin-top: .5em;
+      color: rgba(0, 0, 0, 0.68); }
+    .event-container .event-card .card-footer {
+      font-size: 1em;
+      position: static;
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      padding: .75em 1em;
+      color: rgba(0, 0, 0, 0.4);
+      border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+      background: #fff; }
+      .event-container .event-card .card-footer .event-places {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: 10px 5px 10px 5px;
+        margin: 5px;
+        border-radius: 5%;
+        font-weight: 300;
+        font-size: .8em;
+        background-color: #2EBD59;
+        color: white !important; }
+    .event-container .event-card .card-inverse .btn {
+      border: 1px solid rgba(0, 0, 0, 0.05); }
+    .event-container .event-card .profile {
       position: absolute;
-      bottom: 0;
-      right: 0;
-      padding: 10px 5px 10px 5px;
-      margin: 5px;
-      border-radius: 5%;
-      font-weight: 300;
-      font-size: .8em;
-      background-color: #2EBD59;
-      color: white !important; }
-  .event-container .event-card .card-inverse .btn {
-    border: 1px solid rgba(0, 0, 0, 0.05); }
-  .event-container .event-card .profile {
-    position: absolute;
-    top: -12px;
-    display: inline-block;
-    overflow: hidden;
-    box-sizing: border-box;
-    width: 25px;
-    height: 25px;
-    margin: 0;
-    border: 1px solid #fff;
-    border-radius: 50%; }
-  .event-container .event-card .profile-avatar {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 50%; }
-  .event-container .event-card .profile-inline {
-    position: relative;
-    top: 0;
-    display: inline-block; }
-  .event-container .event-card .profile-inline ~ .card-title {
-    display: inline-block;
-    margin-left: 4px;
-    vertical-align: top; }
-  .event-container .event-card .text-bold {
-    font-weight: 700; }
-  .event-container .event-card .meta {
-    font-size: 1em;
-    color: rgba(0, 0, 0, 0.4); }
-  .event-container .event-card .meta a {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.4); }
-  .event-container .event-card .meta a:hover {
-    color: rgba(0, 0, 0, 0.87); }
+      top: -12px;
+      display: inline-block;
+      overflow: hidden;
+      box-sizing: border-box;
+      width: 35px;
+      height: 35px;
+      margin: 0;
+      border: 1px solid #fff;
+      border-radius: 50%; }
+    .event-container .event-card .profile-avatar {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 50%; }
+    .event-container .event-card .profile-inline {
+      position: relative;
+      top: 0;
+      display: inline-block; }
+    .event-container .event-card .profile-inline ~ .card-title {
+      display: inline-block;
+      margin-left: 4px;
+      vertical-align: top; }
+    .event-container .event-card .text-bold {
+      font-weight: 700; }
+    .event-container .event-card .meta {
+      font-size: 1em;
+      color: rgba(0, 0, 0, 0.4);
+      margin: 10px 0 0 0; }
+    .event-container .event-card .meta a {
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.4); }
+    .event-container .event-card .meta a:hover {
+      color: rgba(0, 0, 0, 0.87); }
 
 .profile-container .profile-header ul {
   display: flex;
