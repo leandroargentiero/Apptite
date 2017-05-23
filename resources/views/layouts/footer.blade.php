@@ -10,9 +10,7 @@
             <a href="#">Over Apptite</a>
             ·
             <a href="#">Algemene voorwaarden</a>
-            ·
-            <a href="#">Contact</a>
-        </p>
+        </p>web
 
         <p class="footer-company-name">Apptite &copy; 2017</p>
     </div>

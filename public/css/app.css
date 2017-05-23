@@ -737,7 +737,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .event-container .event-card .profile {
   position: absolute;
-  top: -12px;
+  top: -18px;
   display: inline-block;
   overflow: hidden;
   box-sizing: border-box;
