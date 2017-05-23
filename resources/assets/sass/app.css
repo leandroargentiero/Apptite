@@ -75,7 +75,7 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     transition: ease 0.3s background-color; }
 
 .container {
-  margin: 30px auto; }
+  margin: 60px auto; }
 
 .pac-container:after {
   content: none !important; }
@@ -99,10 +99,12 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   border-radius: 0;
   border: none;
   margin-bottom: 0;
-  z-index: 10; }
+  z-index: 10;
+  position: fixed;
+  width: 100%; }
   .navbar .logo {
     background: url(/assets/images/logo_apptite.svg) no-repeat center;
-    background-size: 100px;
+    background-size: 80px;
     width: 130px;
     text-indent: -9999px;
     transition: ease 0.3s opacity; }
@@ -249,7 +251,8 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   /* IE 9 */
   -webkit-transform: translate(0, -50%);
   /* Safari */
-  transform: translate(0, -50%); }
+  transform: translate(0, -50%);
+  margin-top: 50px; }
   .header .header-logo {
     display: block;
     width: 400px;
@@ -272,7 +275,8 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   background-repeat: no-repeat;
   position: relative;
   height: 150px;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); }
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+  margin-top: 50px; }
 
 .banner-header {
   position: absolute;
@@ -298,7 +302,8 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   background-position: center;
   position: relative;
   height: 300px;
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); }
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+  margin-top: 50px; }
   .eventdetail-wrapper .eventdetail-title {
     text-align: center;
     color: white !important;
@@ -477,7 +482,10 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 
 .header-title {
   text-align: center;
-  margin: 0 0 30px 0; }
+  margin: 0 0 30px 0;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1.2px solid #CCCCCC; }
 
 .event-container {
   display: flex;

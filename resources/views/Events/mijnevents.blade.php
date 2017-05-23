@@ -18,21 +18,22 @@
                             {{  date(' d F, Y', strtotime($eventMeal->event_date)) }}
                         </small>
                         <h4 class="card-title mt-3">{{ $eventMeal->meal_name }}</h4>
-                        <small>Aantal plaatsen: {{ $eventMeal->event_places }}</small>
+                        <small>Vrije plaatsen: {{ $eventMeal->event_places }}</small>
                     </div>
                     <div class="card-footer">
-                        <p>Reservaties: <small>({{ count($reservations) }})</small></p>
+                        <p>Reservaties:</p>
                         <ul class="list-group">
                             @foreach($reservations as $reservation)
                                 @if($eventMeal->id == $reservation->event_id)
                                     <li class="list-group-item">
+                                        {{ $reservation->reservation_places }}p
+                                        -
                                         <a href="/profiel/{{ $reservation->user_id }}">
                                             {{ $reservation->name }}
                                         </a>
-                                        - {{ $reservation->reservation_places }}p
                                     </li>
                                 @else
-                                    Sorry, maar je hebt nog geen reservaties.
+                                    Je hebt nog geen reservaties.
                                 @endif
                             @endforeach
                         </ul>

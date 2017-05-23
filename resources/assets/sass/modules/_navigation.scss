@@ -4,10 +4,12 @@
   border: none;
   margin-bottom: 0;
   z-index: 10;
+  position: fixed;
+  width: 100%;
 
   .logo{
     background: url(/assets/images/logo_apptite.svg) no-repeat center;
-    background-size: 100px;
+    background-size: 80px;
     width: 130px;
     text-indent: -9999px;
     transition: ease 0.3s opacity;
