@@ -21,21 +21,24 @@
                                     <h5 class="modal-title">€ {{ $meal->price }} per persoon</h5>
                                 </div>
                                 <div class="modal-body">
-                                    <h5 class="modal-header-title">Kies een dag waarop het Apptite moment zal doorgaan</h5>
+                                    <h5 class="modal-header-title">Kies een dag waarop het Apptite moment zal
+                                        doorgaan</h5>
                                     <form class="form-horizontal" role="form" method="POST" action="events/aanmaken">
                                         {{ csrf_field() }}
 
                                         <div class="form-group">
-                                            <label for="event_date" class="col-md-4 control-label">Kies een datum</label>
+                                            <label for="event_date" class="col-md-4 control-label">Kies een
+                                                datum</label>
 
                                             <div class="col-md-6">
-                                                <div class="input-group date" id="datetimepicker">
-                                                    <input type='text' name="event_date" class="form-control"/>
-                                                            <span class="input-group-addon">
-                                                                <span class="glyphicon glyphicon-calendar"></span>
-                                                            </span>
+                                                <div class='input-group date' id='datetimepicker'>
+                                                    <input type='text' class="form-control"/>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-calendar"></span>
+                                                    </span>
                                                 </div>
-                                                <input type="hidden" name="available_places" value="{{ $meal->available_places }}">
+                                                <input type="hidden" name="available_places"
+                                                       value="{{ $meal->available_places }}">
                                                 <input type="hidden" name="meal_id" value="{{ $meal->id }}">
                                             </div>
                                         </div>
@@ -56,7 +59,8 @@
                         <div class="meal-description-content">
                             <h3 class="meal-name">{{ $meal->meal_name }}</h3>
                             <h3 class="meal-price"> € {{ $meal->price }} p.p.</h3>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#eventModal-{{ $meal->id }}">
+                            <button class="btn btn-primary" data-toggle="modal"
+                                    data-target="#eventModal-{{ $meal->id }}">
                                 Apptite event aanmaken
                             </button>
                         </div>
