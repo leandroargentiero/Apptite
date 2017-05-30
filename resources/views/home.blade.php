@@ -9,7 +9,7 @@
         <h2 style="text-align: center; margin: 0 0 100px 0;" class="hometitle">Hoe werkt het?</h2>
         <div class="row" style="margin: 0 0 80px 0;">
             <div class="col-md-6">
-                <h2 class="homesubtitle">Zoek naar een Apptite moment</h2>
+                <h2 class="homesubtitle">Zoek naar een Apptite event</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -17,7 +17,7 @@
                     culpa qui officia deserunt mollit anim id est laborum.
                 </p>
                 <button class="btn btn-default hvr-grow">
-                    Zoeken momenten
+                    Event zoeken
                 </button>
             </div>
             <div class="col-md-5 pull-right">
