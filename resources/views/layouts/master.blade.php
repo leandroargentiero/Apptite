@@ -11,9 +11,9 @@
     <meta property="og:url" content="http://myapptite.be"/>
     <meta property="og:type" content="Article"/>
     <meta property="og:title" content="Apptite"/>
-    <meta property="og:description" content="Apptite is een online platform dat foodies samen brengt voor een huisbereide maaltijd."/>
+    <meta property="og:description" content="Apptite is een online platform dat hobby chefs en foodies samenbrengt voor een huisbereide maaltijd."/>
     <meta property="og:image" content="http://myapptite/assets/images/apptite.jpg"/>
-    
+
 
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
