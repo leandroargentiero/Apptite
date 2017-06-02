@@ -10,7 +10,7 @@
 
     <meta property="og:url" content="http://myapptite.be"/>
     <meta property="og:type" content="Website"/>
-    <meta property="og:title" content="Apptite"/>
+    <meta property="og:title" content="Apptite | Verse huisbereide maaltijden bij hobby chefs thuis"/>
     <meta property="og:description"
           content="Apptite is een online platform dat hobby chefs en foodies samenbrengt voor een verse huisbereide maaltijd."/>
     <meta property="og:image" content="http://myapptite.be/assets/images/apptite.jpg"/>
