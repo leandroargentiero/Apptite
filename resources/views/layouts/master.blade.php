@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-    <title>Apptite - Het geheime ingredient voor een gloednieuwe eetervaring</title>
+    <title>Apptite | Verse huisbereide maaltijden bij hobbychefs thuis</title>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,9 @@
 
     <meta property="og:url" content="http://myapptite.be"/>
     <meta property="og:type" content="Website"/>
-    <meta property="og:title" content="Apptite | Verse huisbereide maaltijden bij hobby chefs thuis"/>
+    <meta property="og:title" content="Apptite | Verse huisbereide maaltijden bij hobbychefs thuis"/>
     <meta property="og:description"
-          content="Apptite is een online platform dat hobbychefs en foodies samenbrengt voor een verse huisbereide maaltijd."/>
+          content="Apptite is een online platform dat foodies samenbrengt voor een verse huisbereide maaltijd bij hobbychefs thuis."/>
     <meta property="og:image" content="http://myapptite.be/assets/images/apptite.jpg"/>
 
 
