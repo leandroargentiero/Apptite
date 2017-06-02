@@ -8,6 +8,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:url" content="http://myapptite.be"/>
+    <meta property="og:type" content="Article"/>
+    <meta property="og:title" content="Apptite"/>
+    <meta property="og:description" content="Apptite is een online platform dat foodies samen brengt voor een huisbereide maaltijd."/>
+    <meta property="og:image" content="http://myapptite/assets/images/apptite.jpg"/>
+    
+
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -18,7 +25,6 @@
     <link rel="stylesheet" type="text/css" href="/css/app.css">
     <link rel="stylesheet" type="text/css" href="/css/hover-min.css">
     <link rel="stylesheet" type="text/css" href="/css/animate.css">
-
 
     <!-- Ajax -->
     <meta name="_token" content="{!! csrf_token() !!}"/>
