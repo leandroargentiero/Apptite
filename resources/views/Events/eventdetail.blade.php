@@ -28,7 +28,7 @@
         @endif
 
                 <!-- EDIT EVENT MODAL -->
-        @include('modals.modalEditEvent')
+
 
         <div class="profile-container">
             <!-- SECTION MEALINFO -->
@@ -105,7 +105,7 @@
                                 reserveren</a>
                         @endif
 
-                        @include('Modals.modalReservation')
+                        @include('modals.modalReservation')
                     </div>
 
                     <!-- GOOGLE MAPS WITH USER'S LOCATION -->
