@@ -32,7 +32,7 @@
 
                                             <div class="col-md-6">
                                                 <div class='input-group date' id='datetimepicker'>
-                                                    <input type='text' class="form-control"/>
+                                                    <input type='text' class="form-control" name="event_date"/>
                                                     <span class="input-group-addon">
                                                         <span class="glyphicon glyphicon-calendar"></span>
                                                     </span>
