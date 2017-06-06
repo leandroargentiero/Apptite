@@ -33,8 +33,7 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::post('/events/update/{id}', 'EventController@update');
     Route::get('/events/{id}', 'EventController@show');
     Route::delete('/events/{event}', 'MealController@destroy');
-    // SEARCH ROUTES
-    Route::post('/events/zoeken', 'EventController@search');
+  
 
 
     // Profile ROUTES
