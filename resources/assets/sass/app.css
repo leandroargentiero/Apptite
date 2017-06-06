@@ -828,6 +828,6 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   align-items: center; }
   .wrapper-login .panel {
     border: none;
-    background-color: rgba(255, 255, 255, 0.9); }
+    background-color: white; }
 
 /*# sourceMappingURL=app.css.map */

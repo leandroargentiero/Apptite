@@ -1103,7 +1103,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 
 .wrapper-login .panel {
   border: none;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: white;
 }
 
 /*# sourceMappingURL=app.css.map */
