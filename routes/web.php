@@ -14,7 +14,8 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // SEARCH ROUTES
 Route::post('/events/zoeken', 'EventController@search');
 
-
+// ALL ROUTES WHERE USER LOGIN IS REQUIRED
+Route::group(array('middleware' => 'auth'), function () {
 
     // MEALS ROUTES
     Route::get('/mijnkookboek', 'MealController@index');
@@ -47,3 +48,4 @@ Route::post('/events/zoeken', 'EventController@search');
 
 
 
+});

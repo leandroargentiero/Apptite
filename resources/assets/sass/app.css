@@ -74,8 +74,8 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     transition: ease 0.3s background-color; }
 
 .container {
-  margin: 60px 0 0;
-  width: 100%; }
+  margin: 60px auto 0 auto;
+  width: 1200px; }
 
 .pac-container:after {
   content: none !important; }
