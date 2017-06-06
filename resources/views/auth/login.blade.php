@@ -1,10 +1,14 @@
 @extends('layouts.master_stripped')
+
+@section('content')
 <div class="wrapper-login">
     <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
             <div class="panel-body">
 
                 <img id="logo-login" src="/assets/images/logo_apptite_black.svg" alt="logo apptite">
+
+                <h3>Login</h3>
 
                 <form role="form" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
@@ -34,21 +38,19 @@
                             @endif
                         </form>
 
-                        <div class="">
+                        <div class="login-bottom">
                             <button type="submit" class="btn btn-primary">
                                 Inloggen
                             </button>
-                        </div>
 
-                        <div class="pull-right">
-                            <a href="{{ url('/register') }}">Nog geen account? Maak hier een nieuw account
-                                aan.</a>
+                            <a href="{{ url('/register') }}"><p>Nog geen account? Maak hier een nieuw account
+                                aan.</p></a>
                         </div>
-
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+@endsection
 

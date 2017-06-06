@@ -38,7 +38,7 @@
 <body>
 
 <section>
-    @yield('login')
+    @yield('content')
 </section>
 
 
