@@ -4,7 +4,6 @@
   box-sizing: border-box; }
 
 html, body {
-  height: 100%;
   color: #333;
   max-width: 100%;
   overflow-x: hidden; }
@@ -93,6 +92,9 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 
 .homesubtitle {
   margin-bottom: 1em; }
+
+#navbar_home {
+  background-color: transparent; }
 
 .navbar {
   background-color: #263240;

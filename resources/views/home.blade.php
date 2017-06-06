@@ -1,11 +1,11 @@
-@extends('layouts.master')
+@extends('layouts.master_home')
 
 @section('hero')
     @include('partials.hero')
 @stop
 
 @section('content')
-    <div class="">
+    <div id='homedescription'>
         <h2 style="text-align: center; margin: 0 0 100px 0;" class="hometitle">Hoe werkt het?</h2>
         <div class="row" style="margin: 0 0 80px 0;">
             <div class="col-md-6">
