@@ -85,8 +85,8 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   outline: none;
 
   &:focus {
-    border: 1px solid $primaryColor;
     box-shadow: none;
+    outline: none;
   }
 }
 

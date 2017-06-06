@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-    // AVATAR UPLOAD PREVIEW
+    //********************** AVATAR PICTURE UPLOAD PREVIEW ********************** /
     $(".avatar-upload").on('change', function () {
         if (typeof (FileReader) != "undefined") {
 
@@ -16,7 +16,7 @@ $( document ).ready(function() {
         }
     });
 
-    // AVATAR UPLOAD PREVIEW
+    // //********************** MEALPICTURE UPLOAD PREVIEW ********************** /
     $(".meal-upload").on('change', function () {
         if (typeof (FileReader) != "undefined") {
 
@@ -33,15 +33,14 @@ $( document ).ready(function() {
         }
     });
 
-    // OPEN DATETIMEPICKER
+    // //********************** OPEN DATETIMEPICKER ********************** /
     $(function () {
         $('#datetimepicker').datetimepicker({
             format: 'DD/MM/YYYY'
         });
     });
 
-
-    // RATING SYSTEM
+    //********************** RATING STARS ********************** /
     var $star_rating = $('.star-rating .fa');
 
     var SetRatingStar = function() {
@@ -60,6 +59,81 @@ $( document ).ready(function() {
     });
 
     SetRatingStar();
+
+    //********************** FORM FIELDS ********************** /
+    $.fn.floatLabels = function (options) {
+
+        // Settings
+        var self = this;
+        var settings = $.extend({}, options);
+
+
+        // Event Handlers
+        function registerEventHandlers() {
+            self.on('input keyup change', 'input, textarea', function () {
+                actions.swapLabels(this);
+            });
+        }
+
+
+        // Actions
+        var actions = {
+            initialize: function() {
+                self.each(function () {
+                    var $this = $(this);
+                    var $label = $this.children('label');
+                    var $field = $this.find('input,textarea').first();
+
+                    if ($this.children().first().is('label')) {
+                        $this.children().first().remove();
+                        $this.append($label);
+                    }
+
+                    var placeholderText = ($field.attr('placeholder') && $field.attr('placeholder') != $label.text()) ? $field.attr('placeholder') : $label.text();
+
+                    $label.data('placeholder-text', placeholderText);
+                    $label.data('original-text', $label.text());
+
+                    if ($field.val() == '') {
+                        $field.addClass('empty')
+                    }
+                });
+            },
+            swapLabels: function (field) {
+                var $field = $(field);
+                var $label = $(field).siblings('label').first();
+                var isEmpty = Boolean($field.val());
+
+                if (isEmpty) {
+                    $field.removeClass('empty');
+                    $label.text($label.data('original-text'));
+                }
+                else {
+                    $field.addClass('empty');
+                    $label.text($label.data('placeholder-text'));
+                }
+            }
+        }
+
+
+        // Initialization
+        function init() {
+            registerEventHandlers();
+
+            actions.initialize();
+            self.each(function () {
+                actions.swapLabels($(this).find('input,textarea').first());
+            });
+        }
+        init();
+
+
+        return this;
+    };
+
+    $(function () {
+        $('.float-label-control').floatLabels();
+    });
 
 });
 //# sourceMappingURL=all.js.map
