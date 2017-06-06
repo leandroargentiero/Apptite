@@ -108,7 +108,8 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 }
 
 .container {
-  margin: 60px 0 0 0;
+  margin: 60px 0 0;
+  width: 100%;
 }
 
 .pac-container:after{

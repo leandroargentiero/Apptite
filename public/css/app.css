@@ -103,7 +103,8 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 .container {
-  margin: 60px 0 0 0;
+  margin: 60px 0 0;
+  width: 100%;
 }
 
 .pac-container:after {
@@ -415,7 +416,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   text-align: left;
   font: "Roboto" 16px sans-serif;
   padding: 55px 50px;
-  margin-top: 0px;
+  margin-top: 50px;
 }
 
 .footer-distributed .footer-left, .footer-distributed .footer-center, .footer-distributed .footer-right {

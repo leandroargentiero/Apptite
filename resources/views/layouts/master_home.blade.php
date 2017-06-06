@@ -47,7 +47,9 @@
 </section>
 
 <div class="container">
-    @yield('content')
+    <div class="col-md-12">
+        @yield('content')
+    </div>
 </div>
 
 
