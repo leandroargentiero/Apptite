@@ -87,7 +87,6 @@ class EventController extends Controller
         $eventdate = $request->event_date;
         $eventplaces = $request->available_places;
 
-
         $event = new Event();
         $event->event_date = $eventdate;
         $event->meal_id = $mealid;

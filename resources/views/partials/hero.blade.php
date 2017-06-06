@@ -3,7 +3,7 @@
         <div class="header">
             <img class="header-logo" src="/assets/images/logo_apptite.svg" alt="logo apptite">
             <div class="row">
-                <h2>Het geheime ingrediënt voor een unieke eetervaring</h2>
+                <h2>Schuif bij hobbychefs aan tafel voor een huisbereide maaltijd</h2>
             </div>
             <form action="/events/zoeken" method="POST" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
@@ -11,11 +11,11 @@
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="input-group col-md-12">
                             <input type="text" name="txtPlace" id="txtPlace" class="form-control input-lg"
-                                   placeholder="&#xf002;  Zoek naar een Apptite event in jouw stad..."
+                                   placeholder="&#xf002;  Zoek maaltijden in jouw buurt... "
                                    style="font-family: Roboto, FontAwesome;"required/>
                         <span class="input-group-btn">
                             <button class="btn btn-default input-lg" type="submit">
-                                <h4>Toon events</h4>
+                                <h4>Zoeken</h4>
                             </button>
                         </span>
                         </div>

@@ -262,7 +262,7 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
     font-weight: 200;
     font-size: 20px; }
   .header .searchbox {
-    margin: 50px 0 0 0; }
+    margin: 20px 0 0 0; }
     .header .searchbox h4 {
       padding: 0 15px 0 15px;
       font-size: 1em;

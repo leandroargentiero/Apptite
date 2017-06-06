@@ -7,8 +7,6 @@
         <p class="footer-links">
             <a href="#">Home</a>
             ·
-            <a href="#">Over Apptite</a>
-            ·
             <a href="#">Algemene voorwaarden</a>
         </p>web
 
@@ -39,8 +37,6 @@
         <div class="footer-icons">
 
             <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
 
         </div>
 
