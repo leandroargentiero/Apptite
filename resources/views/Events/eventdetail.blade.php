@@ -28,7 +28,7 @@
         @endif
 
                 <!-- EDIT EVENT MODAL -->
-
+        <!--@include('modals.modalEditEvent')-->
 
         <div class="profile-container">
             <!-- SECTION MEALINFO -->
