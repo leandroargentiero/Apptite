@@ -4,7 +4,6 @@ Route::get('/', function () {
     return view('home');
 });
 
-// **************** PUBLIC ROUTES ****************
 // INDEX - HOME ROUTE
 Route::get('/home', 'HomeController@index');
 
@@ -12,11 +11,10 @@ Route::get('/home', 'HomeController@index');
 Auth::routes();
 // LOGOUT ROUTE
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
+// SEARCH ROUTES
 Route::post('/events/zoeken', 'EventController@search');
 
-
-//// **************** AUTH ROUTES ****************
+// ALL ROUTES WHERE USER LOGIN IS REQUIRED
 Route::group(array('middleware' => 'auth'), function () {
 
     // MEALS ROUTES
@@ -33,8 +31,6 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::post('/events/update/{id}', 'EventController@update');
     Route::get('/events/{id}', 'EventController@show');
     Route::delete('/events/{event}', 'MealController@destroy');
-  
-
 
     // Profile ROUTES
     Route::get('/mijnprofiel', 'UserController@index');
