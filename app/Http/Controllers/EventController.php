@@ -57,7 +57,7 @@ class EventController extends Controller
             ->orderBy('events.event_date', 'desc')
             ->get();
 
-        return view('Events.index')
+        return view('events.index')
             ->with('eventMeals', $eventMeals)
             ->with('searchCity', $searchCity)
             ->with('pagetitle', 'Apptite events');
