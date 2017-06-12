@@ -496,11 +496,18 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
         margin: 0 0 20px 0;
         font-size: 1em;
         font-weight: 100; }
-      .meal-container .meal-item .meal-description-content button {
+      .meal-container .meal-item .meal-description-content .btn-primary {
         color: white !important;
         text-transform: uppercase !important;
         font-weight: 500 !important;
         font-size: .9em; }
+      .meal-container .meal-item .meal-description-content .btn-delete {
+        background-color: #D7263D;
+        position: absolute;
+        right: 5px;
+        top: 5px; }
+        .meal-container .meal-item .meal-description-content .btn-delete:hover {
+          background-color: #ba2135; }
     .meal-container .meal-item:hover .meal-description {
       display: block; }
   .meal-container .modal-header-title {

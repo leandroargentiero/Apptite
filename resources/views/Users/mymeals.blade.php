@@ -7,11 +7,10 @@
 @section('content')
 
     <div class="meal-container">
-
         <div class="col-md-12">
-            @if(Session::has('successmessage'))
+            @if(Session::has('successmsg'))
                 <div class="alert alert-success">
-                    <strong>{{ Session::get('successmessage') }}</strong>
+                    <strong>{{ Session::get('successmsg') }}</strong>
                 </div>
             @endif
         </div>
@@ -70,8 +69,13 @@
                             <h3 class="meal-price"> € {{ $meal->price }} p.p.</h3>
                             <button class="btn btn-primary" data-toggle="modal"
                                     data-target="#eventModal-{{ $meal->id }}">
-                                Apptite event aanmaken
+                                Gerecht publiceren
                             </button>
+                            <form class="form-horizontal" role="form" method="POST" action="/maaltijden/{{ $meal->id }}">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <button class="btn btn-danger btn-delete" type="submit"><i class="fa fa-trash"></i></button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -38,12 +38,21 @@
         font-size: 1em;
         font-weight: 100;
       }
-      button{
+      .btn-primary{
         color: white !important;
         text-transform: uppercase !important;
         font-weight: 500 !important;
         font-size: .9em;
+      }
+      .btn-delete{
+        background-color: #D7263D;
+        position: absolute;
+        right: 5px;
+        top: 5px;
 
+        &:hover{
+          background-color: #ba2135;
+        }
       }
     }
 

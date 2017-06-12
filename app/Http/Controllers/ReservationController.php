@@ -169,7 +169,7 @@ class ReservationController extends Controller
         DB::table('reservations')->where('id', '=', $id)->delete();
 
         return Redirect::to('/mijnreservaties')
-            ->with('successmessage', 'Het moment werd succesvol geannuleerd.');;
+            ->with('successmessage', 'Het moment werd succesvol geannuleerd.');
 
     }
 }

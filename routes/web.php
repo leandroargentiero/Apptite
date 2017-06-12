@@ -26,7 +26,7 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::get('/mijnkookboek', 'MealController@index');
     Route::get('maaltijden/aanmaken', 'MealController@create');
     Route::post('/maaltijden', 'MealController@store');
-    Route::delete('/meals/{meal}', 'MealController@destroy');
+    Route::delete('/maaltijden/{id}', 'MealController@destroy');
 
 
     // EVENT ROUTES

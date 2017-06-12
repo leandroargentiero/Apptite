@@ -56,8 +56,6 @@ class MealController extends Controller
             $mealpicture = $request->file('mealpicture');
             $filename = time() . '.' . $mealpicture->getClientOriginalExtension();
             Image::make($mealpicture)->fit(500, 500)->save( public_path('mealpictures/' . $filename ) );
-
-            $data['successMessage'] = "Volgend gerecht werd aan uw kookboek toegevoegd:";
         }
 
 
@@ -66,15 +64,15 @@ class MealController extends Controller
             'meal_name' => $request->meal_name,
             'meal_description' => $request->meal_description,
             'available_places' => $request->available_places,
-            'meal_price' => $request->price,
+            'price' => $request->meal_price,
             'meal_picture' => $filename,
         ]);
 
         $user_id = Auth::id();
         $meals = DB::table('meals')->where('user_id', '=', $user_id)->orderBy('id', 'desc')->get();
-        return view('users.mymeals')
+        return redirect('/mijnkookboek')
             ->with(compact("meals"))
-            ->with('successmessage', 'Gefeliciteerd Apptiter! Er werd een nieuw gerecht aan jouw kookboek toegevoegd.')
+            ->with('successmsg', 'Gefeliciteerd Apptiter! Er werd een nieuw gerecht aan jouw kookboek toegevoegd.')
             ->with('pagetitle', 'Mijn kookboek');
 
     }
@@ -121,6 +119,16 @@ class MealController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // DELETE RESERVATION RECORD
+        DB::table('events')->where('meal_id', '=', $id)->delete();
+        DB::table('meals')->where('id', '=', $id)->delete();
+
+
+        $user_id = Auth::id();
+        $meals = DB::table('meals')->where('user_id', '=', $user_id)->orderBy('id', 'desc')->get();
+        return redirect('/mijnkookboek')
+            ->with(compact("meals"))
+            ->with('successmsg', 'Het gerecht werd uit jouw kookboek verwijderd.')
+            ->with('pagetitle', 'Mijn kookboek');
     }
 }
