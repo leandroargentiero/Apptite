@@ -11,11 +11,10 @@
         <div class="row" style="margin: 0 0 30px 0;">
             <div class="col-md-6">
                 <h2 class="homesubtitle">Zoek verse huisbereide maaltijden bij hobbychefs thuis</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                <p>Maak een account aan en zoek naar Apptite events bij jou in de buurt en reserveer je plaats bij de
+                    Apptite chef. Ga naar de locatie op de afgesproken datum en tijd. Schuif aan tafel en geniet van een
+                    lekker verse huisbereide maaltijd in goed gezelschap. Goede ervaring gehad? Laat het dan zeker en
+                    weten aan de Apptite chef door een review achter te laten op zijn profiel pagina.
                 </p>
             </div>
             <div class="col-md-5 pull-right">
@@ -28,11 +27,9 @@
             </div>
             <div class="col-md-6">
                 <h2 class="homesubtitle">Word Apptite chef</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                <p>Registreer je op het platform en plaats je beste gerechten in je kookboek. Vanuit je kookboek kan je
+                    een Apptite event publiceren waarop andere Apptiters kunnen reserveren om bij jou aan tafel te
+                    schuiven. Tover je eettafel om tot een huiskamerrestaurant en geef je gasten een unieke eetervaring.
                 </p>
             </div>
         </div>

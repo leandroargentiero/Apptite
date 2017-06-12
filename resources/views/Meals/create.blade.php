@@ -6,119 +6,100 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading panel-heading-custom">Maak een nieuwe maaltijd aan</div>
-                    <div class="panel-body">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <img id="logo-login" src="/assets/images/logo_apptite_black.svg" alt="logo apptite">
+
+                    <h3>Gerecht toevoegen</h3>
+
+                    <form action="/maaltijden" method="POST"
+                          class="form-horizontal col-md-12 {{ $errors->has('email') ? ' has-error' : '' }}"
+                          enctype="multipart/form-data">
+                        {{ csrf_field() }}
+
+                                <!-- Meal Name -->
+                        <div class="form-group float-label-control">
+                            <label for="meal_name">Naam van het gerecht</label>
+                            <input id="meal_name" name="meal_name" type="text" class="form-control"
+                                   placeholder="Naam van het gerecht" value="{{ old('meal_name') }}">
+                        </div>
+                        @if ($errors->has('meal_name'))
+                            <span class="help-block">
+                                        <strong>{{ $errors->first('meal_name') }}</strong>
+                                    </span>
+                            @endif
 
 
-                        @if (!empty($successMessage))
-                            <div class="alert alert-success" role="alert">
-
-                                <h4 class="alert-heading">Gefeliciteerd Apptiter!</h4>
-                                <p>{{ $successMessage }}</p>
-
-                                <br>
-                                <br>
-
-                                <ul>
-                                    <li>Gerecht: {{ $mealname }}</li>
-                                    <li>Beschrijving: {{ $mealdescription }}</li>
-                                    <li>Aantal plaatsen: {{ $mealplaces }}</li>
-                                    <li>Prijs per persoon: € {{ $mealprice }}</li>
-                                </ul>
-
-                                <br>
-                                <br>
-
-                                <button class="btn btn-default">
-                                    <a href="#"> Gerecht publiceren </a>
-                                </button>
-
+                                    <!-- Meal Description -->
+                            <div class="form-group float-label-control">
+                                <label for="meal-description">Korte beschrijving</label>
+                                    <textarea placeholder="Korte beschrijving" name="meal_description"
+                                              id="meal-description" cols="40" rows="5"
+                                              class="form-control" value="{{old('meal_description')}}"></textarea>
                             </div>
 
-                        @else
-                                <!-- New Meal Form -->
-                            <form action="/maaltijden" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                                {{ csrf_field() }}
+                            @if ($errors->has('meal_description'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('meal_description') }}</strong>
+                                    </span>
+                                @endif
 
-                                        <!-- Meal Name -->
-                                <div class="form-group">
-                                    <label for="meal-name" class="col-sm-5 control-label">Naam van het gerecht</label>
 
-                                    <div class="col-sm-6">
-                                        <input type="text" name="meal_name" id="meal-name" class="form-control" value="{{old('meal-name')}}">
-                                    </div>
+                                        <!-- Meal Places -->
+                                <div class="form-group float-label-control">
+                                    <label for="meal-places">Aantal plaatsen</label>
+                                    <input placeholder="Aantal beschikbare plaatsen" type="text"
+                                           name="available_places"
+                                           id="meal-places"
+                                           class="form-control" value="{{old('available_places')}}">
                                 </div>
+                                @if ($errors->has('available_places'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('available_places') }}</strong>
+                                    </span>
+                                    @endif
 
-                                <!-- Meal Description -->
-                                <div class="form-group">
-                                    <label for="meal-description" class="col-sm-5 control-label">Beschrijving van het gerecht</label>
 
-                                    <div class="col-sm-6">
-                                        <textarea name="meal_description" id="meal-description" cols="40" rows="5" class="form-control" value="{{old('description')}}"></textarea>
+                                            <!-- Meal Price -->
+                                    <div class="form-group float-label-control">
+                                        <label for="meal_price">€</label>
+                                        <input placeholder="€ Prijs per persoon" type="text" name="meal_price"
+                                               id="meal_price"
+                                               class="form-control" value="{{old('meal_price')}}">
                                     </div>
-                                </div>
+                                    @if ($errors->has('meal_price'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('meal_price') }}</strong>
+                                    </span>
+                                        @endif
 
-                                <!-- Meal Available places -->
-                                <div class="form-group">
-                                    <label for="meal-places" class="col-sm-5 control-label">Hoeveel personen kunnen er plaatsnemen?</label>
+                                                <!-- Meal Picture -->
+                                        <div class="form-group row">
+                                            <div class="col-md-5">
+                                                <label class="btn btn-primary" for="meal-upload">
+                                                    <input name="mealpicture" id="meal-upload" class="meal-upload"
+                                                           type="file"
+                                                           class="file" style=" display: none;"
+                                                           value="{{old('mealpicture')}}">
+                                                    Foto uploaden...
+                                                    <input type="hidden" value="{{csrf_token()}}" name="_token">
+                                                </label>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <img class="upload-preview img-rounded" width="300" height="200"
+                                                     src=""
+                                                     alt="Meal preview" style="display: none;">
+                                            </div>
+                                        </div>
 
-                                    <div class="col-sm-6">
-                                        <input type="text" name="available_places" id="meal-places" class="form-control" value="{{old('available_places')}}">
-                                    </div>
-                                </div>
-
-
-                                <!-- Meal Kitchen -->
-                                <div class="form-group">
-                                    <label for="meal-kitchen" class="col-sm-5 control-label">Onder welke keuken valt het gerecht?</label>
-
-                                    <div class="col-sm-6">
-                                        <input type="text" name="kitchen" id="meal-kitchen" class="form-control" placeholder="Hint: Belgisch, Italiaans, Spaans,..." value="{{old('kitchen')}}">
-                                    </div>
-                                </div>
-
-                                <!-- Meal Price -->
-                                <div class="form-group">
-                                    <label for="meal-price" class="col-sm-5 control-label">Prijs per persoon</label>
-
-                                    <div class="col-sm-6">
-                                        <input type="text" name="price" id="meal-price" class="form-control" placeholder="€" value="{{old('price')}}">
-                                    </div>
-                                </div>
-
-                                <!-- Meal Picture -->
-                                <div class="form-group">
-                                    <label for="meal-picture" class="col-md-5 control-label">Voeg een foto van het gerecht toe</label>
-
-                                    <div class="col-sm-6">
-                                        <label class="btn btn-primary" for="meal-upload">
-                                            <input name="mealpicture" id="meal-upload" class="meal-upload" type="file" class="file" style="display: none;" value="{{old('mealpicture')}}">
-                                            Foto uploaden...
-                                            <input type="hidden" value="{{csrf_token()}}" name="_token">
-                                        </label>
-                                    </div>
-                                    <div class="col-md-5"></div>
-                                    <div class="col-sm-6" style="margin-top: 30px;">
-                                        <img class="upload-preview img-rounded"  width="200" height="200" src="" alt="Meal preview" style="display: none;">
-                                    </div>
-                                </div>
-
-
-                                <!-- Add Task Button -->
-                                <div class="form-group" style="margin-top: 50px;">
-                                    <div class="col-sm-offset-5 col-sm-6">
-                                        <button type="submit" class="btn btn-default pull-right">
-                                            <i class="fa fa-plus"></i> Maaltijd toevoegen
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        @endif
-
-                    </div>
+                                        <!-- ADD MEAL BUTTON-->
+                                        <div class="form-group" style="margin-top: 50px;">
+                                            <button type="submit" class="btn btn-default pull-right">
+                                                <i class="fa fa-plus"></i> Toevoegen
+                                            </button>
+                                        </div>
+                    </form>
                 </div>
             </div>
         </div>

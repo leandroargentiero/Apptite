@@ -193,7 +193,6 @@ class EventController extends Controller
         ]);
         // CUSTOM MESSAGES => VALIDATION.PHP
 
-
         $mealname = $request->meal_name;
         $mealdescription = $request->meal_description;
         $eventplaces = $request->available_places;

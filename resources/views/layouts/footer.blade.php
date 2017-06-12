@@ -5,7 +5,7 @@
         <div class="footer-logo">Apptite logo</div>
 
         <p class="footer-links">
-            <a href="www.myapptite.be">Home</a>
+            <a href="/">Home</a>
             ·
             <a href="/algemene-voorwaarden">Algemene voorwaarden</a>
         </p>web

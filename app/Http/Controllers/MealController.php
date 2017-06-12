@@ -31,7 +31,7 @@ class MealController extends Controller
     public function create()
     {
         return view('meals.create')
-            ->with('pagetitle', 'Een nieuwe maaltijd toevoegen');
+            ->with('pagetitle', 'Nieuw gerecht aan kookboek toevoegen');
     }
 
     /**
@@ -47,10 +47,10 @@ class MealController extends Controller
             'meal_name' => 'required|max:255',
             'meal_description' => 'required',
             'available_places' => 'required',
-            'kitchen' => 'required|max:255',
-            'price' => 'required',
+            'meal_price' => 'required',
             'mealpicture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
+
 
         if($request->hasFile('mealpicture')){
             $mealpicture = $request->file('mealpicture');
@@ -66,18 +66,16 @@ class MealController extends Controller
             'meal_name' => $request->meal_name,
             'meal_description' => $request->meal_description,
             'available_places' => $request->available_places,
-            'kitchen' => $request->kitchen,
-            'price' => $request->price,
+            'meal_price' => $request->price,
             'meal_picture' => $filename,
         ]);
 
-        $data['mealname'] = $request->meal_name;
-        $data['mealdescription'] = $request->meal_description;
-        $data['mealplaces'] = $request->available_places;
-        $data['mealprice'] = $request->price;
-
-        return view('meals/create')->with($data);
-
+        $user_id = Auth::id();
+        $meals = DB::table('meals')->where('user_id', '=', $user_id)->orderBy('id', 'desc')->get();
+        return view('users.mymeals')
+            ->with(compact("meals"))
+            ->with('successmessage', 'Gefeliciteerd Apptiter! Er werd een nieuw gerecht aan jouw kookboek toegevoegd.')
+            ->with('pagetitle', 'Mijn kookboek');
 
     }
 

@@ -116,7 +116,7 @@ return [
             'required' => 'Het aantal beschikbare plaatsen werd niet ingevuld',
             'integer' => 'Er werd geen geldig aantal plaatsen ingevuld',
         ],
-        'event_price' => [
+        'meal_price' => [
             'required' => 'Er werd geen prijs ingevuld',
         ],
         'event_date' => [

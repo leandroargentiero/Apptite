@@ -7,6 +7,15 @@
 @section('content')
 
     <div class="meal-container">
+
+        <div class="col-md-12">
+            @if(Session::has('successmessage'))
+                <div class="alert alert-success">
+                    <strong>{{ Session::get('successmessage') }}</strong>
+                </div>
+            @endif
+        </div>
+
         @if (count($meals) > 0)
             @foreach ($meals as $meal)
                 <div class="meal-item">

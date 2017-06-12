@@ -135,19 +135,17 @@ $( document ).ready(function() {
         $('.float-label-control').floatLabels();
     });
 
-
     //********************** NAVBAR COLOR CHANGE ON SCROLL ********************** /
     var scroll_start = 0;
     var startchange = $('#homedescription');
     var offset = startchange.offset();
 
-    $(document).scroll(function() {
+    $(document).scroll(function () {
         scroll_start = $(this).scrollTop();
-        if(scroll_start > offset.top) {
+        if (scroll_start > offset.top) {
             $('.navbar').css('background-color', '#263240');
         } else {
             $('.navbar').css('background-color', 'transparent');
         }
     });
-
 });
