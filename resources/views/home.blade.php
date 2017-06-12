@@ -7,7 +7,8 @@
 @section('content')
     <div id='homedescription'>
         <h2 style="text-align: center; margin: 0 0 100px 0;" class="hometitle">Hoe werkt het?</h2>
-        <div class="row" style="margin: 0 0 80px 0;">
+
+        <div class="row" style="margin: 0 0 30px 0;">
             <div class="col-md-6">
                 <h2 class="homesubtitle">Zoek verse huisbereide maaltijden bij hobbychefs thuis</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
@@ -36,4 +37,32 @@
             </div>
         </div>
     </div>
+
 @stop
+
+@section('home-banner')
+    <h2 style="text-align: center; margin: 50px 0 20px 0;" class="hometitle">Een unieke eetervaring</h2>
+
+    <div class="banner-home">
+        <a href="#myModal" data-toggle="modal">
+            <div class="banner-home-overlay">
+                <img class="play-button hvr-grow" src="/assets/images/play-button.png" alt="play button">
+            </div>
+        </a>
+    </div>
+
+    <!-- VIDEO MODAL -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/itVh_KpfWco?rel=0?autoplay=1"
+                            frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+@stop
+
+

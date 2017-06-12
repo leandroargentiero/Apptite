@@ -47,9 +47,12 @@
 </section>
 
 <div class="container">
-        @yield('content')
+    @yield('content')
 </div>
 
+<section>
+    @yield('home-banner')
+</section>
 
 @include('layouts.footer')
 
