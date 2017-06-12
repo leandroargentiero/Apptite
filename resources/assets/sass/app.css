@@ -884,4 +884,7 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
       text-align: center;
       margin: 20px 0 0 0; }
 
+.algemene-voorwaarden {
+  display: none; }
+
 /*# sourceMappingURL=app.css.map */

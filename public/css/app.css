@@ -1177,4 +1177,12 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   margin: 20px 0 0 0;
 }
 
+.algemene-voorwaarden h2 {
+  margin: 50px 0 20px 0;
+}
+
+.algemene-voorwaarden h3 {
+  margin: 0  0 10px 0;
+}
+
 /*# sourceMappingURL=app.css.map */

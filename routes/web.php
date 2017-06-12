@@ -13,6 +13,11 @@ Auth::routes();
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // SEARCH ROUTES
 Route::post('/events/zoeken', 'EventController@search');
+//Algemene voorwaarden
+Route::get('/algemene-voorwaarden', function () {
+    return view('voorwaarden');
+});
+
 
 // ALL ROUTES WHERE USER LOGIN IS REQUIRED
 Route::group(array('middleware' => 'auth'), function () {
