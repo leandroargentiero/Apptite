@@ -28,7 +28,7 @@
                             </figure>
 
                             <div class="meta">
-                                <a href="/profiel/{{ $eventMeal->id }}">{{ $eventMeal->name }}</a>
+                                <a href="/profiel/{{ $eventMeal->user_id }}">{{ $eventMeal->name }}</a>
                             </div>
 
                             <h4 class="card-title mt-3">{{ $eventMeal->meal_name }}</h4>

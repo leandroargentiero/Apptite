@@ -15,6 +15,14 @@
             @endif
         </div>
 
+        <h3 class="header-title">
+            @if(count($meals) > 0)
+                Je hebt {{count($meals)}} gerechten in je kookboek staan.
+            @else
+                Sorry, maar je hebt nog geen gerechten in je kookboek.
+            @endif
+        </h3>
+
         @if (count($meals) > 0)
             @foreach ($meals as $meal)
                 <div class="meal-item">
@@ -71,17 +79,30 @@
                                     data-target="#eventModal-{{ $meal->id }}">
                                 Gerecht publiceren
                             </button>
-                            <form class="form-horizontal" role="form" method="POST" action="/maaltijden/{{ $meal->id }}">
+                            <form class="form-horizontal" role="form" method="POST"
+                                  action="/maaltijden/{{ $meal->id }}">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-                                <button class="btn btn-danger btn-delete" type="submit"><i class="fa fa-trash"></i></button>
+                                <button class="btn btn-danger btn-delete" type="submit"><i class="fa fa-trash"></i>
+                                </button>
                             </form>
                         </div>
                     </div>
                 </div>
-
             @endforeach
         @endif
+        <div class="meal-item">
+            <img src="assets/images/thumbnail-neighbour.jpg" alt="meal picture">
+            <div class="meal-description">
+                <div class="meal-description-content">
+                    <h3 class="meal-name">Word Apptite chef</h3>
+                    <button class="btn btn-primary" data-toggle="modal"
+                            data-target="#eventModal-{{ $meal->id }}">
+                        <a href="">Nieuw gerecht toevoegen</a>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

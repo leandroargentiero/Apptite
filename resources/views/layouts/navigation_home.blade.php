@@ -6,7 +6,7 @@
                     data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
             </button>
-            <a class="navbar-brand logo" href="/home">Apptite</a>
+            <a class="navbar-brand logo" href="/">Apptite</a>
         </div>
 
         <!-- Collect all content for toggling -->
