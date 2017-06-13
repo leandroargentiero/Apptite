@@ -671,6 +671,9 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   cursor: pointer;
   margin: 0 0 20px 0; }
 
+.page-header {
+  margin: 0 0 30px 0 !important; }
+
 .reservation-avatar {
   height: 30px;
   width: 30px;
@@ -900,9 +903,6 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   .panel h3 {
     text-align: center;
     margin: 40px 0 20px 0; }
-  .panel p {
-    text-align: center;
-    margin: 20px 0 0 0; }
 
 .algemene-voorwaarden h2 {
   margin: 50px 0 20px 0; }

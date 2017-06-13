@@ -914,6 +914,10 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   margin: 0 0 20px 0;
 }
 
+.page-header {
+  margin: 0 0 30px 0 !important;
+}
+
 .reservation-avatar {
   height: 30px;
   width: 30px;
@@ -1200,11 +1204,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 .panel h3 {
   text-align: center;
   margin: 40px 0 20px 0;
-}
-
-.panel p {
-  text-align: center;
-  margin: 20px 0 0 0;
 }
 
 .algemene-voorwaarden h2 {

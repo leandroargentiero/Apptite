@@ -67,7 +67,7 @@ class UserController extends Controller
             ->where('id', '=', $userID)
             ->select('*')
             ->first();
-        
+
         // GET ALL EVENTS FROM USER
         $totalEvents = DB::table('users')
             ->join('meals', 'user_id', '=', 'users.id')
