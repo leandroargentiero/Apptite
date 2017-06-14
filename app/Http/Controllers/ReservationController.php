@@ -207,7 +207,7 @@ class ReservationController extends Controller
         DB::table('reservations')->where('id', '=', $reservationID)->delete();
 
         return Redirect::to('/mijnevents')
-            ->with('successmessage', 'De reservatie werd succesvol geweigerd en de gebruiker wordt op de hoogte gebracht.');
+            ->with('successmessage', 'De reservatie werd succesvol geweigerd. De gebruiker werd op de hoogte gebracht.');
 
 
     }

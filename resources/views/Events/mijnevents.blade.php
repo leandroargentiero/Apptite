@@ -5,6 +5,11 @@
 @stop
 
 @section('content')
+    @if(Session::has('successmessage'))
+        <div class="alert alert-success">
+            <strong>{{ Session::get('successmessage') }}</strong>
+        </div>
+    @endif
 
     @if(count($eventMeals) > 0)
         <h3 class="header-title">Aantal geplande events: {{ count($eventMeals) }}</h3>

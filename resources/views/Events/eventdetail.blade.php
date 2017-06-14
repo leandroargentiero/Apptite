@@ -141,6 +141,9 @@
                                             </time>
                                         </header>
                                         <div class="comment-post">
+                                            @for($i = 0; $i < $review->review_rating; $i++)
+                                                <span class="fa fa-star" data-rating="{{$i}}"></span>
+                                            @endfor
                                             <p>
                                                {{ $review->review_description }}
                                             </p>

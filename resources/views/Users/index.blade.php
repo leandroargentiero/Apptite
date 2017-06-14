@@ -16,6 +16,8 @@
                 <img class="user-image" src="/avatars/{{ $user->profilepic }}" alt="">
                 <div class="col-md-12 user-info">
                     <h3 class="user-name">{{ $user->name }}</h3>
+
+                    <p>
                     <p class="user-date">Apptiter
                         sinds: {{  date(' d F, Y', strtotime($user->created_at)) }}</p>
                 </div>

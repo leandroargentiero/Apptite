@@ -158,7 +158,7 @@ class EventController extends Controller
             ->with('event', $event)
             ->with('eventID', $eventID)
             ->with('reviews', $reviews)
-            ->with('avgRating', $avgRating)
+            ->with('avgRating', $rating)
             ->with('map');
     }
 
