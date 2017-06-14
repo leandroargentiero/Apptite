@@ -91,18 +91,15 @@
                 </div>
             @endforeach
         @endif
-        <div class="meal-item">
-            <img src="assets/images/thumbnail-neighbour.jpg" alt="meal picture">
-            <div class="meal-description">
-                <div class="meal-description-content">
-                    <h3 class="meal-name">Word Apptite chef</h3>
-                    <button class="btn btn-primary" data-toggle="modal"
-                            data-target="#eventModal-{{ $meal->id }}">
-                        <a href="">Nieuw gerecht toevoegen</a>
-                    </button>
-                </div>
+    </div>
+
+    <div class="banner-meals">
+        <a href="/mijnkookboek">
+            <div class="banner-meals-overlay">
+                <h3>Voeg een nieuw gerecht toe aan jouw kookboek</h3>
+                <img class="btnAdd hvr-grow" src="/assets/images/plus.png" alt="add-button">
             </div>
-        </div>
+        </a>
     </div>
 
 @endsection

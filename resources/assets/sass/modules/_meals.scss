@@ -73,5 +73,37 @@
   }
 }
 
+.banner-meals {
+  background-image: url(/assets/images/banner-meals.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 250px;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .1);
+  margin-top: 50px;
+
+  .banner-meals-overlay {
+    position: absolute;
+    top: 50%;
+    color: $lightGray;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    -ms-transform: translate(0, -50%); /* IE 9 */
+    -webkit-transform: translate(0, -50%); /* Safari */
+    transform: translate(0, -50%);
+  }
+
+  h3{
+    color: white !important;
+    margin: 0 0 20px 0;
+  }
+
+  .btnAdd{
+    width: 100px;
+    height: 100px;
+  }
+}
 
 
