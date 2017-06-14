@@ -131,6 +131,11 @@
                                         "></textarea>
                                 <input name="event_id" type="hidden" value="">
                             </div>
+                            @if ($errors->has('review'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('review') }}</strong>
+                                    </span>
+                            @endif
                             <div class="form-group">
                                 <button type="submit" class="btn btn-default pull-right">PLAATSEN</button>
                             </div>

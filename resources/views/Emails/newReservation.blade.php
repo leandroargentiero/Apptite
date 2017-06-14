@@ -128,7 +128,7 @@
                             <tr>
                                 <td align="center">
                                     <p>
-                                        <a href="#" class="button">Bekijk de nieuwe reservatie</a>
+                                        <a href="myapptite.be" class="button">Bekijk de nieuwe reservatie</a>
                                     </p>
                                 </td>
                             </tr>

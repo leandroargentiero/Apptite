@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Mail\CancelReservation;
+use App\Mail\DenyReservation;
 use App\Mail\NewReservation;
 use App\Reservation;
 use Carbon\Carbon;
@@ -31,12 +32,12 @@ class ReservationController extends Controller
             ->join('events', 'meal_id', '=', 'meals.id')
             ->join('reservations', 'reservations.event_id', '=', 'events.id')
             ->where('reservations.user_id', '=', $userID)
-            ->select('users.id as user_id','event_id', 'event_date', 'reservation_places', 'name', 'meal_name', 'reservations.id')
+            ->select('users.id as user_id', 'event_id', 'event_date', 'reservation_places', 'name', 'meal_name', 'reservations.id')
             ->get();
 
         $currentDate = Carbon::now()->format('d-m-Y');
 
-        return view ('reservations.index')
+        return view('reservations.index')
             ->with('pagetitle', 'Mijn reservaties')
             ->with('reservations', $reservations)
             ->with('currentdate', $currentDate);
@@ -55,7 +56,7 @@ class ReservationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -73,7 +74,7 @@ class ReservationController extends Controller
         $reservation->save();
 
         // UPDATE EVENT AVAILABLE PLACES
-        if($availableplaces >= 1){
+        if ($availableplaces >= 1) {
             $newAvailableplaces = $availableplaces - $reservationAmount;
 
             DB::table('events')
@@ -103,7 +104,7 @@ class ReservationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -114,7 +115,7 @@ class ReservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -125,8 +126,8 @@ class ReservationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -137,7 +138,7 @@ class ReservationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -170,6 +171,44 @@ class ReservationController extends Controller
 
         return Redirect::to('/mijnreservaties')
             ->with('successmessage', 'Het moment werd succesvol geannuleerd.');
+
+    }
+
+    public function denyReservation(Request $request, $id)
+    {
+
+        $reservation_places = $request->reservation_places;
+        $eventID = $request->event_id;
+        $reservationID = $id;
+
+        // UPDATE EVENT PLACES
+        DB::table('events')
+            ->where('id', '=', $eventID)
+            ->increment('event_places', $reservation_places);
+
+
+        // ========== SENDING CONFIRMATION MAIL TO USER ========
+        // GET RECIPIENT FOR MAIL
+
+        $recipient = DB::table('users')
+            ->join('reservations', 'user_id', '=', 'users.id')
+            ->where('reservations.event_id', '=', $eventID)
+            ->where('reservations.id', '=', $reservationID)
+            ->select('*')
+            ->first();
+
+
+        // SEND CONFIRMATION MAIL TO ORGANIZER
+        Mail::to($recipient)->send(new DenyReservation());
+        //=======================================================
+
+
+        // DELETE RESERVATION RECORD
+        DB::table('reservations')->where('id', '=', $reservationID)->delete();
+
+        return Redirect::to('/mijnevents')
+            ->with('successmessage', 'De reservatie werd succesvol geweigerd en de gebruiker wordt op de hoogte gebracht.');
+
 
     }
 }

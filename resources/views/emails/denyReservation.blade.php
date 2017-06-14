@@ -113,7 +113,7 @@
                 <tr>
                     <td align="center" class="masthead">
 
-                        <h1>Nieuwe review</h1>
+                        <h1>Reservatie geannuleerd</h1>
 
                     </td>
                 </tr>
@@ -122,17 +122,9 @@
 
                         <h2>Hallo Apptiter,</h2>
 
-                        <p>Een gebruiker heeft je een nieuwe review gegeven. </p>
+                        <p>Een andere Apptiter heeft voor een persoonlijke reden jouw reservatie op zijn/haar event geweigerd.</p>
+                        <p>Indien er vragen zijn, kan je ons contacteren op info@apptite.be</p>
 
-                        <table>
-                            <tr>
-                                <td align="center">
-                                    <p>
-                                        <a href="myapptite.be" class="button">Bekijk de nieuwe review</a>
-                                    </p>
-                                </td>
-                            </tr>
-                        </table>
 
                         <p>Het Apptite team.</p>
 

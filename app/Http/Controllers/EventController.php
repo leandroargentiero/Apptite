@@ -34,7 +34,7 @@ class EventController extends Controller
         $reservations = DB::table('reservations')
             ->join('users', 'users.id', '=', 'reservations.user_id')
             ->join('events', 'events.id', '=', 'reservations.event_id')
-            ->select('*')
+            ->select('*', 'reservations.id AS reservation_id')
             ->get();
 
         return view('events.mijnevents')
@@ -251,6 +251,6 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
     }
 }

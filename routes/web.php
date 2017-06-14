@@ -47,6 +47,7 @@ Route::group(array('middleware' => 'auth'), function () {
     Route::get('/mijnreservaties', 'ReservationController@index');
     Route::post('/reservaties/reserveren', 'ReservationController@store');
     Route::delete('/reservaties/{id}', 'ReservationController@destroy');
+    Route::delete('/reservaties/weiger/{id}', 'ReservationController@denyReservation');
 
     // REVIEW ROUTES
     Route::post('/review/{id}', 'ReviewController@store');
