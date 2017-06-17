@@ -35,8 +35,8 @@ $( document ).ready(function() {
 
     // //********************** OPEN DATETIMEPICKER ********************** /
     $(function () {
-        $('#datetimepicker').datetimepicker({
-            format: 'DD/MM/YYYY'
+        $('.date').datetimepicker({
+            format: 'YY/MM/DD'
         });
     });
 
