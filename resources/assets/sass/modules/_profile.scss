@@ -37,7 +37,7 @@
   .cta-toevoegen{
     color: white;
     display: block;
-    background-color: $primaryColor;
+    background-color: $accentColor;
     padding: 15px;
     border-radius: 2%;
     width: 90%;
@@ -47,7 +47,7 @@
     text-transform: uppercase;
 
     &:hover{
-      background-color: #238dc4;
+      background-color: #cdad1c;
       transition: ease 0.3s background-color;
       text-decoration: none;
     }

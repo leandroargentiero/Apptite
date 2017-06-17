@@ -699,7 +699,7 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
 .profile-container .cta-toevoegen {
   color: white;
   display: block;
-  background-color: #2f9fda;
+  background-color: #E2C029;
   padding: 15px;
   border-radius: 2%;
   width: 90%;
@@ -708,7 +708,7 @@ input[type="text"], input[type="email"], input[type="password"], .textarea, text
   font-weight: 500;
   text-transform: uppercase; }
   .profile-container .cta-toevoegen:hover {
-    background-color: #238dc4;
+    background-color: #cdad1c;
     transition: ease 0.3s background-color;
     text-decoration: none; }
 
