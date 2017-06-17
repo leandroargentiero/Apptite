@@ -94,9 +94,7 @@ class EventController extends Controller
         $event->save();
 
 
-        return Redirect::to('events');
-
-
+        return Redirect::to('/mijnevents');
     }
 
     /**

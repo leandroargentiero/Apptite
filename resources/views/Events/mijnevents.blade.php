@@ -34,8 +34,9 @@
                                     <li class="list-group-item">Je hebt nog geen reservaties</li>
                                 @endif
                                 @foreach($reservations as $reservation)
+
                                     @if($eventMeal->id == $reservation->event_id)
-                                        @if(count($eventMeal->id == $reservation->event_id) > 0)
+
                                             <li class="list-group-item clearfix">
                                                 {{ $reservation->reservation_places }}p
                                                 -
@@ -56,7 +57,6 @@
                                             </li>
                                         @else
                                             <li class="list-group-item">Je hebt nog geen reservaties</li>
-                                        @endif
                                     @endif
                                 @endforeach
 
