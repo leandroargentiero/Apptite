@@ -94,7 +94,7 @@
     </div>
 
     <div class="banner-meals">
-        <a href="/mijnkookboek">
+        <a href="/maaltijden/aanmaken">
             <div class="banner-meals-overlay">
                 <h3>Voeg een nieuw gerecht toe</h3>
                 <img class="btnAdd hvr-grow" src="/assets/images/plus.png" alt="add-button">
