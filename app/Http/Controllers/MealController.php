@@ -37,7 +37,7 @@ class MealController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -51,11 +51,10 @@ class MealController extends Controller
             'mealpicture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
 
-
-        if($request->hasFile('mealpicture')){
+        if ($request->hasFile('mealpicture')) {
             $mealpicture = $request->file('mealpicture');
             $filename = time() . '.' . $mealpicture->getClientOriginalExtension();
-            Image::make($mealpicture)->fit(500, 500)->save( public_path('mealpictures/' . $filename ) );
+            Image::make($mealpicture)->fit(500, 500)->save(public_path('mealpictures/' . $filename));
         }
 
 
@@ -80,7 +79,7 @@ class MealController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -91,7 +90,7 @@ class MealController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -102,8 +101,8 @@ class MealController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -114,7 +113,7 @@ class MealController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

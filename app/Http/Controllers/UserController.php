@@ -200,7 +200,7 @@ class UserController extends Controller
         }
 
 
-        return view('/mijnprofiel')
+        return redirect('/mijnprofiel')
             ->with('successmessage', 'Gefeliciteerd Apptiter! Je profiel werd succesvol gewijzigd.');
 
     }

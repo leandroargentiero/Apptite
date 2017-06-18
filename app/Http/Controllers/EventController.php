@@ -54,7 +54,7 @@ class EventController extends Controller
             ->where('users.address', 'like', '%'.$searchCity.'%' )
             ->select('*')
             ->where('events.event_date', '>=', Carbon::today()->toDateString())
-            ->orderBy('events.event_date', 'desc')
+            ->orderBy('events.event_date', 'asc')
             ->get();
 
         return view('events.index')
@@ -187,8 +187,8 @@ class EventController extends Controller
             'meal_description' => 'required|string',
             'available_places' => 'required|integer',
             'event_price' => 'required|integer',
-            'event_date' => 'required|date',
         ]);
+
         // CUSTOM MESSAGES => VALIDATION.PHP
 
         $mealname = $request->meal_name;
@@ -249,6 +249,14 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+        DB::table('events')->where('id', '=', $id)->delete();
+
+        $user_id = Auth::id();
+        $meals = DB::table('meals')->where('user_id', '=', $user_id)->orderBy('id', 'desc')->get();
+        return redirect('/mijnkookboek')
+            ->with(compact("meals"))
+            ->with('successmsg', 'Het event werd succesvol verwijderd.')
+            ->with('pagetitle', 'Mijn kookboek');
+
     }
 }

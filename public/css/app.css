@@ -903,6 +903,11 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   height: 100px;
 }
 
+#datetimepicker {
+  background-color: #fff;
+  color: #333;
+}
+
 .profile-container .profile-header ul {
   display: -webkit-box;
   display: flex;
