@@ -9,7 +9,7 @@
         @if(isset($searchCity) && count($eventMeals) > 0)
             We vonden {{count($eventMeals)}} Apptite events in {{ $searchCity }}
         @elseif(isset($searchCity))
-            Sorry, we vonden geen Apptite events in {{ $searchCity }}. Momenteel zijn we enkel actief in Mechelen.
+            Sorry, we vonden geen events in {{ $searchCity }}. Momenteel zijn we enkel actief in Mechelen.
         @endif
     </h3>
 
