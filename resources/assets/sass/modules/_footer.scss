@@ -13,7 +13,7 @@
   .footer-left {
     width: 40%;
   }
-  .footer-logo{
+  .footer-logo {
     background: url(/assets/images/logo_apptite.svg) no-repeat center;
     background-size: 100px;
     width: 130px;
@@ -21,7 +21,7 @@
     text-indent: -9999px;
     transition: ease 0.3s opacity;
 
-    &:hover{
+    &:hover {
       opacity: 0.7;
       transition: ease 0.3s opacity;
     }
@@ -36,7 +36,7 @@
       text-decoration: none;
       color: inherit;
 
-      &:hover{
+      &:hover {
         opacity: 0.5;
       }
     }
@@ -65,7 +65,7 @@
         font-size: 17px;
         line-height: 38px;
       }
-      &:hover{
+      &:hover {
         background-color: $primaryColor;
       }
     }
@@ -119,25 +119,13 @@
       margin-right: 3px;
       margin-bottom: 5px;
 
-      &:hover{
+      &:hover {
         background-color: $primaryColor;
       }
     }
 
   }
 }
-
-/* Footer left */
-
-/* The company logo */
-
-/* Footer links */
-
-/* Footer Center */
-
-/* Footer Right */
-
-/* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 880px) {
   .footer-distributed {

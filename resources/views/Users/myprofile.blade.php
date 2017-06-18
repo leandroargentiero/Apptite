@@ -30,7 +30,8 @@
                         <li class="username"><h3>{{ $user->name }}</h3></li>
                         <li class="city"><p><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $user->address }}</p>
                         </li>
-                        <li class="member-since"> Apptiter sinds:{{ date(' F d, Y', strtotime($user->created_at)) }}</li>
+                        <li class="member-since"> Apptiter
+                            sinds:{{ date(' F d, Y', strtotime($user->created_at)) }}</li>
                     </ul>
                 </div>
             </div>
@@ -60,7 +61,8 @@
                                 </div>
                                 <!-- CHANGE USER'S HOMEPICTURE -->
                                 <div class="form-group col-md-6">
-                                    <label for="homepicure" class="control-label">Wijzig de foto van jouw eetplaats</label>
+                                    <label for="homepicure" class="control-label">Wijzig de foto van jouw
+                                        eetplaats</label>
                                     <input name="homepicture" id="homepicture" type="file"
                                            value="{{old('homepicture')}}">
                                     <input type="hidden" value="{{csrf_token()}}" name="_token">
@@ -125,6 +127,50 @@
 
                 </div>
             </div>
+
+            <!-- REVIEWS -->
+                <h2 class="page-header">Reviews van andere Apptiters
+                    <small>({{ count($reviews) }})</small>
+                </h2>
+                <section class="comment-list">
+                    @if(count($reviews) >= 1)
+                    @foreach($reviews as $review)
+                            <!-- REVIEW ARTICLE -->
+                    <article class="row">
+                        <div class="col-md-2 col-sm-2 hidden-xs">
+                            <figure class="thumbnail">
+                                <a href="/profiel/{{ $review->reviewer_id }}"><img class="img-responsive"
+                                                                                   src="/avatars/{{ $review->profilepic }}"/></a>
+                            </figure>
+                        </div>
+                        <div class="col-md-10 col-sm-10">
+                            <div class="panel panel-default arrow left">
+                                <div class="panel-body">
+                                    <header class="text-left">
+                                        <div class="comment-user"><i class="fa fa-user"></i>
+                                            <a href="/profiel/{{ $review->reviewer_id }}">{{ $review->name }}</a>
+                                        </div>
+                                        <time class="comment-date" datetime="16-12-2014 01:05"><i
+                                                    class="fa fa-clock-o"></i>{{  date(' d F, Y', strtotime($review->created_at)) }}
+                                        </time>
+                                    </header>
+                                    <div class="comment-post">
+                                        @for($i = 0; $i < $review->review_rating; $i++)
+                                            <span class="fa fa-star" data-rating="{{$i}}"></span>
+                                        @endfor
+                                        <p>
+                                            {{ $review->review_description }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    @endforeach
+                    @else
+                        <p>Je hebt nog geen reviews ontvangen.</p>
+                    @endif
+                </section>
         </div>
 
     </div>

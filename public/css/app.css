@@ -588,12 +588,6 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
   background-color: #2f9fda;
 }
 
-/* Footer left */
-/* The company logo */
-/* Footer links */
-/* Footer Center */
-/* Footer Right */
-/* If you don't want the footer to be responsive, remove these media queries */
 @media (max-width: 880px) {
   .footer-distributed {
     font: bold 14px sans-serif;

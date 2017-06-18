@@ -22,8 +22,16 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
+        // GET ALL REVIEWS FOR THIS USER
+        $reviews = DB::table('reviews')
+            ->join('users', 'users.id', '=', 'reviews.reviewer_id')
+            ->where('reviews.user_id', '=', $user->id)
+            ->select('*')
+            ->get();
+
         return view('users.myprofile')
             ->with('user', $user)
+            ->with('reviews', $reviews)
             ->with('pagetitle', 'Mijn profiel');
 
     }
@@ -192,7 +200,7 @@ class UserController extends Controller
         }
 
 
-        return redirect('/mijnprofiel')
+        return view('/mijnprofiel')
             ->with('successmessage', 'Gefeliciteerd Apptiter! Je profiel werd succesvol gewijzigd.');
 
     }
