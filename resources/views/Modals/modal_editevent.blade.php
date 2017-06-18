@@ -6,11 +6,12 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Jouw event wijzigen:</h4>
             </div>
-            <div class="modal-body">
-                <form action="/events/update/{{ $eventID }}" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                    {{ csrf_field() }}
 
-                            <!-- Meal Name -->
+            <form action="/events/update/{{ $eventID }}" method="POST" class="form-horizontal"
+                  enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="modal-body">
+                    <!-- Meal Name -->
                     <div class="form-group">
                         <label for="meal-name" class="col-sm-5">Naam van het gerecht</label>
 
@@ -27,7 +28,8 @@
                             gerecht</label>
 
                         <div class="col-sm-6">
-                            <textarea name="meal_description" id="meal-description" cols="40" rows="5" class="form-control"
+                            <textarea name="meal_description" id="meal-description" cols="40" rows="5"
+                                      class="form-control"
                                       value="{{old('description')}}">{{ $event->meal_description }}
                             </textarea>
                         </div>
@@ -58,24 +60,19 @@
                         <label for="datetimepicker" class="col-sm-5">Datum</label>
 
                         <div class="input-group col-sm-6" id="datetimepicker">
-                            <input type='text' name="event_date" class="form-control" value="{{ $event->event_date }}"/>
-                                                            <span class="input-group-addon">
+                            <input type='text' name="event_date" class="form-control date" value="{{ $event->event_date }}"/>
+                                                            <span class="input-group-addon date">
                                                                 <span class="glyphicon glyphicon-calendar"></span>
                                                             </span>
                         </div>
                     </div>
-
+                </div>
+                <div class="modal-footer">
                     <!-- SUBMIT BUTTON -->
-                    <div class="form-group">
-                        <div class="col-sm-6">
-                            <button type="submit" class="btn btn-default">Event wijzigen</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Moment Verwijderen</button>
-            </div>
+                    <button type="submit" class="btn btn-default">Event wijzigen</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Event Verwijderen</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
