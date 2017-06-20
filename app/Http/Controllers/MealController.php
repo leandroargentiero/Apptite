@@ -48,7 +48,7 @@ class MealController extends Controller
             'meal_description' => 'required',
             'available_places' => 'required',
             'meal_price' => 'required',
-            'mealpicture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024',
+            'mealpicture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1024',
         ]);
 
         if ($request->hasFile('mealpicture')) {

@@ -123,6 +123,9 @@ return [
             'required' => 'Er werd geen datum ingevuld',
             'date' => 'Er werd geen geldige datum ingevuld',
         ],
+        'mealpicture' => [
+            'required' => 'Gelieve een foto van jouw gerecht up te loaden.'
+        ],
     ],
 
     /*

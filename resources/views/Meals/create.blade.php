@@ -86,6 +86,11 @@
                                                     <input type="hidden" value="{{csrf_token()}}" name="_token">
                                                 </label>
                                             </div>
+                                            @if ($errors->has('mealpicture'))
+                                                <span class="help-block">
+                                        <strong>{{ $errors->first('mealpicture') }}</strong>
+                                    </span>
+                                            @endif
                                             <div class="col-md-7">
                                                 <img class="upload-preview img-rounded" width="300" height="200"
                                                      src=""
