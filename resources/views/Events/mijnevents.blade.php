@@ -55,8 +55,6 @@
                                                 </form>
 
                                             </li>
-                                        @else
-                                            <li class="list-group-item">Je hebt nog geen reservaties</li>
                                     @endif
                                 @endforeach
 
