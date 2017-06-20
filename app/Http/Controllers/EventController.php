@@ -82,15 +82,22 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'event_date' => 'required|date',
+            'event_time' => 'required|time',
+        ]);
 
         $mealid = $request->meal_id;
         $eventdate = $request->event_date;
         $eventplaces = $request->available_places;
+        $eventtime = $request->event_time;
+
 
         $event = new Event();
         $event->event_date = $eventdate;
         $event->meal_id = $mealid;
         $event->event_places = $eventplaces;
+        $event->event_time = $eventtime;
         $event->save();
 
 

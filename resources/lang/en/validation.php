@@ -126,6 +126,12 @@ return [
         'mealpicture' => [
             'required' => 'Gelieve een foto van jouw gerecht up te loaden.'
         ],
+        'event_date' => [
+            'required' => 'Gelieve een geldige datum op te geven.'
+        ],
+        'event_time' => [
+            'required' => 'Gelieve een tijdstip op te geven.'
+        ],
     ],
 
     /*

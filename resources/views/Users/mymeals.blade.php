@@ -13,7 +13,18 @@
                     <strong>{{ Session::get('successmsg') }}</strong>
                 </div>
             @endif
+            @if ($errors->has('event_date'))
+                <div class="alert alert-danger">
+                    <strong>{{ $errors->first('event_date') }}</strong>
+                </div>
+            @endif
+            @if ($errors->has('event_time'))
+                <div class="alert alert-danger">
+                    <strong>{{ $errors->first('event_time') }}</strong>
+                </div>
+            @endif
         </div>
+
 
         <h3 class="header-title">
             @if(count($meals) > 0)
@@ -39,9 +50,9 @@
 
                                 <form class="form-horizontal" role="form" method="POST" action="events/aanmaken">
                                     {{ csrf_field() }}
-                                <div class="modal-body">
-                                    <h5 class="modal-header-title">Kies een dag waarop het Apptite moment zal
-                                        doorgaan</h5>
+                                    <div class="modal-body">
+                                        <h5 class="modal-header-title">Kies een dag waarop het Apptite moment zal
+                                            doorgaan</h5>
 
                                         <div class="form-group">
                                             <label for="event_date" class="col-md-4 control-label">Kies een
@@ -60,11 +71,20 @@
                                             </div>
                                         </div>
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-default">Publiceren</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten</button>
-                                </div>
+                                        <div class="form-group">
+                                            <label for="event_time" class="col-md-4 control-label">Kies een
+                                                tijdstip</label>
+                                            <div class="col-md-6">
+                                                <input type="time" name="event_time">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-default">Publiceren</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Sluiten
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

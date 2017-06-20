@@ -35,7 +35,7 @@
                             <small>€ {{$eventMeal->price}} p.p. </small>
                         </div>
                         <div class="card-footer">
-                            <small><i class="fa fa-clock-o" aria-hidden="true"></i> {{  date(' d F, Y', strtotime($eventMeal->event_date)) }}</small>
+                            <small><i class="fa fa-clock-o" aria-hidden="true"></i> {{ date('H:i', strtotime($eventMeal->event_time)) }} - {{  date(' d F, Y', strtotime($eventMeal->event_date)) }}</small>
 
                             @if($eventMeal->event_places == 0)
                                 <h4 class="event-places" style="background-color: #D7263D;">VOLZET</h4>

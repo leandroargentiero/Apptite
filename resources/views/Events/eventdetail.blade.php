@@ -61,11 +61,8 @@
                             <h4><i class="fa fa-user" aria-hidden="true"></i> Aantal vrije plaatsen:</h4>
                             <p>{{ $event->event_places }}</p>
 
-                            <h4><i class="fa fa-globe" aria-hidden="true"></i> Keuken:</h4>
-                            <p>{{ $event->kitchen }}</p>
-
                             <h4><i class="fa fa-calendar" aria-hidden="true"></i> Wanneer:</h4>
-                            <p>{{  date(' d F, Y', strtotime($event->event_date)) }}</p>
+                            <p>{{ date('H:i', strtotime($event->event_time)) }} - {{  date(' d F, Y', strtotime($event->event_date)) }}</p>
 
                             <h4><i class="fa fa-map-marker" aria-hidden="true"></i> Waar:</h4>
                             <p>{{ $event->address }} </br>
